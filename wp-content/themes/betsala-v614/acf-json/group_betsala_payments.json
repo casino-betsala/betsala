@@ -1,0 +1,583 @@
+{
+    "key": "group_betsala_payments",
+    "title": "BetSala — Платежи",
+    "fields": [
+        {
+            "key": "field_betsala_payments_show_eyebrow",
+            "label": "Показывать маленький заголовок",
+            "name": "show_eyebrow",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "30",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "Да",
+            "ui_off_text": "Нет"
+        },
+        {
+            "key": "field_betsala_payments_eyebrow",
+            "label": "Маленький заголовок",
+            "name": "eyebrow",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Необязательная верхняя метка. По умолчанию скрыта.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_betsala_payments_show_eyebrow",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "70",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "PAGOS",
+            "maxlength": "",
+            "placeholder": "Например: BETSALA CHILE",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_betsala_payments_title_tag",
+            "label": "Уровень заголовка",
+            "name": "title_tag",
+            "type": "select",
+            "instructions": "Меняет только HTML-тег для SEO-структуры. Размер и визуальный стиль не меняются.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "p": "P — обычный текст",
+                "h2": "H2",
+                "h3": "H3",
+                "h4": "H4",
+                "h5": "H5",
+                "h6": "H6"
+            },
+            "default_value": "h2",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_betsala_payments_title",
+            "label": "Заголовок",
+            "name": "title",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "75",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Depósitos y retiros desde la misma cuenta",
+            "maxlength": "",
+            "placeholder": "Например: Pagos y retiros en Betsala",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_betsala_payments_highlight_enabled",
+            "label": "Градиентное выделение",
+            "name": "highlight_enabled",
+            "type": "true_false",
+            "instructions": "Включает градиент только для указанной части заголовка.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "30",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "Да",
+            "ui_off_text": "Нет"
+        },
+        {
+            "key": "field_betsala_payments_highlight_text",
+            "label": "Текст для градиента",
+            "name": "highlight_text",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Укажите точный фрагмент заголовка H2–H6, который нужно выделить.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "70",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "Например: bonos para subir el saldo",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_betsala_payments_intro",
+            "label": "Вводный текст",
+            "name": "intro",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "Можно вводить обычный текст. Переносы строк будут сохранены на странице.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Usa este bloque solo con métodos de pago realmente disponibles para el mercado de la página.",
+            "placeholder": "Введите вводный текст…",
+            "rows": 8,
+            "new_lines": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_betsala_payments_image",
+            "label": "Боковое изображение",
+            "name": "image",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "id",
+            "library": "all",
+            "preview_size": "medium",
+            "min_width": 0,
+            "min_height": 0,
+            "min_size": 0,
+            "max_width": 0,
+            "max_height": 0,
+            "max_size": 0,
+            "mime_types": ""
+        },
+        {
+            "key": "field_betsala_payments_alt",
+            "label": "Alt изображения",
+            "name": "image_alt",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "Кратко опишите изображение",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_betsala_payments_image_position",
+            "label": "Положение изображения",
+            "name": "image_position",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "35",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "left": "Слева",
+                "right": "Справа"
+            },
+            "default_value": "left",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_betsala_payments_alternate_background",
+            "label": "Альтернативный фон",
+            "name": "alternate_background",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "Да",
+            "ui_off_text": "Нет"
+        },
+        {
+            "key": "field_betsala_payments_section_background",
+            "label": "Фоновое изображение всего блока",
+            "name": "section_background_image",
+            "type": "image",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "id",
+            "library": "all",
+            "preview_size": "medium",
+            "min_width": 0,
+            "min_height": 0,
+            "min_size": 0,
+            "max_width": 0,
+            "max_height": 0,
+            "max_size": 0,
+            "mime_types": ""
+        },
+        {
+            "key": "field_betsala_payments_show_benefits",
+            "label": "Показывать основные карточки",
+            "name": "show_benefits",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "35",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 1,
+            "ui": 1,
+            "ui_on_text": "Да",
+            "ui_off_text": "Нет"
+        },
+        {
+            "key": "field_betsala_payments_benefit_rows",
+            "label": "Ряды основных карточек",
+            "name": "benefit_rows",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "35",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "1": "1 ряд",
+                "2": "2 ряда"
+            },
+            "default_value": "1",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_betsala_payments_benefits",
+            "label": "Преимущества",
+            "name": "benefits",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "Карточки необязательны. Если удалить все строки или выключить «Показывать основные карточки», они не выводятся.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "pagination": 0,
+            "min": 0,
+            "max": 6,
+            "collapsed": "",
+            "button_label": "Добавить элемент",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_betsala_payments_b_icon",
+                    "label": "Иконка / символ",
+                    "name": "icon",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "Например: 01 или ✓",
+                    "prepend": "",
+                    "append": ""
+                },
+                {
+                    "key": "field_betsala_payments_b_title_tag",
+                    "label": "Уровень заголовка",
+                    "name": "title_tag",
+                    "type": "select",
+                    "instructions": "Меняет только HTML-тег для SEO-структуры. Размер и визуальный стиль не меняются.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "28",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "p": "P — обычный текст",
+                        "h2": "H2",
+                        "h3": "H3",
+                        "h4": "H4",
+                        "h5": "H5",
+                        "h6": "H6"
+                    },
+                    "default_value": "h3",
+                    "return_format": "value",
+                    "multiple": 0,
+                    "allow_null": 0,
+                    "ui": 0,
+                    "ajax": 0,
+                    "placeholder": ""
+                },
+                {
+                    "key": "field_betsala_payments_b_title",
+                    "label": "Заголовок",
+                    "name": "title",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "72",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "Например: Pagos y retiros en Betsala",
+                    "prepend": "",
+                    "append": ""
+                },
+                {
+                    "key": "field_betsala_payments_benefits_item_highlight_text",
+                    "label": "Фрагмент заголовка с градиентом",
+                    "name": "highlight_text",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Пусто — без градиента.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": ""
+                },
+                {
+                    "key": "field_betsala_payments_b_text",
+                    "label": "Текст",
+                    "name": "text",
+                    "aria-label": "",
+                    "type": "textarea",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "rows": 4,
+                    "placeholder": "Введите текст…",
+                    "new_lines": ""
+                }
+            ]
+        },
+        {
+            "key": "field_betsala_payments_methods",
+            "label": "Платёжные системы",
+            "name": "methods",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "table",
+            "pagination": 0,
+            "min": 0,
+            "max": 6,
+            "collapsed": "",
+            "button_label": "Добавить элемент",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_betsala_payments_logo",
+                    "label": "Логотип",
+                    "name": "logo",
+                    "aria-label": "",
+                    "type": "image",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "id",
+                    "library": "all",
+                    "preview_size": "medium",
+                    "min_width": 0,
+                    "min_height": 0,
+                    "min_size": 0,
+                    "max_width": 0,
+                    "max_height": 0,
+                    "max_size": 0,
+                    "mime_types": ""
+                },
+                {
+                    "key": "field_betsala_payments_label",
+                    "label": "Название / Alt",
+                    "name": "label",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "Введите название",
+                    "prepend": "",
+                    "append": ""
+                },
+                {
+                    "key": "field_betsala_payment_method_alt",
+                    "label": "Alt логотипа",
+                    "name": "logo_alt",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Пусто — используется название метода, затем Alt медиатеки.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": ""
+                }
+            ]
+        },
+        {
+            "key": "field_betsala_payments_note",
+            "label": "Примечание",
+            "name": "note",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Sustituye los nombres de ejemplo por métodos confirmados antes de publicar la página.",
+            "maxlength": "",
+            "rows": 4,
+            "placeholder": "Введите примечание…",
+            "new_lines": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf/betsala-payments"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1788505774,
+    "private": true
+}

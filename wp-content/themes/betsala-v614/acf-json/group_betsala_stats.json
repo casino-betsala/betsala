@@ -1,0 +1,170 @@
+{
+  "key": "group_betsala_stats",
+  "title": "BetSala — Статистика + быстрые ссылки",
+  "fields": [
+    {
+      "key": "field_betsala_stats_items",
+      "label": "Статистика",
+      "name": "stats",
+      "aria-label": "",
+      "type": "repeater",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "layout": "table",
+      "pagination": 0,
+      "min": 0,
+      "max": 4,
+      "collapsed": "",
+      "button_label": "Добавить элемент",
+      "rows_per_page": 20,
+      "sub_fields": [
+        {
+          "key": "field_betsala_stats_value",
+          "label": "Значение",
+          "name": "value",
+          "aria-label": "",
+          "type": "text",
+          "instructions": "",
+          "required": 0,
+          "conditional_logic": 0,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "default_value": "",
+          "maxlength": "",
+          "placeholder": "Введите значение",
+          "prepend": "",
+          "append": ""
+        },
+        {
+          "key": "field_betsala_stats_label",
+          "label": "Название",
+          "name": "label",
+          "aria-label": "",
+          "type": "text",
+          "instructions": "",
+          "required": 0,
+          "conditional_logic": 0,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "default_value": "",
+          "maxlength": "",
+          "placeholder": "Введите название",
+          "prepend": "",
+          "append": ""
+        }
+      ]
+    },
+    {
+      "key": "field_betsala_stats_links",
+      "label": "Быстрые ссылки",
+      "name": "links",
+      "aria-label": "",
+      "type": "repeater",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "layout": "table",
+      "pagination": 0,
+      "min": 0,
+      "max": 8,
+      "collapsed": "",
+      "button_label": "Добавить элемент",
+      "rows_per_page": 20,
+      "sub_fields": [
+        {
+          "key": "field_betsala_stats_icon",
+          "label": "Иконка / символ",
+          "name": "icon",
+          "aria-label": "",
+          "type": "text",
+          "instructions": "",
+          "required": 0,
+          "conditional_logic": 0,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "default_value": "",
+          "maxlength": "",
+          "placeholder": "Например: 01 или ✓",
+          "prepend": "",
+          "append": ""
+        },
+        {
+          "key": "field_betsala_stats_link_label",
+          "label": "Название",
+          "name": "label",
+          "aria-label": "",
+          "type": "text",
+          "instructions": "",
+          "required": 0,
+          "conditional_logic": 0,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "default_value": "",
+          "maxlength": "",
+          "placeholder": "Введите название",
+          "prepend": "",
+          "append": ""
+        },
+        {
+          "key": "field_betsala_stats_link",
+          "label": "Ссылка",
+          "name": "link",
+          "aria-label": "",
+          "type": "link",
+          "instructions": "",
+          "required": 0,
+          "conditional_logic": 0,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "return_format": "array"
+        }
+      ]
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "block",
+        "operator": "==",
+        "value": "acf/betsala-stats-nav"
+      }
+    ]
+  ],
+  "menu_order": 0,
+  "position": "normal",
+  "style": "default",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "hide_on_screen": "",
+  "active": true,
+  "description": "",
+  "show_in_rest": 0,
+  "modified": 1788355834,
+  "private": true
+}

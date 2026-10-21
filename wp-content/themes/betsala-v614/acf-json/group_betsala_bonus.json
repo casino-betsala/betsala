@@ -1,0 +1,709 @@
+{
+    "key": "group_betsala_bonus",
+    "title": "BetSala — Бонусы",
+    "fields": [
+        {
+            "key": "field_betsala_bonus_show_eyebrow",
+            "label": "Показывать маленький заголовок",
+            "name": "show_eyebrow",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "30",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "Да",
+            "ui_off_text": "Нет"
+        },
+        {
+            "key": "field_betsala_bonus_eyebrow",
+            "label": "Маленький заголовок",
+            "name": "eyebrow",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Необязательная верхняя метка. По умолчанию скрыта.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_betsala_bonus_show_eyebrow",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "70",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "BONOS",
+            "maxlength": "",
+            "placeholder": "Например: BETSALA CHILE",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_betsala_bonus_title_tag",
+            "label": "Уровень заголовка",
+            "name": "title_tag",
+            "type": "select",
+            "instructions": "Меняет только HTML-тег для SEO-структуры. Размер и визуальный стиль не меняются.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "p": "P — обычный текст",
+                "h2": "H2",
+                "h3": "H3",
+                "h4": "H4",
+                "h5": "H5",
+                "h6": "H6"
+            },
+            "default_value": "h2",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_betsala_bonus_title",
+            "label": "Заголовок",
+            "name": "title",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "75",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Promociones visibles antes de reclamar",
+            "maxlength": "",
+            "placeholder": "Например: Bonos Betsala Chile",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_betsala_bonus_highlight_enabled",
+            "label": "Градиентное выделение",
+            "name": "highlight_enabled",
+            "type": "true_false",
+            "instructions": "Включает градиент только для указанной части заголовка.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "30",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "Да",
+            "ui_off_text": "Нет"
+        },
+        {
+            "key": "field_betsala_bonus_highlight_text",
+            "label": "Текст для градиента",
+            "name": "highlight_text",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Укажите точный фрагмент заголовка H2–H6, который нужно выделить.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "70",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "Например: bonos para subir el saldo",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_betsala_bonus_intro",
+            "label": "Вводный текст",
+            "name": "intro",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "Можно вводить обычный текст. Переносы строк будут сохранены на странице.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Destaca una oferta principal y añade promociones secundarias en tarjetas compactas.",
+            "placeholder": "Введите вводный текст…",
+            "rows": 8,
+            "new_lines": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_betsala_bonus_bg",
+            "label": "Фоновое изображение главного бонуса",
+            "name": "background_image",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "id",
+            "library": "all",
+            "preview_size": "medium",
+            "min_width": 0,
+            "min_height": 0,
+            "min_size": 0,
+            "max_width": 0,
+            "max_height": 0,
+            "max_size": 0,
+            "mime_types": ""
+        },
+        {
+            "key": "field_betsala_bonus_alternate_background",
+            "label": "Альтернативный фон",
+            "name": "alternate_background",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "Да",
+            "ui_off_text": "Нет"
+        },
+        {
+            "key": "field_betsala_bonus_label",
+            "label": "Метка главного бонуса",
+            "name": "featured_label",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Bono de bienvenida",
+            "maxlength": "",
+            "placeholder": "Например: Бонус за регистрацию",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_betsala_bonus_value",
+            "label": "Главное значение",
+            "name": "featured_value",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "150%",
+            "maxlength": "",
+            "placeholder": "Например: 150%",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_betsala_bonus_subvalue",
+            "label": "Дополнительное значение",
+            "name": "featured_subvalue",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "hasta 300.000 CLP",
+            "maxlength": "",
+            "placeholder": "Например: до 300 000 CLP",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_betsala_bonus_desc",
+            "label": "Описание главного бонуса",
+            "name": "featured_description",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Revisa porcentaje, máximo, requisitos y condiciones antes de activar cualquier promoción.",
+            "maxlength": "",
+            "rows": 4,
+            "placeholder": "Введите значение…",
+            "new_lines": ""
+        },
+        {
+            "key": "field_betsala_bonus_featured_text_align",
+            "label": "Выравнивание содержимого главного бонуса",
+            "name": "featured_text_align",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "left": "Слева",
+                "center": "По центру",
+                "right": "Справа"
+            },
+            "default_value": "left",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_betsala_bonus_featured_vertical_align",
+            "label": "Вертикальное положение главного бонуса",
+            "name": "featured_vertical_align",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "top": "Сверху",
+                "center": "По центру",
+                "bottom": "Снизу"
+            },
+            "default_value": "center",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_betsala_bonus_show_button",
+            "label": "Показывать кнопку",
+            "name": "show_featured_button",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 1,
+            "ui": 1,
+            "ui_on_text": "Да",
+            "ui_off_text": "Нет"
+        },
+        {
+            "key": "field_betsala_bonus_button_text",
+            "label": "Текст кнопки",
+            "name": "featured_button_text",
+            "type": "text",
+            "instructions": "Этот текст будет показан на кнопке.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_betsala_bonus_show_button",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "35",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Ver promoción",
+            "maxlength": "",
+            "placeholder": "Введите текст кнопки",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_betsala_bonus_featured_button_align",
+            "label": "Положение кнопки",
+            "name": "featured_button_align",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "40",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "left": "Слева",
+                "center": "По центру",
+                "right": "Справа",
+                "full": "На всю ширину"
+            },
+            "default_value": "left",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_betsala_bonus_promos",
+            "label": "Дополнительные промо",
+            "name": "promos",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "pagination": 0,
+            "min": 0,
+            "max": 4,
+            "collapsed": "",
+            "button_label": "Добавить элемент",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_betsala_bonus_promo_label",
+                    "label": "Название",
+                    "name": "label",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "Введите название",
+                    "prepend": "",
+                    "append": ""
+                },
+                {
+                    "key": "field_betsala_bonus_promo_show_image",
+                    "label": "Показывать изображение",
+                    "name": "show_image",
+                    "type": "true_false",
+                    "instructions": "Если выключено, пустое место под картинку не создаётся.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "25",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "",
+                    "default_value": 0,
+                    "ui": 1,
+                    "ui_on_text": "Да",
+                    "ui_off_text": "Нет"
+                },
+                {
+                    "key": "field_betsala_bonus_promo_image",
+                    "label": "Квадратное изображение",
+                    "name": "image",
+                    "type": "image",
+                    "instructions": "Изображение показывается в области 1:1 без обязательного заполнения. ",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_betsala_bonus_promo_show_image",
+                                "operator": "==",
+                                "value": "1"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "40",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "id",
+                    "library": "all",
+                    "preview_size": "medium",
+                    "min_width": 0,
+                    "min_height": 0,
+                    "min_size": 0,
+                    "max_width": 0,
+                    "max_height": 0,
+                    "max_size": 0,
+                    "mime_types": ""
+                },
+                {
+                    "key": "field_betsala_bonus_promo_image_alt",
+                    "label": "Alt изображения",
+                    "name": "image_alt",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_betsala_bonus_promo_show_image",
+                                "operator": "==",
+                                "value": "1"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "35",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "Краткое описание изображения.",
+                    "prepend": "",
+                    "append": ""
+                },
+                {
+                    "key": "field_betsala_bonus_promo_title_tag",
+                    "label": "Уровень заголовка",
+                    "name": "title_tag",
+                    "type": "select",
+                    "instructions": "Меняет только HTML-тег для SEO-структуры. Размер и визуальный стиль не меняются.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "28",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "p": "P — обычный текст",
+                        "h2": "H2",
+                        "h3": "H3",
+                        "h4": "H4",
+                        "h5": "H5",
+                        "h6": "H6"
+                    },
+                    "default_value": "h3",
+                    "return_format": "value",
+                    "multiple": 0,
+                    "allow_null": 0,
+                    "ui": 0,
+                    "ajax": 0,
+                    "placeholder": ""
+                },
+                {
+                    "key": "field_betsala_bonus_promo_title",
+                    "label": "Заголовок",
+                    "name": "title",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "72",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "Например: Bonos Betsala Chile",
+                    "prepend": "",
+                    "append": ""
+                },
+                {
+                    "key": "field_betsala_bonus_promos_item_highlight_text",
+                    "label": "Фрагмент заголовка с градиентом",
+                    "name": "highlight_text",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Пусто — без градиента.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": ""
+                },
+                {
+                    "key": "field_betsala_bonus_promo_text",
+                    "label": "Текст",
+                    "name": "text",
+                    "aria-label": "",
+                    "type": "textarea",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "rows": 4,
+                    "placeholder": "Введите текст…",
+                    "new_lines": ""
+                },
+                {
+                    "key": "field_betsala_bonus_promo_text_align",
+                    "label": "Выравнивание текста карточки",
+                    "name": "text_align",
+                    "type": "select",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "35",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "left": "Слева",
+                        "center": "По центру",
+                        "right": "Справа"
+                    },
+                    "default_value": "left",
+                    "return_format": "value",
+                    "multiple": 0,
+                    "allow_null": 0,
+                    "ui": 0,
+                    "ajax": 0,
+                    "placeholder": "",
+                    "parent_repeater": "field_betsala_bonus_promos"
+                },
+                {
+                    "key": "field_betsala_bonus_promo_value",
+                    "label": "Значение",
+                    "name": "value",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "Введите значение",
+                    "prepend": "",
+                    "append": ""
+                }
+            ]
+        },
+        {
+            "key": "field_betsala_bonus_note",
+            "label": "Примечание об ответственной игре",
+            "name": "responsible_note",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Juega con responsabilidad y revisa siempre las condiciones de cada promoción.",
+            "maxlength": "",
+            "rows": 4,
+            "placeholder": "Введите значение…",
+            "new_lines": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf/betsala-bonus"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1789997977,
+    "private": true
+}

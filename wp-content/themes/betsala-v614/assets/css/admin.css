@@ -1,0 +1,53 @@
+/* BetSala admin-only UI. No front-end selectors live here. */
+.betsala-starter-box{padding:2px 0 4px}
+.betsala-starter-help{margin:0 0 12px;color:#646970;font-size:12px;line-height:1.5}
+.betsala-starter-box label{display:block;margin-bottom:6px}
+.betsala-starter-descriptions{min-height:50px;margin:10px 0}
+.betsala-starter-descriptions p{margin:0;color:#646970;font-size:12px;line-height:1.45}
+.betsala-starter-status{margin:12px 0 10px;font-size:12px;color:#50575e}
+.betsala-starter-status .is-empty{color:#8c8f94}
+.betsala-starter-status .has-content{color:#00a32a}
+.betsala-starter-action{width:100%;text-align:center}
+.betsala-starter-warning{margin:10px 0 0;color:#b32d2e;font-size:11px;line-height:1.45}
+
+/* ACF Options page: clearer tabs and repeater rows. */
+body.toplevel_page_betsala-options .acf-tab-wrap.-top{margin-top:4px}
+body.toplevel_page_betsala-options .acf-tab-group{padding-top:8px}
+body.toplevel_page_betsala-options .acf-tab-group li a{font-weight:600}
+body.toplevel_page_betsala-options .acf-repeater .acf-row-handle{background:#f6f7f7}
+body.toplevel_page_betsala-options .acf-fields>.acf-field{padding-top:18px;padding-bottom:18px}
+
+/*
+ * Gutenberg / ACF Blocks V3
+ * -------------------------
+ * The theme intentionally hides ACF forms from Gutenberg's narrow right rail.
+ * Editing happens in ACF's Expanded Editor. These rules improve the expanded
+ * form without changing the front end.
+ */
+body.block-editor-page .acf-block-component .acf-field,
+body.block-editor-page .acf-block-fields .acf-field{box-sizing:border-box}
+
+body.block-editor-page .acf-block-component input[type="text"],
+body.block-editor-page .acf-block-component input[type="url"],
+body.block-editor-page .acf-block-component input[type="number"],
+body.block-editor-page .acf-block-component input[type="email"],
+body.block-editor-page .acf-block-component textarea,
+body.block-editor-page .acf-block-component select,
+body.block-editor-page .acf-block-fields input[type="text"],
+body.block-editor-page .acf-block-fields input[type="url"],
+body.block-editor-page .acf-block-fields input[type="number"],
+body.block-editor-page .acf-block-fields input[type="email"],
+body.block-editor-page .acf-block-fields textarea,
+body.block-editor-page .acf-block-fields select{max-width:100%;box-sizing:border-box}
+
+body.block-editor-page .acf-block-component textarea,
+body.block-editor-page .acf-block-fields textarea{min-height:110px;line-height:1.5}
+
+body.block-editor-page .acf-block-component .acf-repeater,
+body.block-editor-page .acf-block-fields .acf-repeater{max-width:100%;overflow-x:auto}
+
+body.block-editor-page .acf-block-component .acf-repeater .acf-fields,
+body.block-editor-page .acf-block-fields .acf-repeater .acf-fields{min-width:0}
+
+body.block-editor-page .acf-block-component .acf-image-uploader .image-wrap img,
+body.block-editor-page .acf-block-fields .acf-image-uploader .image-wrap img{width:auto;height:auto;max-width:100%;max-height:320px;object-fit:contain}

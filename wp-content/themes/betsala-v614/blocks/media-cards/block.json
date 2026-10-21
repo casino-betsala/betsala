@@ -1,0 +1,26 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "acf/betsala-media-cards",
+  "title": "Картинка + карточки",
+  "description": "Верхний Media + Text с переключением стороны, опциональной CTA и до 6 гибких карточек ниже.",
+  "category": "betsala-blocks",
+  "icon": "format-image",
+  "keywords": [
+    "betsala",
+    "media-cards"
+  ],
+  "acf": {
+    "blockVersion": 3,
+    "renderTemplate": "render.php",
+    "renderPreview": false,
+    "hideFieldsInSidebar": true,
+    "expandedEditorButtonText": "Редактировать блок"
+  },
+  "supports": {
+    "anchor": true,
+    "align": false,
+    "html": false,
+    "jsx": false
+  }
+}

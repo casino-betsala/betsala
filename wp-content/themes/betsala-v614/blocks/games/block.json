@@ -1,0 +1,26 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "acf/betsala-games",
+  "title": "Игры / слоты",
+  "description": "Верхний текст + изображение слева/справа и до 6 карточек игр ниже.",
+  "category": "betsala-blocks",
+  "icon": "games",
+  "keywords": [
+    "betsala",
+    "games"
+  ],
+  "acf": {
+    "blockVersion": 3,
+    "renderTemplate": "render.php",
+    "renderPreview": false,
+    "hideFieldsInSidebar": true,
+    "expandedEditorButtonText": "Редактировать блок"
+  },
+  "supports": {
+    "anchor": true,
+    "align": false,
+    "html": false,
+    "jsx": false
+  }
+}

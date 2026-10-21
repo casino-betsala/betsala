@@ -1,0 +1,744 @@
+{
+    "key": "group_betsala_mobile",
+    "title": "BetSala — Мобильный блок",
+    "fields": [
+        {
+            "key": "field_betsala_mobile_show_eyebrow",
+            "label": "Показывать маленький заголовок",
+            "name": "show_eyebrow",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "30",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "Да",
+            "ui_off_text": "Нет"
+        },
+        {
+            "key": "field_betsala_mobile_eyebrow",
+            "label": "Маленький заголовок",
+            "name": "eyebrow",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Необязательная верхняя метка. По умолчанию скрыта.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_betsala_mobile_show_eyebrow",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "70",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "MÓVIL",
+            "maxlength": "",
+            "placeholder": "Например: BETSALA CHILE",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_betsala_mobile_title_tag",
+            "label": "Уровень заголовка",
+            "name": "title_tag",
+            "type": "select",
+            "instructions": "Меняет только HTML-тег для SEO-структуры. Размер и визуальный стиль не меняются.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "p": "P — обычный текст",
+                "h2": "H2",
+                "h3": "H3",
+                "h4": "H4",
+                "h5": "H5",
+                "h6": "H6"
+            },
+            "default_value": "h2",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_betsala_mobile_title",
+            "label": "Заголовок",
+            "name": "title",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "75",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Todo el casino desde el celular",
+            "maxlength": "",
+            "placeholder": "Например: Casino siempre en el celular",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_betsala_mobile_highlight_enabled",
+            "label": "Градиентное выделение",
+            "name": "highlight_enabled",
+            "type": "true_false",
+            "instructions": "Включает градиент только для указанной части заголовка.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "30",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "Да",
+            "ui_off_text": "Нет"
+        },
+        {
+            "key": "field_betsala_mobile_highlight_text",
+            "label": "Текст для градиента",
+            "name": "highlight_text",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Укажите точный фрагмент заголовка H2–H6, который нужно выделить.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "70",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "Например: bonos para subir el saldo",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_betsala_mobile_intro",
+            "label": "Вводный текст",
+            "name": "intro",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "Можно вводить обычный текст. Переносы строк будут сохранены на странице.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Presenta el acceso móvil, sus ventajas y las opciones de instalación o acceso desde navegador.",
+            "placeholder": "Введите вводный текст…",
+            "rows": 8,
+            "new_lines": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_betsala_mobile_section_background",
+            "label": "Фоновое изображение всего блока",
+            "name": "section_background_image",
+            "type": "image",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "id",
+            "library": "all",
+            "preview_size": "medium",
+            "min_width": 0,
+            "min_height": 0,
+            "min_size": 0,
+            "max_width": 0,
+            "max_height": 0,
+            "max_size": 0,
+            "mime_types": ""
+        },
+        {
+            "key": "field_betsala_mobile_alternate_background",
+            "label": "Альтернативный фон",
+            "name": "alternate_background",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "Да",
+            "ui_off_text": "Нет"
+        },
+        {
+            "key": "field_betsala_mobile_show_feature_numbers",
+            "label": "Показывать нумерацию карточек",
+            "name": "show_feature_numbers",
+            "type": "true_false",
+            "instructions": "Если выключено, пустая плашка номера не создаётся.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "35",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "Да",
+            "ui_off_text": "Нет"
+        },
+        {
+            "key": "field_betsala_mobile_features",
+            "label": "Преимущества",
+            "name": "features",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "pagination": 0,
+            "min": 0,
+            "max": 6,
+            "collapsed": "",
+            "button_label": "Добавить элемент",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_betsala_mobile_icon",
+                    "label": "Номер / иконка",
+                    "name": "icon",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Номер/метка выводится только если включена нумерация и это поле заполнено. Оставьте пустым — плашка не появится.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "Например: 01 или ✓",
+                    "prepend": "",
+                    "append": ""
+                },
+                {
+                    "key": "field_betsala_mobile_feature_title_tag",
+                    "label": "Уровень заголовка",
+                    "name": "title_tag",
+                    "type": "select",
+                    "instructions": "Меняет только HTML-тег для SEO-структуры. Размер и визуальный стиль не меняются.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "28",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "p": "P — обычный текст",
+                        "h2": "H2",
+                        "h3": "H3",
+                        "h4": "H4",
+                        "h5": "H5",
+                        "h6": "H6"
+                    },
+                    "default_value": "h3",
+                    "return_format": "value",
+                    "multiple": 0,
+                    "allow_null": 0,
+                    "ui": 0,
+                    "ajax": 0,
+                    "placeholder": ""
+                },
+                {
+                    "key": "field_betsala_mobile_feature_title",
+                    "label": "Заголовок",
+                    "name": "title",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "72",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "Например: Casino siempre en el celular",
+                    "prepend": "",
+                    "append": ""
+                },
+                {
+                    "key": "field_betsala_mobile_features_item_highlight_text",
+                    "label": "Фрагмент заголовка с градиентом",
+                    "name": "highlight_text",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Пусто — без градиента.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": ""
+                },
+                {
+                    "key": "field_betsala_mobile_feature_text",
+                    "label": "Текст",
+                    "name": "text",
+                    "aria-label": "",
+                    "type": "textarea",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "rows": 4,
+                    "placeholder": "Введите текст…",
+                    "new_lines": ""
+                }
+            ]
+        },
+        {
+            "key": "field_betsala_mobile_note",
+            "label": "Примечание",
+            "name": "note",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Mantén visibles solo las opciones de descarga o acceso que estén realmente disponibles.",
+            "maxlength": "",
+            "rows": 4,
+            "placeholder": "Введите примечание…",
+            "new_lines": ""
+        },
+        {
+            "key": "field_betsala_mobile_show_primary",
+            "label": "Показывать основную кнопку",
+            "name": "show_primary_cta",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 1,
+            "ui": 1,
+            "ui_on_text": "Да",
+            "ui_off_text": "Нет"
+        },
+        {
+            "key": "field_betsala_mobile_primary_text",
+            "label": "Текст основной кнопки",
+            "name": "primary_cta_text",
+            "type": "text",
+            "instructions": "Этот текст будет показан на кнопке.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_betsala_mobile_show_primary",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "35",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Abrir en móvil",
+            "maxlength": "",
+            "placeholder": "Введите текст кнопки",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_betsala_mobile_primary_align",
+            "label": "Положение основной кнопки на десктопе",
+            "name": "primary_cta_align",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "40",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "left": "Слева",
+                "center": "По центру",
+                "right": "Справа",
+                "full": "На всю ширину"
+            },
+            "default_value": "left",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_betsala_mobile_show_phone",
+            "label": "Показывать телефон",
+            "name": "show_phone_art",
+            "type": "true_false",
+            "instructions": "Если выключено — телефон и место под него исчезают.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "30",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 1,
+            "ui": 1,
+            "ui_on_text": "Да",
+            "ui_off_text": "Нет"
+        },
+        {
+            "key": "field_betsala_mobile_phone",
+            "label": "Изображение телефона",
+            "name": "phone_image",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "Необязательно. Если пусто, используется изображение телефона из темы.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "id",
+            "library": "all",
+            "preview_size": "medium",
+            "min_width": 0,
+            "min_height": 0,
+            "min_size": 0,
+            "max_width": 0,
+            "max_height": 0,
+            "max_size": 0,
+            "mime_types": ""
+        },
+        {
+            "key": "field_betsala_mobile_phone_alt",
+            "label": "Alt изображения телефона",
+            "name": "phone_alt",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Пусто — используется Alt из медиатеки.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "Кратко опишите изображение телефона",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_betsala_mobile_background",
+            "label": "Фон за телефоном",
+            "name": "background_image",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "id",
+            "library": "all",
+            "preview_size": "medium",
+            "min_width": 0,
+            "min_height": 0,
+            "min_size": 0,
+            "max_width": 0,
+            "max_height": 0,
+            "max_size": 0,
+            "mime_types": ""
+        },
+        {
+            "key": "field_betsala_mobile_position",
+            "label": "Положение телефона",
+            "name": "image_position",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "left": "Слева",
+                "right": "Справа"
+            },
+            "default_value": "right",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_betsala_mobile_android_show",
+            "label": "Показывать кнопку Android",
+            "name": "show_android",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 1,
+            "ui": 1,
+            "ui_on_text": "Да",
+            "ui_off_text": "Нет"
+        },
+        {
+            "key": "field_betsala_mobile_android_text",
+            "label": "Текст кнопки Android",
+            "name": "android_text",
+            "type": "text",
+            "instructions": "Этот текст будет показан на кнопке.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_betsala_mobile_android_show",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "35",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Android",
+            "maxlength": "",
+            "placeholder": "Введите текст кнопки",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_betsala_mobile_android_subtext",
+            "label": "Подпись Android",
+            "name": "android_subtext",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "ACCESO MÓVIL PARA",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_betsala_mobile_ios_show",
+            "label": "Показывать кнопку iOS",
+            "name": "show_ios",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 1,
+            "ui": 1,
+            "ui_on_text": "Да",
+            "ui_off_text": "Нет"
+        },
+        {
+            "key": "field_betsala_mobile_ios_text",
+            "label": "Текст кнопки iOS",
+            "name": "ios_text",
+            "type": "text",
+            "instructions": "Этот текст будет показан на кнопке.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_betsala_mobile_ios_show",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "35",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "iOS",
+            "maxlength": "",
+            "placeholder": "Введите текст кнопки",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_betsala_mobile_ios_subtext",
+            "label": "Подпись iOS",
+            "name": "ios_subtext",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "ACCESO MÓVIL PARA",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_betsala_mobile_platform_active",
+            "label": "Активная кнопка платформы",
+            "name": "platform_active",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "45",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "none": "Обе контурные",
+                "android": "Android активная",
+                "ios": "iOS активная",
+                "both": "Обе активные"
+            },
+            "default_value": "none",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf/betsala-mobile"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1789997977,
+    "private": true
+}

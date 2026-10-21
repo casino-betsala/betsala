@@ -1,0 +1,1936 @@
+/* ==========================================================================
+   BetSala v6.0.1 Clean Rebuild
+   Stable base + current WordPress/ACF layer + one final design layer.
+   Historical v4/v5 casino/app patch stacks removed.
+   ========================================================================== */
+:root {
+    --bg: #0b0d1d;
+    --bg-2: #11142a;
+    --surface: #151936;
+    --surface-2: #1b2045;
+    --surface-soft: rgba(255,255,255,.055);
+    --text: #f7f8ff;
+    --muted: #a7acc5;
+    --muted-2: #7f86a7;
+    --line: rgba(255,255,255,.09);
+    --accent: #ff2f68;
+    --accent-2: #ff5a8a;
+    --accent-dark: #b9083f;
+    --violet: #7d4dff;
+    --cyan: #49c8ff;
+    --green: #61e6a0;
+    --radius-sm: 10px;
+    --radius: 18px;
+    --radius-lg: 28px;
+    --container: 1240px;
+    --shadow: 0 24px 70px rgba(0,0,0,.34);
+    --betsala-h2-size: clamp(28px, 2.45vw, 38px);
+    --betsala-h3-size: clamp(22px, 1.8vw, 29px);
+    --betsala-table-grid: rgba(255,255,255,.34);
+    --betsala-mobile-header: 72px;
+    --betsala-adminbar-offset: 0px;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+    margin: 0;
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    color: var(--text);
+    background:
+        radial-gradient(circle at 20% -10%, rgba(125,77,255,.18), transparent 30rem),
+        linear-gradient(180deg, #0a0c19 0%, #0c0e1d 100%);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+body.menu-open { overflow: hidden; }
+a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; }
+button, input { font: inherit; }
+button { color: inherit; }
+
+.skip-link {
+    position: fixed;
+    top: 8px;
+    left: 8px;
+    z-index: 9999;
+    transform: translateY(-160%);
+    padding: 10px 14px;
+    border-radius: 8px;
+    background: #fff;
+    color: #111;
+}
+.skip-link:focus { transform: none; }
+
+.container {
+    width: min(calc(100% - 40px), var(--container));
+    margin-inline: auto;
+}
+
+.site-header {
+    background: rgba(8,10,22,.76);
+    backdrop-filter: blur(18px);
+    border-bottom: 1px solid rgba(255,255,255,.07);
+}
+.header-inner {
+    height: 76px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 28px;
+}
+.brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    font-weight: 900;
+    letter-spacing: -.045em;
+}
+.brand-word { font-size: 25px; font-style: italic; line-height: 1; }
+.brand-word span { color: var(--accent); }
+.brand-shield {
+    width: 26px;
+    height: 28px;
+    display: grid;
+    place-items: center;
+    clip-path: polygon(50% 0, 100% 18%, 88% 78%, 50% 100%, 12% 78%, 0 18%);
+    background: linear-gradient(145deg, #fff, #aeb3ca);
+    color: #11152d;
+    font-size: 12px;
+    font-weight: 1000;
+}
+.main-nav {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin-left: auto;
+}
+.main-nav a {
+    color: #c5c8d8;
+    font-size: 14px;
+    font-weight: 700;
+    transition: .2s ease;
+}
+.main-nav a:hover { color: #fff; }
+.header-actions { display: flex; align-items: center; gap: 10px; }
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: 0 20px;
+    border: 1px solid transparent;
+    border-radius: 12px;
+    font-weight: 800;
+    font-size: 14px;
+    transition: transform .2s ease, box-shadow .2s ease, background .2s ease, border-color .2s ease;
+}
+.btn:hover { transform: translateY(-2px); }
+.btn-primary {
+    background: linear-gradient(135deg, var(--accent), #df174f);
+    color: #fff;
+    box-shadow: 0 12px 26px rgba(255,47,104,.25);
+}
+.btn-primary:hover { box-shadow: 0 16px 34px rgba(255,47,104,.36); }
+.btn-ghost { color: #e9ebf6; background: rgba(255,255,255,.03); border-color: rgba(255,255,255,.06); }
+.btn-outline { border-color: rgba(255,255,255,.18); background: rgba(255,255,255,.025); color: #fff; }
+.btn-light { background: #fff; color: #11152a; box-shadow: 0 15px 30px rgba(255,255,255,.1); }
+.btn-outline-light { border-color: rgba(255,255,255,.35); color: #fff; }
+.btn-lg { min-height: 50px; padding-inline: 24px; font-size: 15px; }
+.btn-xl { min-height: 56px; padding-inline: 28px; font-size: 16px; border-radius: 14px; }
+.btn-block { width: 100%; min-height: 52px; }
+.menu-toggle { display: none; width: 44px; height: 44px; border: 1px solid var(--line); background: rgba(255,255,255,.04); border-radius: 12px; padding: 11px; }
+.menu-toggle span { display: block; height: 2px; background: #fff; margin: 4px 0; border-radius: 10px; }
+
+.hero {
+    position: relative;
+    padding: 78px 0 0;
+    min-height: 760px;
+    overflow: hidden;
+}
+.hero::before {
+    content: "";
+    position: absolute;
+    width: 760px;
+    height: 760px;
+    right: -180px;
+    top: -220px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,47,104,.22), rgba(255,47,104,0) 68%);
+    pointer-events: none;
+}
+.hero-grid-glow {
+    position: absolute;
+    inset: 0;
+    opacity: .16;
+    background-image:
+        linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px);
+    background-size: 54px 54px;
+    mask-image: linear-gradient(to bottom, #000, transparent 90%);
+}
+.hero-layout {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: .92fr 1.08fr;
+    align-items: center;
+    gap: 58px;
+}
+.eyebrow-row, .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: #ff7a9e;
+    text-transform: uppercase;
+    letter-spacing: .13em;
+    font-size: 12px;
+    font-weight: 900;
+}
+.eyebrow-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 18px rgba(255,47,104,.95); }
+.country-pill {
+    margin-left: 4px;
+    padding: 4px 8px;
+    border-radius: 999px;
+    background: rgba(255,255,255,.055);
+    color: #c9ccdd;
+    letter-spacing: .08em;
+}
+.hero h1, .section-heading h2, .sports-copy h2, .mobile-copy h2, .security-copy h2, .faq-intro h2, .calculator-copy h2 {
+    margin: 0;
+    letter-spacing: -.045em;
+    line-height: .98;
+}
+.hero h1 { margin-top: 24px; font-size: clamp(44px, 5vw, 76px); max-width: 720px; }
+.section-heading h2 span, .sports-copy h2 span, .mobile-copy h2 span, .security-copy h2 span, .faq-intro h2 span, .calculator-copy h2 span span {
+    color: transparent;
+    background: linear-gradient(100deg, #fff, #ff6e97 65%, #b896ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+
+/* Hero title is white by default so changing the background image cannot break contrast.
+   WordPress can enable the accent only when the optional highlighted phrase is filled in. */
+.hero .hero-highlight {
+    color: inherit;
+    background: none;
+    -webkit-background-clip: initial;
+    background-clip: initial;
+}
+.hero.is-highlight-enabled .hero-highlight {
+    color: #ff7da3;
+}
+.hero-lead { max-width: 620px; color: #b7bbce; font-size: 18px; margin: 26px 0 0; }
+.hero-cta { display: flex; gap: 14px; margin-top: 32px; flex-wrap: wrap; }
+.hero-trust { margin-top: 28px; display: flex; flex-wrap: wrap; gap: 12px 20px; color: #aeb3c8; font-size: 14px; font-weight: 700; }
+.hero-trust b { color: var(--green); margin-right: 6px; }
+.hero-stage { position: relative; min-width: 0; }
+.hero-visual-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 30px;
+    border: 1px solid rgba(255,255,255,.12);
+    box-shadow: 0 30px 80px rgba(0,0,0,.42), 0 0 80px rgba(125,77,255,.12);
+    transform: perspective(1200px) rotateY(-3deg) rotateX(1deg);
+}
+.hero-visual-card img { width: 100%; aspect-ratio: 16/9; object-fit: cover; }
+.hero-image-shade { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(8,9,20,.02), rgba(8,9,20,.45)); }
+.floating-card {
+    position: absolute;
+    z-index: 2;
+    background: rgba(18,21,43,.9);
+    backdrop-filter: blur(18px);
+    border: 1px solid rgba(255,255,255,.13);
+    border-radius: 18px;
+    box-shadow: var(--shadow);
+}
+.bonus-float { left: -28px; bottom: -42px; width: 230px; padding: 20px; }
+.float-kicker { display: block; font-size: 11px; text-transform: uppercase; letter-spacing: .1em; color: #ff83a6; font-weight: 900; }
+.bonus-float strong { display: block; font-size: 42px; line-height: 1; margin: 7px 0 4px; }
+.bonus-float > span:not(.float-kicker) { color: #b8bdd1; font-size: 13px; }
+.bonus-float a { margin-top: 14px; display: flex; justify-content: space-between; font-size: 13px; font-weight: 900; color: #fff; }
+.live-float { top: 24px; right: -22px; display: flex; align-items: center; gap: 10px; padding: 13px 15px; }
+.live-dot { width: 9px; height: 9px; border-radius: 50%; background: #52e695; box-shadow: 0 0 14px rgba(82,230,149,.8); }
+.live-float strong, .live-float small { display: block; }
+.live-float strong { font-size: 13px; }
+.live-float small { color: #9197b1; font-size: 11px; margin-top: 2px; }
+.hero-stats {
+    position: relative;
+    z-index: 2;
+    margin-top: 100px;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 22px 22px 0 0;
+    background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.025));
+    backdrop-filter: blur(16px);
+}
+.hero-stat { padding: 25px 30px; display: flex; align-items: baseline; gap: 12px; border-right: 1px solid var(--line); }
+.hero-stat:last-child { border-right: 0; }
+.hero-stat strong { font-size: 26px; letter-spacing: -.04em; }
+.hero-stat span { color: #969cb7; font-size: 13px; font-weight: 700; }
+
+.quick-nav-section { background: #0f1226; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.quick-nav-grid { display: grid; grid-template-columns: repeat(8,1fr); }
+.quick-link {
+    min-height: 112px;
+    padding: 18px 14px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 8px;
+    border-right: 1px solid var(--line);
+    transition: .22s ease;
+}
+.quick-link:first-child { border-left: 1px solid var(--line); }
+.quick-link:hover { background: linear-gradient(180deg, rgba(255,47,104,.12), rgba(255,255,255,.02)); transform: translateY(-3px); }
+.quick-link > span:not(.quick-icon) { font-size: 13px; font-weight: 800; }
+.quick-icon { width: 34px; height: 34px; border-radius: 10px; display: grid; place-items: center; background: rgba(255,47,104,.11); color: #ff6e97; font-weight: 1000; }
+.quick-link b { position: absolute; opacity: 0; }
+
+.section { position: relative; padding: 110px 0; }
+.section-surface { background: linear-gradient(180deg, #11142a 0%, #0f1226 100%); }
+.section-heading { max-width: 800px; margin-bottom: 54px; }
+.section-heading h2, .sports-copy h2, .mobile-copy h2, .security-copy h2, .faq-intro h2, .calculator-copy h2 { margin-top: 15px; font-size: clamp(36px, 4vw, 58px); }
+.section-heading p, .section-lead, .sports-copy > p, .mobile-copy > p, .security-copy > p, .faq-intro > p, .calculator-copy > p { color: #aeb3c8; font-size: 17px; max-width: 680px; }
+.split-heading { max-width: none; display: grid; grid-template-columns: 1fr .8fr; gap: 80px; align-items: end; }
+.split-heading > p { margin: 0 0 4px; }
+
+.casino-showcase { display: grid; grid-template-columns: 1.35fr .65fr; gap: 18px; }
+.showcase-image { position: relative; min-height: 570px; border-radius: 26px; overflow: hidden; border: 1px solid var(--line); }
+.showcase-image img { width: 100%; height: 100%; object-fit: cover; }
+.image-overlay-gradient { position: absolute; inset: 0; background: linear-gradient(180deg, transparent 40%, rgba(6,8,18,.75)); }
+.showcase-tag { position: absolute; padding: 9px 12px; border-radius: 999px; background: rgba(9,11,24,.82); border: 1px solid rgba(255,255,255,.12); backdrop-filter: blur(12px); font-size: 12px; font-weight: 900; }
+.tag-top { top: 20px; left: 20px; }
+.tag-bottom { bottom: 20px; left: 20px; color: #ff80a3; }
+.showcase-panel { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.feature-card {
+    padding: 22px;
+    min-height: 270px;
+    border-radius: 22px;
+    background: linear-gradient(150deg, rgba(255,255,255,.065), rgba(255,255,255,.025));
+    border: 1px solid var(--line);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+.feature-card-accent { background: radial-gradient(circle at 90% 0%, rgba(255,47,104,.35), transparent 56%), linear-gradient(145deg, #23152c, #191a36); }
+.feature-index { margin-bottom: auto; color: #ff6f98; font-size: 12px; font-weight: 1000; letter-spacing: .1em; }
+.feature-card h3 { margin: 0 0 8px; font-size: 20px; letter-spacing: -.02em; }
+.feature-card p { margin: 0; color: #9298b1; font-size: 14px; }
+
+.games-shell { padding: 20px; border: 1px solid var(--line); border-radius: 26px; background: rgba(255,255,255,.025); }
+.games-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 3px 3px 18px; }
+.games-toolbar > a { color: #ff769b; font-size: 13px; font-weight: 900; }
+.games-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 14px; }
+.game-card { position: relative; overflow: hidden; min-width: 0; border-radius: 18px; border: 1px solid var(--line); background: #171b38; transition: transform .25s ease, border-color .25s ease; }
+.game-card:hover { transform: translateY(-6px); border-color: rgba(255,47,104,.45); }
+.game-art { height: 260px; display: flex; flex-direction: column; align-items: center; justify-content: center; overflow: hidden; position: relative; }
+.game-art::after { content: ""; position: absolute; inset: auto 0 0; height: 45%; background: linear-gradient(transparent, rgba(5,7,16,.55)); }
+.game-art span { font-size: 58px; filter: drop-shadow(0 12px 18px rgba(0,0,0,.25)); }
+.game-art strong, .game-art small { position: relative; z-index: 1; }
+.game-art strong { margin-top: 18px; font-size: 24px; letter-spacing: -.04em; }
+.game-art small { font-size: 11px; letter-spacing: .22em; opacity: .8; }
+.game-card-purple .game-art { background: radial-gradient(circle at 50% 30%, #c79cff, transparent 22%), linear-gradient(145deg,#4d2497,#211544 62%,#11152d); }
+.game-card-pink .game-art { background: radial-gradient(circle at 20% 20%, #ffdd6c, transparent 23%), linear-gradient(145deg,#fc5fbc,#9b2a6a 60%,#311632); }
+.game-card-red .game-art { background: radial-gradient(circle at 60% 20%, #ffcc75, transparent 22%), linear-gradient(145deg,#e84f64,#8d243d 58%,#2e1624); }
+.game-card-blue .game-art { background: radial-gradient(circle at 55% 20%, #77d9ff, transparent 22%), linear-gradient(145deg,#1a7fb8,#174268 58%,#10203b); }
+.game-badge { position: absolute; z-index: 3; top: 12px; left: 12px; padding: 6px 9px; border-radius: 999px; background: var(--accent); color: #fff; font-size: 10px; font-weight: 1000; letter-spacing: .08em; }
+.badge-new { background: #7a4cff; }
+.game-info { min-height: 88px; display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 15px; border-top: 1px solid var(--line); }
+.game-info h3 { margin: 0; font-size: 14px; }
+.game-info p { margin: 3px 0 0; color: #838aa6; font-size: 11px; }
+.rtp { white-space: nowrap; color: #9da4bf; font-size: 10px; font-weight: 900; }
+.game-play { position: absolute; inset: auto 12px 100px 12px; padding: 10px; border-radius: 10px; text-align: center; background: rgba(255,47,104,.92); color: #fff; font-size: 12px; font-weight: 900; opacity: 0; transform: translateY(8px); transition: .22s ease; }
+.game-card:hover .game-play { opacity: 1; transform: none; }
+
+.bonuses-section { overflow: hidden; background: linear-gradient(180deg,#0c0e1d 0%,#0f1126 100%); }
+.bonus-orb { position: absolute; border-radius: 50%; filter: blur(12px); pointer-events: none; }
+.bonus-orb-one { width: 460px; height: 460px; right: -180px; top: 120px; background: radial-gradient(circle, rgba(255,47,104,.22), transparent 70%); }
+.bonus-orb-two { width: 420px; height: 420px; left: -180px; bottom: -140px; background: radial-gradient(circle, rgba(125,77,255,.16), transparent 70%); }
+.bonus-layout { display: grid; grid-template-columns: 1.08fr .92fr; gap: 18px; position: relative; z-index: 1; }
+.mega-bonus { position: relative; min-height: 480px; padding: 42px; border-radius: 28px; overflow: hidden; background: linear-gradient(145deg,#ff2f68,#c5124b 62%,#6c1240); box-shadow: 0 30px 70px rgba(255,47,104,.18); }
+.bonus-label { display: inline-flex; padding: 8px 11px; background: rgba(255,255,255,.14); border: 1px solid rgba(255,255,255,.18); border-radius: 999px; text-transform: uppercase; letter-spacing: .09em; font-size: 11px; font-weight: 1000; }
+.bonus-value { display: flex; flex-direction: column; align-items: flex-start; margin: 30px 0 18px; }
+.bonus-value strong { font-size: clamp(72px,8vw,126px); line-height: .8; letter-spacing: -.08em; }
+.bonus-value span { margin: 14px 0 0; font-size: 12px; text-transform: uppercase; letter-spacing: .14em; font-weight: 1000; opacity: .75; }
+.bonus-value b { font-size: clamp(28px,3.4vw,48px); letter-spacing: -.045em; }
+.mega-bonus p { max-width: 100%; color: rgba(255,255,255,.84); }
+.mega-bonus .btn { margin-top: 10px; }
+.bonus-pattern { position: absolute; right: -32px; bottom: -135px; font-size: 420px; line-height: 1; font-weight: 1000; color: rgba(255,255,255,.075); transform: rotate(-12deg); }
+.mini-promos { display: grid; gap: 14px; }
+.mini-promos article { padding: 24px; min-height: 150px; display: grid; grid-template-columns: 50px 1fr auto; align-items: center; gap: 16px; border-radius: 22px; background: linear-gradient(150deg, rgba(255,255,255,.06), rgba(255,255,255,.025)); border: 1px solid var(--line); }
+.mini-promos article > span { color: #ff6d97; font-size: 12px; font-weight: 1000; }
+.mini-promos h3 { margin: 0 0 6px; font-size: 20px; }
+.mini-promos p { margin: 0; color: #949ab5; font-size: 14px; }
+.mini-promos b { color: #ff6d97; }
+.responsible-note { position: relative; z-index: 1; margin-top: 16px; padding: 16px 18px; border-radius: 16px; display: flex; align-items: center; gap: 14px; border: 1px solid rgba(255,255,255,.08); background: rgba(255,255,255,.025); }
+.responsible-note > span { flex: 0 0 auto; width: 42px; height: 42px; display: grid; place-items: center; border-radius: 50%; background: rgba(255,47,104,.12); color: #ff7199; font-weight: 1000; }
+.responsible-note p { margin: 0; color: #979db7; font-size: 13px; }
+.responsible-note strong { color: #fff; }
+
+.calculator-section { background: #12152b; border-block: 1px solid var(--line); }
+.calculator-grid { display: grid; grid-template-columns: 1fr 520px; gap: 80px; align-items: center; }
+.clean-list { margin: 28px 0 0; padding: 0; list-style: none; display: grid; gap: 12px; color: #c4c8d9; }
+.clean-list li::before { content: "✓"; color: var(--green); margin-right: 10px; font-weight: 1000; }
+.calculator-card { padding: 28px; border-radius: 24px; background: linear-gradient(145deg,#1b2042,#141833); border: 1px solid rgba(255,255,255,.11); box-shadow: var(--shadow); }
+.calc-top { display: flex; justify-content: space-between; align-items: end; }
+.calc-top small { display: block; color: #8d94ae; font-weight: 800; text-transform: uppercase; letter-spacing: .08em; font-size: 10px; }
+.calc-top strong { display: block; margin-top: 5px; font-size: 34px; letter-spacing: -.05em; }
+.calc-top > span { padding: 6px 9px; border-radius: 8px; background: rgba(255,255,255,.055); color: #aeb4cc; font-size: 11px; font-weight: 900; }
+.calculator-card input[type="range"] { width: 100%; margin: 30px 0 0; accent-color: var(--accent); }
+.calc-scale { display: flex; justify-content: space-between; color: #737b9a; font-size: 10px; font-weight: 800; }
+.calc-breakdown { margin: 26px 0; display: grid; gap: 10px; }
+.calc-breakdown > div { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; color: #a9aec3; border-bottom: 1px solid var(--line); }
+.calc-breakdown b { color: #fff; }
+.accent-text { color: #ff6d96; }
+.calc-total { border: 0; padding-top: 18px; }
+.calc-total strong { font-size: 28px; letter-spacing: -.04em; }
+
+.live-section { background: #0a0c1a; }
+.live-stage { position: relative; min-height: 660px; overflow: hidden; border-radius: 30px; border: 1px solid rgba(255,255,255,.12); box-shadow: var(--shadow); }
+.live-stage > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.live-stage-overlay { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(7,8,18,.94) 0%, rgba(7,8,18,.72) 45%, rgba(7,8,18,.14) 78%); }
+.live-copy { position: absolute; z-index: 2; left: 56px; top: 50%; transform: translateY(-50%); max-width: 620px; }
+.live-status { display: inline-flex; align-items: center; gap: 8px; padding: 7px 11px; border-radius: 999px; background: rgba(7,9,20,.55); border: 1px solid rgba(255,255,255,.13); font-size: 11px; text-transform: uppercase; letter-spacing: .1em; font-weight: 1000; }
+.live-status i { width: 8px; height: 8px; border-radius: 50%; background: #54e59b; box-shadow: 0 0 14px rgba(84,229,155,.8); }
+.live-copy h2 { margin: 20px 0 18px; max-width: 640px; font-size: clamp(38px,4.6vw,64px); line-height: .98; letter-spacing: -.045em; }
+.live-copy h2 span { color: #ff6f98; }
+.live-copy p { color: #b0b5c8; max-width: 560px; }
+.live-pills { display: flex; flex-wrap: wrap; gap: 8px; margin: 22px 0 28px; }
+.live-pills span { padding: 7px 11px; border-radius: 999px; background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.08); color: #d4d7e5; font-size: 11px; font-weight: 800; }
+.provider-stack { position: absolute; z-index: 2; right: 24px; bottom: 24px; display: flex; gap: 8px; flex-wrap: wrap; justify-content: flex-end; }
+.provider-stack span { padding: 9px 11px; border-radius: 10px; background: rgba(7,9,20,.66); border: 1px solid rgba(255,255,255,.11); color: #d4d7e7; font-size: 9px; font-weight: 1000; letter-spacing: .08em; }
+
+.sportsbook-section { background: linear-gradient(180deg,#101329,#0c0e1d); }
+.sportsbook-grid { display: grid; grid-template-columns: 1fr .82fr; gap: 54px; align-items: center; }
+.match-list { display: grid; gap: 10px; }
+.match-card { padding: 18px; border-radius: 18px; background: rgba(255,255,255,.04); border: 1px solid var(--line); }
+.match-meta { display: flex; justify-content: space-between; gap: 14px; color: #8f96b0; font-size: 10px; font-weight: 900; text-transform: uppercase; letter-spacing: .06em; }
+.teams { margin: 13px 0 14px; display: grid; grid-template-columns: 1fr auto 1fr; gap: 12px; align-items: center; }
+.teams strong:last-child { text-align: right; }
+.teams span { color: #656d8b; font-size: 11px; }
+.odds { display: grid; grid-template-columns: repeat(3,1fr); gap: 8px; }
+.odds button { border: 1px solid rgba(255,255,255,.08); background: #1a1f42; border-radius: 10px; padding: 10px; display: flex; justify-content: space-between; cursor: pointer; color: #b4b9cd; transition: .2s ease; }
+.odds button:hover { background: rgba(255,47,104,.13); border-color: rgba(255,47,104,.3); }
+.odds b { color: #fff; }
+.sports-visual { position: relative; min-height: 620px; overflow: hidden; border-radius: 28px; border: 1px solid var(--line); box-shadow: var(--shadow); }
+.sports-visual > img { width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0; }
+.sports-visual-overlay { position: absolute; inset: 0; background: linear-gradient(180deg, transparent 50%, rgba(7,8,18,.82)); }
+.sports-partner-card { position: absolute; left: 18px; right: 18px; bottom: 18px; padding: 18px; border-radius: 16px; background: rgba(10,12,25,.78); border: 1px solid rgba(255,255,255,.12); backdrop-filter: blur(16px); }
+.sports-partner-card span, .sports-partner-card strong, .sports-partner-card small { display: block; }
+.sports-partner-card span { color: #ff7399; text-transform: uppercase; letter-spacing: .1em; font-size: 10px; font-weight: 1000; }
+.sports-partner-card strong { margin-top: 5px; font-size: 18px; }
+.sports-partner-card small { margin-top: 4px; color: #9ca2ba; }
+
+.payments-section { background: #0d1021; }
+.payments-layout { display: grid; grid-template-columns: .8fr 1.2fr; gap: 18px; }
+.payments-image { min-height: 520px; border-radius: 24px; overflow: hidden; border: 1px solid var(--line); }
+.payments-image img { width: 100%; height: 100%; object-fit: cover; }
+.payment-content { display: flex; flex-direction: column; gap: 18px; }
+.payment-benefits { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; }
+.payment-benefits article { min-height: 250px; padding: 22px; border-radius: 20px; background: linear-gradient(150deg,rgba(255,255,255,.06),rgba(255,255,255,.025)); border: 1px solid var(--line); display: flex; flex-direction: column; justify-content: space-between; }
+.payment-benefits article > span { font-size: 26px; }
+.payment-benefits h3 { margin: 0 0 7px; font-size: 18px; }
+.payment-benefits p { margin: 0; color: #8f96b0; font-size: 13px; }
+.payment-logos { display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; }
+.payment-logos span { min-height: 96px; display: grid; place-items: center; padding: 12px; border-radius: 16px; background: rgba(255,255,255,.035); border: 1px solid var(--line); color: #d6d9e7; font-weight: 900; letter-spacing: -.02em; }
+
+.mobile-section { position: relative; overflow: hidden; background: #11133a; }
+.mobile-grid { display: grid; grid-template-columns: 1.02fr .98fr; align-items: center; gap: 90px; }
+.mobile-copy { position: relative; z-index: 2; }
+.mobile-copy > p { max-width: 650px; line-height: 1.75; }
+.mobile-features { margin: 30px 0 24px; display: grid; grid-template-columns: repeat(2,1fr); gap: 12px; }
+.mobile-features article { min-height: 118px; display: grid; grid-template-columns: 42px 1fr; gap: 12px; align-items: start; padding: 18px; border-radius: 16px; background: linear-gradient(145deg, rgba(57,21,72,.92), rgba(31,18,61,.94)); border: 1px solid rgba(255,47,104,.42); }
+.mobile-features article > span { width: 34px; height: 34px; display: grid; place-items: center; border-radius: 9px; background: rgba(255,47,104,.12); color: #ff759a; font-size: 10px; font-weight: 1000; }
+.mobile-features h3 { margin: 0 0 6px; font-size: 15px; }
+.mobile-features p { margin: 0; color: #c2badc; font-size: 12px; line-height: 1.5; }
+.mobile-note { margin-bottom: 28px; padding: 16px 18px; border-radius: 14px; border: 1px dashed rgba(153,139,212,.28); background: rgba(255,255,255,.025); color: #9f99be; font-size: 13px; line-height: 1.65; }
+.mobile-visual { position: relative; min-height: 660px; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+.phone-frame { position: relative; overflow: hidden; border: 1px solid rgba(255,255,255,.12); box-shadow: var(--shadow); background: #0b0d1d; }
+.phone-frame-portrait { width: min(72%, 430px); aspect-ratio: 0.76 / 1; border-radius: 34px; }
+.phone-frame-portrait::after { content: ""; position: absolute; inset: 0; box-shadow: inset 0 0 0 1px rgba(255,255,255,.08); pointer-events: none; }
+.phone-frame-portrait img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+.mobile-platforms { width: min(100%, 560px); display: grid; grid-template-columns: repeat(2,1fr); gap: 14px; margin-top: 28px; }
+.platform-card { min-height: 66px; display: flex; align-items: center; justify-content: center; gap: 13px; padding: 12px 18px; border-radius: 14px; background: rgba(41,14,58,.78); border: 2px solid var(--accent); }
+.platform-card .platform-icon { font-size: 20px; color: #fff; }
+.platform-card strong, .platform-card small { display: block; }
+.platform-card strong { font-size: 15px; }
+.platform-card small { margin-top: 2px; color: #b6adcb; font-size: 9px; font-weight: 800; text-transform: uppercase; letter-spacing: .05em; }
+
+.registration-section { background: #0b0d1d; }
+.registration-shell { position: relative; padding: 28px; border-radius: 28px; background: linear-gradient(145deg,#151936,#101329); border: 1px solid var(--line); overflow: hidden; }
+.registration-steps { position: relative; z-index: 2; width: 72%; display: grid; grid-template-columns: repeat(4,1fr); gap: 0; }
+.registration-steps::before { content: ""; position: absolute; top: 27px; left: 8%; right: 8%; height: 1px; background: linear-gradient(90deg, var(--accent), rgba(255,255,255,.11)); }
+.registration-steps article { position: relative; padding: 0 18px 12px 0; }
+.registration-steps article > span { position: relative; z-index: 1; width: 54px; height: 54px; display: grid; place-items: center; border-radius: 50%; background: #191e3f; border: 1px solid rgba(255,47,104,.32); color: #ff7499; font-size: 11px; font-weight: 1000; box-shadow: 0 0 0 7px #151936; }
+.registration-steps h3 { margin: 20px 0 7px; font-size: 17px; }
+.registration-steps p { margin: 0; color: #8f96b0; font-size: 13px; }
+.registration-bottom { position: relative; z-index: 2; width: 70%; margin-top: 36px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px; }
+.registration-cta { display: flex; flex: 1 1 auto; min-width: 0; }
+.registration-cta.align-left { justify-content: flex-start; }
+.registration-cta.align-center { justify-content: center; }
+.registration-cta.align-right { justify-content: flex-end; }
+.registration-cta.align-full { width: 100%; }
+.registration-cta.align-full .btn { width: 100%; }
+.trust-points { display: flex; flex-wrap: wrap; gap: 10px; }
+.trust-points span { padding: 8px 10px; border-radius: 999px; background: rgba(255,255,255,.04); color: #a7adc3; font-size: 11px; font-weight: 800; }
+.registration-visual { position: absolute; right: -4%; top: 0; width: 38%; height: 100%; }
+.registration-visual::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg,#121630 0%, transparent 55%); }
+.registration-visual img { width: 100%; height: 100%; object-fit: cover; }
+
+.security-section { background: #11142a; }
+.security-grid { display: grid; grid-template-columns: 1fr .9fr; gap: 34px; align-items: center; }
+.security-cards { margin-top: 28px; display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; }
+.security-cards article { min-height: 220px; padding: 18px; border-radius: 18px; background: rgba(255,255,255,.035); border: 1px solid var(--line); display: flex; flex-direction: column; }
+.security-cards article > span { color: #ff7399; font-size: 10px; font-weight: 1000; }
+.security-cards h3 { margin: auto 0 8px; font-size: 16px; }
+.security-cards p { margin: 0; color: #8e95af; font-size: 12px; }
+.security-visual { min-height: 560px; overflow: hidden; border-radius: 26px; border: 1px solid var(--line); }
+.security-visual img { width: 100%; height: 100%; object-fit: cover; }
+
+.faq-section { background: #12103e; }
+.faq-wrap { max-width: 980px; }
+.faq-intro { margin-bottom: 42px; }
+.faq-intro h2 { max-width: 820px; }
+.faq-intro > p { max-width: 820px; }
+.faq-list { display: grid; gap: 14px; }
+.faq-item { border: 1px solid rgba(127,111,205,.34); border-radius: 15px; background: #1b184d; overflow: hidden; box-shadow: inset 0 1px rgba(255,255,255,.015); }
+.faq-item button { width: 100%; border: 0; background: transparent; display: flex; align-items: center; justify-content: space-between; gap: 18px; padding: 22px 22px; text-align: left; font-weight: 900; cursor: pointer; color: #fff; }
+.faq-item button span { font-size: 15px; }
+.faq-item button b { flex: 0 0 30px; width: 30px; height: 30px; display: grid; place-items: center; border-radius: 50%; background: rgba(255,47,104,.11); color: #ff7399; font-style: normal; }
+.faq-item button b::before { content: '+'; }
+.faq-item.open button b::before { content: '\2212'; }
+.faq-answer { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .25s ease; }
+.faq-answer > p { overflow: hidden; margin: 0; padding: 0 22px; color: #b8b0d3; line-height: 1.75; }
+.faq-item.open .faq-answer { grid-template-rows: 1fr; }
+.faq-item.open .faq-answer > p { padding-bottom: 22px; }
+
+.site-footer { padding: 66px 0 26px; background: #080a16; border-top: 1px solid var(--line); }
+.footer-top-two-menus { display: grid; grid-template-columns: 1.15fr 1fr; gap: 80px; align-items: start; }
+.footer-brand > p { max-width: 430px; color: #858ca8; font-size: 13px; line-height: 1.7; }
+.footer-badges { display: flex; flex-wrap: wrap; gap: 7px; }
+.footer-badges span { padding: 6px 8px; border-radius: 8px; border: 1px solid var(--line); background: rgba(255,255,255,.025); color: #8f96b0; font-size: 10px; font-weight: 900; }
+.footer-menu-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 58px; }
+.footer-nav { display: flex; flex-direction: column; gap: 10px; }
+.footer-nav h3 { margin: 0 0 7px; font-size: 12px; text-transform: uppercase; letter-spacing: .08em; color: #cdd1df; }
+.footer-nav a { color: #787f9d; font-size: 12px; }
+.footer-nav a:hover { color: #fff; }
+.footer-responsible { margin-top: 46px; padding: 16px 0; border-block: 1px solid var(--line); display: flex; gap: 15px; color: #7e85a1; font-size: 11px; }
+.footer-responsible strong { color: #ff6f98; white-space: nowrap; }
+.footer-bottom { padding-top: 20px; display: flex; justify-content: space-between; gap: 20px; color: #666e8d; font-size: 10px; }
+
+.reveal { opacity: 0; transform: translateY(18px); transition: opacity .65s ease, transform .65s ease; }
+.reveal.is-visible { opacity: 1; transform: none; }
+.reveal-delay { transition-delay: .1s; }
+
+@media (max-width: 1120px) {
+    .main-nav { gap: 14px; }
+    .main-nav a { font-size: 12px; }
+    .hero-layout { grid-template-columns: 1fr 1fr; gap: 36px; }
+    .quick-nav-grid { grid-template-columns: repeat(4,1fr); }
+    .quick-link:nth-child(5) { border-left: 1px solid var(--line); }
+    .quick-link { border-bottom: 1px solid var(--line); }
+    .casino-showcase { grid-template-columns: 1fr; }
+    .showcase-panel { grid-template-columns: repeat(4,1fr); }
+    .feature-card { min-height: 220px; }
+    .game-art { height: 220px; }
+    .payment-benefits { grid-template-columns: 1fr; }
+    .payment-benefits article { min-height: 140px; }
+    .registration-steps, .registration-bottom { width: 68%; }
+}
+
+@media (max-width: 920px) {
+    .hero { padding-top: 54px; }
+    .hero-layout { grid-template-columns: 1fr; }
+    .hero-copy { max-width: 760px; }
+    .hero-stage { width: 90%; margin-left: auto; }
+    .hero-stats { grid-template-columns: repeat(2,1fr); margin-top: 94px; border-radius: 20px 20px 0 0; }
+    .hero-stat:nth-child(2) { border-right: 0; }
+    .hero-stat:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
+    .split-heading, .calculator-grid, .sportsbook-grid, .mobile-grid, .security-grid, .faq-grid { grid-template-columns: 1fr; gap: 40px; }
+    .showcase-panel { grid-template-columns: repeat(2,1fr); }
+    .games-grid { grid-template-columns: repeat(2,1fr); }
+    .bonus-layout { grid-template-columns: 1fr; }
+    .calculator-card { max-width: 620px; }
+    .sports-visual { min-height: 520px; }
+    .payments-layout { grid-template-columns: 1fr; }
+    .payments-image { min-height: 420px; }
+    .payment-benefits { grid-template-columns: repeat(3,1fr); }
+    .mobile-grid { align-items: start; }
+    .registration-visual { opacity: .32; width: 56%; }
+    .registration-steps, .registration-bottom { width: 100%; }
+    .security-cards { grid-template-columns: repeat(3,1fr); }
+    .footer-top-two-menus { grid-template-columns: 1fr; gap: 38px; }
+    .footer-menu-grid { max-width: 620px; }
+}
+
+@media (max-width: 680px) {
+    .container { width: min(calc(100% - 28px), var(--container)); }
+    .brand-word { font-size: 21px; }
+    .brand-shield { width: 23px; height: 25px; }
+    .section { padding: 80px 0; }
+    .hero { min-height: auto; padding-top: 40px; }
+    .hero h1 { font-size: clamp(40px,12vw,58px); }
+    .hero-lead { font-size: 16px; }
+    .hero-cta .btn { width: 100%; }
+    .hero-stage { width: 100%; margin-top: 16px; }
+    .hero-visual-card { border-radius: 20px; transform: none; }
+    .bonus-float { width: 190px; left: 12px; bottom: -54px; padding: 16px; }
+    .bonus-float strong { font-size: 34px; }
+    .live-float { display: none; }
+    .hero-stats { margin-top: 84px; }
+    .hero-stat { padding: 18px 16px; flex-direction: column; gap: 1px; }
+    .hero-stat strong { font-size: 22px; }
+    .quick-nav-grid { grid-template-columns: repeat(2,1fr); }
+    .quick-link:nth-child(odd) { border-left: 1px solid var(--line); }
+    .section-heading { margin-bottom: 34px; }
+    .section-heading h2, .sports-copy h2, .mobile-copy h2, .security-copy h2, .faq-intro h2, .calculator-copy h2 { font-size: clamp(34px,10vw,46px); }
+    .section-heading p, .section-lead, .sports-copy > p, .mobile-copy > p, .security-copy > p, .faq-intro > p, .calculator-copy > p { font-size: 15px; }
+    .showcase-image { min-height: 360px; }
+    .showcase-panel { grid-template-columns: 1fr; }
+    .feature-card { min-height: 190px; }
+    .games-shell { padding: 12px; }
+    .games-toolbar { align-items: flex-start; flex-direction: column; }
+    .games-grid { grid-template-columns: 1fr 1fr; gap: 9px; }
+    .game-art { height: 190px; }
+    .game-art span { font-size: 42px; }
+    .game-art strong { font-size: 18px; }
+    .game-info { align-items: flex-start; flex-direction: column; min-height: 100px; }
+    .game-play { display: none; }
+    .mega-bonus { min-height: 420px; padding: 28px; }
+    .bonus-value strong { font-size: 76px; }
+    .mini-promos article { grid-template-columns: 42px 1fr auto; padding: 18px; }
+    .responsible-note { align-items: flex-start; }
+    .calculator-card { padding: 20px; }
+    .calc-top strong { font-size: 30px; }
+    .live-stage { min-height: 620px; border-radius: 22px; }
+    .live-stage-overlay { background: linear-gradient(180deg, rgba(7,8,18,.25), rgba(7,8,18,.96) 62%); }
+    .live-copy { left: 22px; right: 22px; top: auto; bottom: 80px; transform: none; }
+    .live-copy h2 { font-size: 40px; }
+    .provider-stack { left: 22px; right: 22px; bottom: 20px; justify-content: flex-start; }
+    .sports-visual { min-height: 430px; }
+    .teams { grid-template-columns: 1fr; gap: 4px; }
+    .teams strong:last-child { text-align: left; }
+    .teams span { display: none; }
+    .odds button { font-size: 11px; }
+    .payments-image { min-height: 320px; }
+    .payment-benefits { grid-template-columns: 1fr; }
+    .payment-benefits article { min-height: 150px; }
+    .payment-logos { grid-template-columns: repeat(2,1fr); }
+    .payment-logos span { min-height: 76px; font-size: 12px; }
+    .mobile-features { grid-template-columns: 1fr; }
+    .mobile-visual { min-height: auto; margin-top: 8px; }
+    .phone-frame-portrait { width: min(78%, 360px); border-radius: 26px; }
+    .mobile-platforms { width: 100%; }
+    .registration-shell { padding: 22px; }
+    .registration-steps { grid-template-columns: 1fr; gap: 22px; }
+    .registration-steps::before { top: 22px; bottom: 34px; left: 26px; right: auto; width: 1px; height: auto; background: linear-gradient(var(--accent), rgba(255,255,255,.11)); }
+    .registration-steps article { padding: 0 0 0 72px; min-height: 74px; }
+    .registration-steps article > span { position: absolute; left: 0; top: 0; box-shadow: 0 0 0 6px #151936; }
+    .registration-steps h3 { margin: 3px 0 7px; }
+    .registration-bottom { align-items: stretch; flex-direction: column; }
+    .registration-bottom .btn { width: 100%; }
+    .registration-visual { display: none; }
+    .security-cards { grid-template-columns: 1fr; }
+    .security-cards article { min-height: 160px; }
+    .security-visual { min-height: 360px; }
+    .footer-top-two-menus { grid-template-columns: 1fr; gap: 34px; }
+    .footer-menu-grid { grid-template-columns: 1fr 1fr; gap: 28px; }
+    .footer-responsible, .footer-bottom { flex-direction: column; }
+    .footer-responsible strong { white-space: normal; }
+}
+
+
+@media (max-width: 460px) {
+    .mobile-platforms { grid-template-columns: 1fr; }
+    .footer-menu-grid { grid-template-columns: 1fr; gap: 28px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { animation-duration: .01ms; animation-iteration-count: 1; transition-duration: .01ms; }
+    .reveal { opacity: 1; transform: none; }
+}
+
+
+/* ==========================================================================
+/* ==========================================================================\n   WordPress / ACF block layer\n   ========================================================================== */
+.custom-logo-link { display:inline-flex; align-items:center; }
+.custom-logo-link img { width:auto; max-height:38px; }
+.site-main { min-height:0; }
+.betsala-block-preview { padding:12px; background:#0b0d1d; border-radius:14px; }
+.betsala-block-preview img { width:100%; height:auto; border-radius:10px; }
+
+/* A background image in Hero remains replaceable in WordPress and always fills the section. */
+.betsala-hero { position:relative; min-height:680px; display:flex; flex-direction:column; justify-content:flex-end; padding:96px 0 72px; }
+.betsala-hero .hero-bg-image { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:0; }
+.betsala-hero::after { content:""; position:absolute; inset:0; z-index:1; background:linear-gradient(90deg,rgba(7,9,25,.96) 0%,rgba(7,9,25,.84) 40%,rgba(7,9,25,.44) 72%,rgba(7,9,25,.2) 100%); }
+.betsala-hero .hero-grid-glow { z-index:2; }
+.betsala-hero .hero-layout { z-index:3; display:block; }
+.betsala-hero .hero-copy { max-width:760px; }
+.betsala-hero h1 { margin:24px 0 22px; font-size:clamp(48px,6vw,82px); line-height:.98; letter-spacing:-.055em; }
+.betsala-hero h1 .text-gradient { background:linear-gradient(100deg,#fff 0%,#ffadc5 45%,#f4619e 72%,#b98cff 100%); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
+.betsala-hero .hero-lead { max-width:720px; color:#bcc1d4; font-size:18px; }
+.betsala-hero .hero-cta { margin-top:28px; display:flex; flex-wrap:wrap; gap:12px; }
+.betsala-hero .hero-cta.align-left { justify-content:flex-start; }
+.betsala-hero .hero-cta.align-center { justify-content:center; }
+.betsala-hero .hero-cta.align-right { justify-content:flex-end; }
+
+/* Stats + quick links are one centered module, exactly as approved. */
+.betsala-stats-nav { padding:0 0 30px; background:transparent; }
+.betsala-stats-nav .hero-stats { margin-top:0; border-radius:22px 22px 0 0; }
+.betsala-stats-nav .quick-nav-grid { width:100%; display:grid; border:1px solid var(--line); border-top:0; border-radius:0 0 22px 22px; overflow:hidden; background:#0f1226; }
+.betsala-stats-nav .quick-link { align-items:center; text-align:center; }
+.betsala-stats-nav .quick-icon { margin-inline:auto; }
+
+/* Editorial = calm text section across the full content container. */
+.betsala-editorial { padding:92px 0; }
+.betsala-editorial--alt { background:#101329; }
+.betsala-editorial .editorial-wide { width:100%; }
+.betsala-editorial h2 { margin:14px 0 24px; font-size:clamp(36px,4vw,58px); }
+.betsala-editorial .prose { max-width:none; }
+.betsala-editorial .prose p, .betsala-editorial .prose li { color:var(--muted); font-size:16px; line-height:1.8; }
+.betsala-editorial .prose h3 { margin:34px 0 14px; font-size:clamp(24px,2.4vw,34px); }
+.betsala-editorial .prose ul, .betsala-editorial .prose ol { padding-left:24px; }
+.betsala-editorial .prose li { margin:8px 0; }
+.betsala-editorial main h2, .betsala-editorial main h3 { max-width:100%; }
+.betsala-editorial .data-table-wrap { margin-top:30px; overflow:auto; border:1px solid var(--line); border-radius:18px; background:rgba(255,255,255,.025); }
+.betsala-editorial table { width:100%; min-width:680px; border-collapse:collapse; }
+.betsala-editorial th, .betsala-editorial td { padding:16px 18px; text-align:left; border-bottom:1px solid var(--line); vertical-align:top; }
+.betsala-editorial th { color:#fff; background:rgba(255,255,255,.045); font-size:13px; }
+.betsala-editorial td { color:#aeb4cb; font-size:14px; }
+
+/* Native Gutenberg content inside the editorial wrapper. */
+.betsala-editorial-native .betsala-native-content { width:100%; max-width:none; }
+.betsala-editorial-native .betsala-native-content > p,
+.betsala-editorial-native .betsala-native-content > ul,
+.betsala-editorial-native .betsala-native-content > ol,
+.betsala-editorial-native .betsala-native-content > blockquote {
+    width:100%; max-width:none; color:var(--muted); font-size:16px; line-height:1.82;
+}
+.betsala-editorial-native .betsala-native-content > p { margin:0 0 18px; }
+.betsala-editorial-native .betsala-native-content ul,
+.betsala-editorial-native .betsala-native-content ol { padding-left:24px; margin-top:16px; margin-bottom:22px; }
+.betsala-editorial-native .betsala-native-content li { margin:8px 0; }
+.betsala-editorial-native .wp-block-table,
+.betsala-editorial-native .data-table-wrap {
+    width:100%; margin:28px 0 0; overflow-x:auto; border:1px solid var(--line); border-radius:18px; background:rgba(255,255,255,.025);
+}
+.betsala-editorial-native .wp-block-table table,
+.betsala-editorial-native table { width:100%; min-width:680px; margin:0; border-collapse:collapse; }
+.betsala-editorial-native th,
+.betsala-editorial-native td { padding:16px 18px; text-align:left; vertical-align:top; }
+.betsala-editorial-native th { color:#fff; background:rgba(255,255,255,.045); font-size:14px; font-weight:800; }
+.betsala-editorial-native td { color:#aeb4cb; font-size:14px; }
+
+/* Generic tile block. */
+.betsala-tiles { padding:92px 0; background:#101329; }
+.tiles-grid { display:grid; grid-template-columns:repeat(var(--tiles-cols,4),minmax(0,1fr)); gap:14px; }
+.tile-card { min-height:150px; padding:20px; border-radius:18px; border:1px solid var(--line); background:linear-gradient(145deg,rgba(255,47,104,.06),rgba(255,255,255,.02)); }
+.tile-icon { width:42px; height:42px; display:grid; place-items:center; margin-bottom:24px; border-radius:12px; background:rgba(255,47,104,.12); color:#ff769a; overflow:hidden; }
+.tile-icon img { width:100%; height:100%; object-fit:contain; padding:7px; }
+.tile-card h3 { margin:0 0 8px; font-size:18px; }
+.tile-card p { margin:0; color:var(--muted); font-size:13px; }
+
+/* Media + cards: image, text and up to 6 independently configured cards. */
+.betsala-media-cards { padding:105px 0; }
+.betsala-media-cards--alt { background:#101329; }
+.betsala-media-cards .media-cards-layout { display:grid; grid-template-columns:1.25fr .75fr; gap:18px; align-items:stretch; }
+.betsala-media-cards .media-cards-layout.image-right .showcase-image { order:2; }
+.betsala-media-cards .showcase-image { min-height:560px; }
+.betsala-media-cards .showcase-panel { grid-auto-rows:minmax(170px,1fr); }
+.betsala-media-cards .showcase-panel.cards-1 { grid-template-columns:1fr; }
+.betsala-media-cards .showcase-panel.cards-2 { grid-template-columns:repeat(2,1fr); }
+.betsala-media-cards .showcase-panel.cards-3, .betsala-media-cards .showcase-panel.cards-5, .betsala-media-cards .showcase-panel.cards-6 { grid-template-columns:repeat(2,1fr); }
+
+/* Game cards: image -> title/meta -> normal button under image, no overlays. */
+.betsala-games { padding:100px 0; background:#0f1226; }
+.betsala-games .games-grid { grid-template-columns:repeat(var(--game-cols,4),minmax(0,1fr)); }
+.betsala-game-card { border-radius:18px; overflow:hidden; border:1px solid var(--line); background:#171b38; }
+.betsala-game-image { position:relative; aspect-ratio:1/1; overflow:hidden; background:#151936; }
+.betsala-game-image img { width:100%; height:100%; object-fit:cover; }
+.betsala-game-badge { position:absolute; left:12px; top:12px; padding:6px 9px; border-radius:999px; background:var(--accent); color:#fff; font-size:10px; font-weight:900; letter-spacing:.06em; }
+.betsala-game-body { padding:15px; }
+.betsala-game-body h3 { margin:0 0 7px; font-size:17px; }
+.betsala-game-meta { display:flex; flex-wrap:wrap; justify-content:flex-start; gap:6px 16px; color:#8f96b0; font-size:11px; font-weight:700; }
+.betsala-game-body p { margin:10px 0 0; color:#9ca2b9; font-size:13px; }
+.betsala-game-cta { margin-top:14px; }
+.betsala-game-cta .btn { width:100%; box-shadow:none; transform:none; }
+.betsala-game-cta .btn:hover { transform:none; }
+
+/* Bonus block. */
+.betsala-bonus { padding:105px 0; background:#0c0e1d; }
+.betsala-bonus .bonus-layout { grid-template-columns:1.08fr .92fr; }
+.betsala-bonus .mega-bonus.has-background-image::before { content:""; position:absolute; inset:0; background:linear-gradient(120deg,rgba(154,8,57,.88),rgba(39,10,45,.72)), var(--bonus-bg); background-size:cover; background-position:center; }
+.betsala-bonus .mega-bonus > * { position:relative; z-index:2; }
+
+/* Sports block: evergreen categories only, no invented matches or odds. */
+.sports-main-cta { margin-top:18px; }
+.betsala-sports { padding:100px 0; background:linear-gradient(180deg,#101329,#0c0e1d); }
+.betsala-sports .sportsbook-grid { grid-template-columns:1fr .9fr; }
+.betsala-sports .sport-category-grid { grid-template-columns:repeat(var(--sports-cols,4),minmax(0,1fr)); }
+.betsala-sports .sport-category-grid article { min-height:88px; }
+
+/* Payment methods with logos. */
+.betsala-payments { padding:100px 0; background:#0d1021; }
+.betsala-payments.betsala-payments--alt { background:#101329; }
+.betsala-bonus.betsala-bonus--alt { background:#101329; }
+.betsala-mobile.betsala-mobile--alt { background:#101329; }
+.betsala-payments .payment-logo-button { min-height:92px; display:flex; align-items:center; justify-content:center; padding:14px; border-radius:16px; border:1px solid var(--line); background:rgba(255,255,255,.035); }
+.betsala-payments .payment-logo-button img { max-width:130px; max-height:42px; object-fit:contain; }
+.betsala-payments .payment-logo-button span { font-weight:900; color:#e2e5ef; }
+
+/* Mobile: transparent PNG phone, optional decorative background behind it, no frame. */
+.betsala-mobile { padding:100px 0; overflow:hidden; background:#11133a; }
+.betsala-mobile .mobile-phone-stage { position:relative; width:100%; min-height:620px; display:flex; align-items:center; justify-content:center; background:var(--phone-bg,none); background-size:cover; background-position:center; border:0; border-radius:0; overflow:visible; }
+.betsala-mobile .phone-device { position:relative; z-index:2; width:min(78%,460px); max-height:700px; object-fit:contain; filter:drop-shadow(0 30px 35px rgba(0,0,0,.3)); }
+.betsala-mobile .mobile-platforms { width:100%; max-width:560px; grid-template-columns:repeat(2,minmax(0,1fr)); margin-top:18px; }
+
+/* Registration remains editable: image/text/steps/trust items are all independent. */
+.registration-content { min-width:0; padding:14px 6px 14px 8px; }
+.betsala-registration { padding:100px 0; background:#0f1226; }
+.betsala-registration .registration-shell.no-image { grid-template-columns:1fr; }
+.betsala-registration .registration-shell.image-left .registration-visual { order:-1; }
+.betsala-registration .registration-steps { grid-template-columns:repeat(var(--steps-count,4),minmax(0,1fr)); }
+
+/* FAQ is designed to sit last before footer. */
+.betsala-faq { padding:100px 0 120px; background:#11133a; }
+.betsala-faq .faq-wrap { grid-template-columns:.7fr 1.3fr; }
+
+/* WordPress navigation helpers. */
+.main-nav .current-menu-item > a, .main-nav .current_page_item > a { color:#fff; }
+.footer-menu ul, .footer-menu { list-style:none; padding:0; margin:0; }
+.footer-menu li { margin:9px 0; }
+.footer-menu a { color:#9da3ba; font-size:14px; }
+.footer-menu a:hover { color:#fff; }
+
+@media (max-width:1024px) {
+  .betsala-media-cards .media-cards-layout, .betsala-sports .sportsbook-grid { grid-template-columns:1fr; }
+  .betsala-media-cards .media-cards-layout.image-right .showcase-image { order:0; }
+  .tiles-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .betsala-games .games-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .betsala-sports .sport-category-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .betsala-registration .registration-steps { grid-template-columns:repeat(2,minmax(0,1fr)); }
+}
+@media (max-width:700px) {
+  .betsala-hero { min-height:620px; padding-top:80px; }
+  .betsala-hero h1 { font-size:clamp(42px,12vw,62px); }
+  .betsala-stats-nav .hero-stats { grid-template-columns:repeat(2,1fr); }
+  .betsala-stats-nav .quick-nav-grid { grid-template-columns:repeat(2,1fr); }
+  .tiles-grid, .betsala-games .games-grid, .betsala-sports .sport-category-grid, .betsala-registration .registration-steps { grid-template-columns:1fr; }
+  .betsala-media-cards .showcase-panel { grid-template-columns:1fr; }
+  .betsala-mobile .mobile-grid { gap:36px; }
+  .betsala-mobile .mobile-platforms { grid-template-columns:1fr; }
+  .betsala-faq .faq-wrap { grid-template-columns:1fr; }
+}
+
+.main-nav-list { display:flex; align-items:center; gap:24px; list-style:none; margin:0; padding:0; }
+.main-nav-list li { margin:0; padding:0; }
+
+/* Header layout switcher: top header or desktop left sidebar.
+   IMPORTANT: side-left/sticky/static geometry is desktop-only.
+   Mobile has one independent fixed header in the canonical mobile layer below. */
+@media (min-width: 921px) {
+    .header-layout-side-left .site-header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: var(--betsala-sidebar-width, 260px);
+        height: 100vh;
+        border-right: 1px solid rgba(255,255,255,.09);
+        border-bottom: 0;
+        transition: width .24s ease;
+        overflow: visible;
+    }
+    .header-layout-side-left.header-side-static .site-header { position: absolute; }
+    .header-layout-side-left .site-header > .container.header-inner {
+        width: 100%;
+        max-width: none;
+        height: 100%;
+        margin: 0;
+        padding: 28px 18px 20px;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: flex-start;
+        gap: 26px;
+    }
+    .header-layout-side-left .brand-wrap {
+        min-height: 42px;
+        display: flex;
+        align-items: center;
+    }
+    .header-layout-side-left .brand-wrap img {
+        max-width: 100%;
+        max-height: 48px;
+        width: auto;
+    }
+    .header-layout-side-left .main-nav {
+        width: 100%;
+        margin: 4px 0 0;
+        display: block;
+    }
+    .header-layout-side-left .main-nav-list {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 4px;
+    }
+    .header-layout-side-left .main-nav-list li { width: 100%; }
+    .header-layout-side-left .main-nav a {
+        display: flex;
+        width: 100%;
+        min-height: 46px;
+        align-items: center;
+        padding: 9px 16px;
+        border-radius: 11px;
+        font-size: 14px;
+        color: #b9bdd1;
+    }
+    .header-layout-side-left .main-nav a:hover,
+    .header-layout-side-left .main-nav .current-menu-item > a,
+    .header-layout-side-left .main-nav .current_page_item > a {
+        color: #fff;
+        background: rgba(255,255,255,.055);
+    }
+    .header-layout-side-left .header-actions {
+        width: 100%;
+        margin-top: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 9px;
+    }
+    .header-layout-side-left .header-actions .btn { width: 100%; }
+    .header-layout-side-left.header-side-no-cta .header-actions .btn { display: none; }
+    .header-layout-side-left .side-header-note {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 5px;
+        margin-top: 2px;
+        color: #777f9f;
+        font-size: 11px;
+        line-height: 1.35;
+        text-align: center;
+    }
+    .header-layout-top .side-header-note { display: none; }
+
+    .header-layout-side-left .site-main,
+    .header-layout-side-left .site-footer {
+        margin-left: var(--betsala-sidebar-width, 260px);
+        transition: margin-left .24s ease;
+    }
+
+    .header-layout-side-left .sidebar-collapse-toggle {
+        position: absolute;
+        top: 30px;
+        right: -18px;
+        z-index: 8;
+        width: 36px;
+        height: 36px;
+        padding: 0;
+        border: 1px solid rgba(255,255,255,.13);
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        background: linear-gradient(135deg, var(--accent), #df174f);
+        color: #fff;
+        box-shadow: 0 12px 24px rgba(255,47,104,.28);
+        cursor: pointer;
+    }
+    .header-layout-side-left .sidebar-collapse-toggle span {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        font-size: 32px;
+        font-weight: 700;
+        line-height: 1;
+        color: #fff;
+        transform: translateX(0);
+        transition: transform .24s ease;
+    }
+    .header-layout-side-left.sidebar-collapsed .site-header { width: 74px; }
+    .header-layout-side-left.sidebar-collapsed .site-main,
+    .header-layout-side-left.sidebar-collapsed .site-footer { margin-left: 74px; }
+    .header-layout-side-left.sidebar-collapsed .brand-wrap,
+    .header-layout-side-left.sidebar-collapsed .main-nav,
+    .header-layout-side-left.sidebar-collapsed .header-actions,
+    .header-layout-side-left.sidebar-collapsed .side-header-note {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+    }
+    .header-layout-side-left.sidebar-collapsed .header-inner { gap: 0; }
+    .header-layout-side-left.sidebar-collapsed .sidebar-collapse-toggle span { transform: rotate(180deg); }
+
+    body.admin-bar.header-layout-side-left .site-header {
+        top: 32px;
+        height: calc(100vh - 32px);
+    }
+    body.admin-bar.header-layout-side-left.header-side-static .site-header { top: 32px; }
+}
+
+/* ==========================================================================
+   FINAL DESIGN LAYER — v5.9.5
+   One cascade, no historical version patches, no forced declarations.
+   ========================================================================== */
+
+body.admin-bar.betsala-theme { --betsala-adminbar-offset: 32px; }
+
+/* ---------- headings / native Gutenberg ---------- */
+body.betsala-theme .betsala-hero h1,
+body.betsala-theme .site-main h2,
+body.betsala-theme .site-main h3,
+body.betsala-theme .betsala-section-title {
+    overflow: visible;
+    text-overflow: clip;
+    padding-top: .10em;
+    padding-bottom: .13em;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+}
+body.betsala-theme .site-main h2.wp-block-heading,
+body.betsala-theme .betsala-editorial-native h2,
+body.betsala-theme .betsala-section-title {
+    display: block;
+    max-width: 1100px;
+    margin: 0 0 22px;
+    font-size: var(--betsala-h2-size);
+    font-weight: 800;
+    line-height: 1.18;
+    letter-spacing: -.025em;
+    color: #fff;
+    background: linear-gradient(100deg,#fff 0%,#ffd4e1 42%,#f66ca6 72%,#bd91ff 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+body.betsala-theme .site-main h3.wp-block-heading,
+body.betsala-theme .betsala-editorial-native h3 {
+    margin: 28px 0 14px;
+    font-size: var(--betsala-h3-size);
+    font-weight: 800;
+    line-height: 1.24;
+    letter-spacing: -.018em;
+}
+body.betsala-theme .betsala-item-title {
+    margin: 0 0 7px;
+    padding: .03em 0 .06em;
+    overflow: visible;
+    font: inherit;
+    font-weight: 800;
+    line-height: 1.25;
+    color: #fff;
+    -webkit-text-fill-color: currentColor;
+    background: none;
+}
+body.betsala-theme .feature-card .betsala-item-title,
+body.betsala-theme .mobile-features .betsala-item-title,
+body.betsala-theme .registration-steps .betsala-item-title,
+body.betsala-theme .payment-benefits .betsala-item-title,
+body.betsala-theme .tile-card .betsala-item-title { font-size: 17px; }
+body.betsala-theme .betsala-game-body .betsala-item-title,
+body.betsala-theme .mini-promos .betsala-item-title { font-size: 20px; }
+body.betsala-theme .sport-category-grid .betsala-item-title { font-size: 14px; margin: 0; }
+
+/* Content safety: long strings never create horizontal overflow in custom blocks. */
+body.betsala-theme .betsala-block :is(h1,h2,h3,h4,h5,h6,p,small,strong,b,span,a) {
+    min-width: 0;
+    max-width: 100%;
+    overflow-wrap: anywhere;
+    word-break: normal;
+}
+body.betsala-theme .betsala-block .btn {
+    max-width: 100%;
+    white-space: normal;
+    text-align: center;
+    overflow-wrap: anywhere;
+}
+
+body.betsala-theme .site-main table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid var(--betsala-table-grid);
+}
+body.betsala-theme .site-main table th,
+body.betsala-theme .site-main table td { border: 1px solid var(--betsala-table-grid); }
+body.betsala-theme .site-main .wp-block-table { max-width: 100%; overflow-x: auto; border: 0; }
+
+@media (min-width: 921px) {
+    body.betsala-theme .site-main > :is(
+        .wp-block-heading,p,ul,ol,blockquote,.wp-block-list,.wp-block-table,
+        .wp-block-image,.wp-block-gallery,.wp-block-media-text,.wp-block-columns,
+        .wp-block-group,.wp-block-buttons,.wp-block-quote,.wp-block-pullquote,
+        .wp-block-details,.wp-block-code,.wp-block-preformatted,.wp-block-file,
+        .wp-block-video,.wp-block-audio,.wp-block-embed,.wp-block-cover,
+        .wp-block-separator,.wp-block-html,.wp-block-shortcode
+    ) {
+        width: min(calc(100% - 40px), var(--container));
+        max-width: var(--container);
+        margin-left: auto;
+        margin-right: auto;
+        box-sizing: border-box;
+    }
+}
+
+/* ---------- header ---------- */
+@media (min-width: 921px) {
+    body.betsala-theme.header-layout-top .site-header {
+        position: sticky;
+        top: var(--betsala-adminbar-offset);
+        z-index: 1200;
+        background: rgba(8,10,22,.96);
+        backdrop-filter: blur(16px);
+    }
+}
+body.betsala-theme .site-header .custom-logo { width: auto; height: auto; max-width: 190px; max-height: 42px; object-fit: contain; }
+body.betsala-theme .site-footer .custom-logo { width: auto; height: auto; max-width: 150px; max-height: 38px; object-fit: contain; }
+
+/* side-header chevron: one implementation only */
+body.betsala-theme.header-layout-side-left .sidebar-collapse-toggle {
+    position: absolute;
+    top: 16px;
+    right: -20px;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    display: grid;
+    place-items: center;
+}
+body.betsala-theme.header-layout-side-left .sidebar-collapse-toggle span {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 29px;
+    height: 29px;
+    margin: 0;
+    padding: 0;
+    font-size: 0;
+    line-height: 0;
+    color: transparent;
+    transform: translate(-50%, -50%);
+    transform-origin: 50% 50%;
+}
+body.betsala-theme.header-layout-side-left .sidebar-collapse-toggle span::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    width: 29px;
+    height: 29px;
+    background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M15.8 4.2L8 12l7.8 7.8' fill='none' stroke='%23fff' stroke-width='4.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/29px 29px no-repeat;
+}
+body.betsala-theme.header-layout-side-left .sidebar-collapse-toggle span::after { content: none; }
+body.betsala-theme.header-layout-side-left.sidebar-collapsed .sidebar-collapse-toggle span {
+    transform: translate(-50%, -50%) rotate(180deg);
+}
+
+/* ---------- foreground images: ONE rule ---------- */
+body.betsala-theme .betsala-game-image,
+body.betsala-theme .feature-card--image,
+body.betsala-theme .showcase-image,
+body.betsala-theme .sports-visual,
+body.betsala-theme .payments-image,
+body.betsala-theme .registration-visual,
+body.betsala-theme .security-visual,
+body.betsala-theme .process-image,
+body.betsala-theme .slot-feature-image,
+body.betsala-theme .promo-image-card,
+body.betsala-theme .app-device-image,
+body.betsala-theme .app-games-image {
+    position: relative;
+    inset: auto;
+    width: 100%;
+    min-height: 0;
+    height: auto;
+    max-height: none;
+    overflow: hidden;
+}
+body.betsala-theme :is(
+    .betsala-game-image,
+    .feature-card--image,
+    .showcase-image,
+    .sports-visual,
+    .payments-image,
+    .registration-visual,
+    .security-visual,
+    .process-image,
+    .slot-feature-image,
+    .promo-image-card,
+    .app-device-image,
+    .app-games-image,
+    .betsala-split-media
+) > img {
+    position: static;
+    inset: auto;
+    display: block;
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    max-width: 100%;
+    max-height: none;
+    object-fit: contain;
+    object-position: center;
+    margin: 0 auto;
+}
+body.betsala-theme .registration-visual::after { display: none; }
+body.betsala-theme .sports-visual > .sports-visual-overlay { display: none; }
+body.betsala-theme .betsala-game-card.no-image .betsala-game-body { padding-top: 24px; }
+body.betsala-theme .betsala-game-badge--inline { position: static; display: inline-flex; width: max-content; margin-bottom: 12px; }
+body.betsala-theme .feature-card--image { padding: 0; display: block; }
+
+/* true backgrounds remain cover */
+body.betsala-theme .betsala-hero .hero-bg-image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+body.betsala-theme .mega-bonus.has-background-image::before,
+body.betsala-theme .feature-card--media { background-size: cover; background-position: center; }
+
+/* ---------- shared split layout ---------- */
+body.betsala-theme .betsala-split-layout { align-items: stretch; }
+/* Sports: the visual is a plain photo, not a background mockup — the block
+   must hug the image height instead of stretching to match the copy column. */
+body.betsala-theme .betsala-sports .betsala-split-layout { align-items: center; }
+body.betsala-theme .betsala-split-content,
+body.betsala-theme .betsala-split-media { min-width: 0; box-sizing: border-box; }
+body.betsala-theme .betsala-split-media {
+    min-height: 0;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+body.betsala-theme .betsala-split-media .phone-device {
+    display: block;
+    width: min(78%,460px);
+    height: auto;
+    max-height: none;
+    object-fit: contain;
+    object-position: center;
+    margin: auto;
+}
+body.betsala-theme .mobile-visual,
+body.betsala-theme .mobile-phone-stage { min-height: 0; height: auto; }
+
+/* ---------- FAQ ---------- */
+body.betsala-theme .betsala-faq,
+body.betsala-theme .faq-section { background: #0d1021; color: var(--text); font-family: inherit; }
+body.betsala-theme .betsala-faq .faq-item,
+body.betsala-theme .faq-section .faq-item { background: #151936; border-color: var(--line); box-shadow: none; }
+body.betsala-theme .faq-item button { color: var(--text); font-family: inherit; }
+body.betsala-theme .faq-item button b { background: rgba(255,47,104,.12); color: var(--accent); }
+body.betsala-theme .faq-answer,
+body.betsala-theme .faq-answer > p { color: var(--muted); font-family: inherit; }
+
+/* ---------- footer: reference structure, BetSala palette ---------- */
+body.betsala-theme .site-footer { padding: 72px 0 28px; background: #080a16; color: var(--text); border-top: 1px solid var(--line); font-family: inherit; }
+body.betsala-theme .footer-top-two-menus { display: grid; grid-template-columns: 1.2fr 1.5fr; gap: 86px; align-items: start; }
+body.betsala-theme .footer-brand-column p { max-width: 450px; margin: 24px 0 0; color: var(--muted); font-size: 15px; line-height: 1.65; }
+body.betsala-theme .footer-menu-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:clamp(32px,5vw,76px); }
+body.betsala-theme .footer-menu-grid.footer-menu-grid--3 { grid-template-columns:repeat(3,minmax(0,1fr)); gap:clamp(24px,3.5vw,52px); }
+body.betsala-theme .footer-menu-column .footer-menu-heading { margin: 0 0 20px; color: var(--text); font-size: 16px; font-weight: 850; }
+body.betsala-theme .footer-menu { list-style: none; padding: 0; margin: 0; }
+body.betsala-theme .footer-menu li { margin: 0 0 13px; }
+body.betsala-theme .footer-menu a { color: var(--muted); font-size: 15px; transition: color .2s ease; }
+body.betsala-theme .footer-menu a:hover { color: var(--accent); }
+body.betsala-theme .footer-payment-pills { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 58px; }
+body.betsala-theme .footer-payment-pills span,
+body.betsala-theme .footer-responsible-badge { border: 1px solid var(--line); background: var(--surface-soft); color: var(--muted); }
+body.betsala-theme .footer-payment-pills span { display: inline-flex; align-items: center; min-height: 40px; padding: 0 15px; border-radius: 9px; font-size: 14px; }
+body.betsala-theme .footer-divider { height: 1px; margin: 36px 0 25px; background: var(--line); }
+body.betsala-theme .footer-bottom { padding:0; display:flex; align-items:center; justify-content:space-between; gap:24px; color:var(--muted-2); font-size:14px; }
+body.betsala-theme .footer-responsible-badge { display:flex; align-items:center; gap:9px; min-height:40px; padding:0 15px; border-radius:9px; width:auto; }
+body.betsala-theme .footer-responsible-badge strong { color: var(--accent); font-size: 16px; }
+body.betsala-theme .footer-responsible-badge span,
+body.betsala-theme .footer-copyright { color: var(--muted-2); }
+
+/* ---------- mobile ---------- */
+@media (max-width: 920px) {
+    body.betsala-theme .betsala-split-layout,
+    body.betsala-theme .payments-layout,
+    body.betsala-theme .sportsbook-grid,
+    body.betsala-theme .media-cards-layout,
+    body.betsala-theme .mobile-grid,
+    body.betsala-theme .registration-shell,
+    body.betsala-theme .security-grid { grid-template-columns: minmax(0,1fr); align-items: start; }
+    body.betsala-theme .betsala-split-media,
+    body.betsala-theme .betsala-split-content { width: 100%; height: auto; min-height: 0; }
+    body.betsala-theme .games-grid,
+    body.betsala-theme .showcase-panel,
+    body.betsala-theme .tiles-grid,
+    body.betsala-theme .sport-category-grid,
+    body.betsala-theme .payment-benefits { grid-template-columns: 1fr; }
+    body.betsala-theme .registration-steps { width: 100%; grid-template-columns: 1fr; gap: 18px; }
+    body.betsala-theme .registration-steps::before { display: none; }
+    body.betsala-theme .registration-bottom { width: 100%; flex-direction: column; align-items: stretch; }
+    body.betsala-theme .payment-logos { grid-template-columns: repeat(2,minmax(0,1fr)); }
+    body.betsala-theme .mobile-platforms { grid-template-columns: 1fr 1fr; }
+
+    body.betsala-theme .betsala-bonus .bonus-layout { grid-template-columns: 1fr; gap: 16px; }
+    body.betsala-theme .betsala-bonus .mega-bonus { min-height: 0; padding: 28px; }
+    body.betsala-theme .betsala-bonus .mini-promos { grid-template-columns: 1fr; }
+    body.betsala-theme .betsala-bonus .mini-promos article { min-height: 0; grid-template-columns: 44px minmax(0,1fr) auto; padding: 20px; }
+
+    body.betsala-theme .wp-block-media-text { grid-template-columns: minmax(0,1fr); grid-template-areas:'media' 'content'; }
+    body.betsala-theme .wp-block-media-text .wp-block-media-text__media { grid-area: media; width: 100%; }
+    body.betsala-theme .wp-block-media-text .wp-block-media-text__content { grid-area: content; width: 100%; padding: 28px 24px 32px; }
+    body.betsala-theme .wp-block-media-text .wp-block-media-text__media img { display: block; width: 100%; height: auto; object-fit: contain; }
+
+    body.betsala-theme .footer-top-two-menus { grid-template-columns: 1fr; gap: 42px; }
+    body.betsala-theme .footer-menu-grid { gap: 40px; }
+    body.betsala-theme .footer-payment-pills { margin-top: 38px; }
+}
+@media (max-width: 600px) {
+    body.betsala-theme .betsala-bonus .mini-promos article { grid-template-columns: 40px minmax(0,1fr); }
+    body.betsala-theme .betsala-bonus .mini-promos article > b { grid-column: 2; }
+    body.betsala-theme .footer-menu-grid { grid-template-columns: 1fr 1fr; gap: 24px; }
+    body.betsala-theme .footer-bottom { flex-direction: column; align-items: flex-start; }
+    body.betsala-theme .footer-responsible-badge { width: 100%; justify-content: flex-start; }
+}
+@media (max-width: 782px) { body.admin-bar.betsala-theme { --betsala-adminbar-offset: 46px; } }
+
+@media (prefers-reduced-motion: reduce) {
+    html body *, html body *::before, html body *::after {
+        animation-duration: .01ms;
+        animation-iteration-count: 1;
+        transition-duration: .01ms;
+        scroll-behavior: auto;
+    }
+}
+
+
+/* ==========================================================================
+   BETSALA v6.0.5 — content builder contract
+   ========================================================================== */
+
+/* Header and responsive navigation. */
+body.betsala-theme .mobile-nav-footer { display:none; }
+@media (min-width: 921px) {
+    body.betsala-theme.header-layout-top .main-nav-list { display:flex; align-items:center; flex-wrap:nowrap; gap:20px; }
+    body.betsala-theme.header-layout-top .main-nav-list a,
+    body.betsala-theme.header-layout-top .header-actions .btn { white-space:nowrap; line-height:1.25; }
+}
+
+/* One site grid for all custom and native blocks. */
+body.betsala-theme .betsala-block > .container,
+body.betsala-theme .site-main > :not(.betsala-block) {
+    width:min(calc(100% - 40px),var(--container));
+    max-width:var(--container);
+    margin-left:auto;
+    margin-right:auto;
+    box-sizing:border-box;
+}
+body.betsala-theme .site-main > :not(.betsala-block).alignwide,
+body.betsala-theme .site-main > :not(.betsala-block).alignfull {
+    width:min(calc(100% - 40px),var(--container));
+    max-width:var(--container);
+    margin-inline:auto;
+}
+body.betsala-theme .site-main > :not(.betsala-block) :where(.alignwide,.alignfull) { max-width:100%; margin-inline:auto; }
+body.betsala-theme .site-main :where(.wp-block-group__inner-container,.wp-block-cover__inner-container,.wp-block-column) { min-width:0; max-width:100%; box-sizing:border-box; }
+
+/* Native text blocks have a readable hard boundary while sharing the custom-block left edge. */
+body.betsala-theme .site-main > :is(.wp-block-heading,p,ul,ol,blockquote,.wp-block-list,.wp-block-quote,.wp-block-pullquote,.wp-block-details,.wp-block-code,.wp-block-preformatted) {
+    width:min(calc(100% - 40px),820px);
+    max-width:820px;
+    margin-left:max(20px,calc((100% - var(--container))/2));
+    margin-right:auto;
+    box-sizing:border-box;
+    overflow-wrap:anywhere;
+}
+body.betsala-theme .site-main > .wp-block-heading { margin-top:clamp(28px,4vw,54px); margin-bottom:18px; }
+body.betsala-theme .site-main > p { margin-top:0; margin-bottom:18px; }
+body.betsala-theme .site-main > .wp-block-table { overflow-x:auto; }
+
+/* H2-H6 gradient: custom fields use .text-gradient; native headings can use Gutenberg <mark>. */
+body.betsala-theme :is(h2,h3,h4,h5,h6) .text-gradient,
+body.betsala-theme .wp-block-heading mark {
+    background:linear-gradient(90deg,#ffd4e1 0%,#ff5f9e 52%,#b879ff 100%);
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+    -webkit-text-fill-color:transparent;
+    padding:0;
+}
+
+/* Reusable media + text structure for custom blocks. */
+body.betsala-theme .split-intro {
+    display:grid;
+    grid-template-columns:minmax(280px,580px) minmax(0,1fr);
+    align-items:center;
+    gap:clamp(28px,4vw,58px);
+    width:100%;
+    min-width:0;
+}
+body.betsala-theme .split-intro.image-right { grid-template-columns:minmax(0,1fr) minmax(280px,580px); }
+body.betsala-theme .split-intro.image-right .split-intro-media { order:2; }
+body.betsala-theme .split-intro.image-right .split-intro-copy { order:1; }
+body.betsala-theme .split-intro.no-image { grid-template-columns:minmax(0,820px); }
+body.betsala-theme .split-intro-media { min-width:0; display:flex; align-items:center; justify-content:center; overflow:hidden; border-radius:22px; }
+body.betsala-theme .split-intro-media img { display:block; width:100%; height:auto; max-width:580px; max-height:600px; object-fit:cover; object-position:center; }
+body.betsala-theme .split-intro-copy { min-width:0; width:100%; max-width:100%; align-self:center; overflow-wrap:anywhere; }
+body.betsala-theme .split-intro-copy .source-copy { max-width:100%; }
+body.betsala-theme .split-intro-cta { display:flex; margin-top:24px; }
+body.betsala-theme .split-intro-cta.align-left { justify-content:flex-start; }
+body.betsala-theme .split-intro-cta.align-center { justify-content:center; }
+body.betsala-theme .split-intro-cta.align-right { justify-content:flex-end; }
+body.betsala-theme .split-intro-cta.align-full { width:100%; }
+body.betsala-theme .split-intro-cta.align-full .btn { width:100%; }
+
+/* Core Media & Text follows the same dynamic/max-size rules. */
+body.betsala-theme .site-main > .wp-block-media-text {
+    display:grid;
+    grid-template-columns:minmax(280px,580px) minmax(0,1fr);
+    gap:clamp(28px,4vw,58px);
+    align-items:center;
+    overflow:hidden;
+}
+body.betsala-theme .site-main > .wp-block-media-text.has-media-on-the-right { grid-template-columns:minmax(0,1fr) minmax(280px,580px); }
+body.betsala-theme .wp-block-media-text__media { min-width:0; display:flex; align-items:center; justify-content:center; overflow:hidden; }
+body.betsala-theme .wp-block-media-text__media img { display:block; width:100%; height:auto; max-width:580px; max-height:600px; object-fit:cover; object-position:center; }
+body.betsala-theme .wp-block-media-text__content { min-width:0; width:100%; max-width:650px; padding:clamp(18px,2.6vw,36px) 0; overflow-wrap:anywhere; }
+body.betsala-theme .wp-block-media-text__content > * { max-width:100%; }
+
+/* Heading glyph breathing room. */
+body.betsala-theme .betsala-hero h1 { padding:.16em .09em .20em; margin-top:0; margin-left:-.09em; max-width:100%; line-height:1.12; overflow:visible; }
+body.betsala-theme .betsala-section-title { padding:.13em .08em .17em; margin-left:-.08em; max-width:100%; line-height:1.22; overflow:visible; }
+
+/* Hero informational row: never clickable. */
+body.betsala-theme .betsala-hero { min-height:0; padding:clamp(64px,7vw,92px) 0 clamp(42px,5vw,64px); }
+body.betsala-theme .betsala-hero .hero-layout { display:block; width:min(calc(100% - 40px),var(--container)); max-width:var(--container); margin-inline:auto; }
+body.betsala-theme .betsala-hero .hero-copy { width:min(100%,760px); max-width:760px; }
+body.betsala-theme .betsala-hero .hero-info-grid {
+    position:relative; z-index:2; display:grid; grid-template-columns:repeat(4,minmax(0,1fr));
+    width:min(calc(100% - 40px),var(--container)); max-width:var(--container); margin:clamp(38px,5vw,56px) auto 0; padding:24px 0 0; border-top:1px solid rgba(255,255,255,.16);
+}
+body.betsala-theme .betsala-hero .hero-info-card { min-width:0; padding:0 clamp(18px,2.5vw,34px); border:0; border-left:1px solid rgba(255,255,255,.11); border-radius:0; background:transparent; box-shadow:none; cursor:default; pointer-events:none; }
+body.betsala-theme .betsala-hero .hero-info-card:first-child { padding-left:0; border-left:0; }
+body.betsala-theme .betsala-hero .hero-info-card:last-child { padding-right:0; }
+body.betsala-theme .hero-info-value { display:block; margin:0; color:var(--accent); font-size:clamp(26px,2.6vw,36px); line-height:1; font-weight:900; }
+body.betsala-theme .hero-info-card__title { display:block; margin-top:7px; color:#fff; font-size:14px; font-weight:800; }
+body.betsala-theme .hero-info-card p { margin:5px 0 0; color:#9ca2bc; font-size:12px; line-height:1.45; }
+
+/* Media + Cards: media/text first, cards always below. Empty number/title/text creates no placeholder. */
+body.betsala-theme .betsala-media-cards .media-cards-grid { display:grid; align-items:stretch; gap:14px; margin-top:clamp(28px,4vw,48px); }
+body.betsala-theme .betsala-media-cards .media-cards-grid.cards-1 { grid-template-columns:1fr; }
+body.betsala-theme .betsala-media-cards .media-cards-grid.cards-2 { grid-template-columns:repeat(2,minmax(0,1fr)); }
+body.betsala-theme .betsala-media-cards .media-cards-grid.cards-3 { grid-template-columns:repeat(3,minmax(0,1fr)); }
+body.betsala-theme .betsala-media-cards .media-cards-grid.cards-4 { grid-template-columns:repeat(4,minmax(0,1fr)); }
+body.betsala-theme .betsala-media-cards .media-cards-grid.cards-5,
+body.betsala-theme .betsala-media-cards .media-cards-grid.cards-6 { grid-template-columns:repeat(3,minmax(0,1fr)); }
+body.betsala-theme .feature-card { display:flex; flex-direction:column; min-height:0; height:auto; }
+body.betsala-theme .feature-card-copy { display:flex; flex-direction:column; min-width:0; }
+body.betsala-theme .feature-card-cta { display:flex; justify-content:center; width:100%; margin-top:16px; }
+body.betsala-theme .feature-card-cta.align-left { justify-content:flex-start; }
+body.betsala-theme .feature-card-cta.align-center { justify-content:center; }
+body.betsala-theme .feature-card-cta.align-right { justify-content:flex-end; }
+body.betsala-theme .feature-card-cta.align-full .btn { width:100%; }
+body.betsala-theme .feature-card.no-index .feature-card-copy { padding-top:0; }
+
+/* Games: optional top image/text; game cards remain below. */
+body.betsala-theme .games-intro { margin-bottom:clamp(28px,4vw,48px); }
+body.betsala-theme .games-grid { display:grid; align-items:stretch; grid-template-columns:repeat(var(--game-cols,4),minmax(0,1fr)); gap:14px; }
+body.betsala-theme .betsala-game-card { position:relative; display:flex; flex-direction:column; height:auto; min-height:0; min-width:0; overflow:hidden; transition:transform .22s ease,border-color .22s ease,box-shadow .22s ease; }
+body.betsala-theme .betsala-game-card.has-background { background-image:var(--game-card-bg); background-position:center; background-size:cover; }
+body.betsala-theme .game-card-overlay { position:absolute; inset:0; z-index:0; background:linear-gradient(180deg,rgba(8,10,22,.42),rgba(8,10,22,.93)); pointer-events:none; }
+body.betsala-theme .betsala-game-image,
+body.betsala-theme .betsala-game-body { position:relative; z-index:1; }
+body.betsala-theme .betsala-game-image { width:100%; aspect-ratio:1/1; overflow:hidden; background:#11152b; }
+body.betsala-theme .betsala-game-image > img { display:block; width:100%; height:100%; object-fit:cover; object-position:center; }
+body.betsala-theme .betsala-game-body { display:flex; flex-direction:column; min-width:0; }
+body.betsala-theme .betsala-game-card.no-image .betsala-game-body { flex:1; justify-content:center; }
+body.betsala-theme .betsala-game-card.text-align-center .betsala-game-body { text-align:center; align-items:center; }
+body.betsala-theme .betsala-game-card.text-align-right .betsala-game-body { text-align:right; align-items:flex-end; }
+body.betsala-theme .betsala-game-card.text-align-center .betsala-game-meta,
+body.betsala-theme .betsala-game-card.text-align-right .betsala-game-meta { width:100%; }
+body.betsala-theme .betsala-game-card.text-align-center .betsala-game-meta { justify-content:center; }
+body.betsala-theme .betsala-game-card.text-align-right .betsala-game-meta { justify-content:flex-end; }
+body.betsala-theme .betsala-game-cta { margin-top:16px; padding-top:0; }
+body.betsala-theme .betsala-game-cta .btn { width:min(100%,260px); }
+
+/* Bonus cards: images optional; when present they are square. */
+body.betsala-theme .bonus-layout { display:grid; align-items:start; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:18px; }
+body.betsala-theme .mega-bonus { display:flex; min-width:0; }
+body.betsala-theme .mega-bonus-content { position:relative; z-index:2; width:100%; min-width:0; display:flex; flex-direction:column; justify-content:center; }
+body.betsala-theme .mega-bonus.vertical-align-top .mega-bonus-content { justify-content:flex-start; }
+body.betsala-theme .mega-bonus.vertical-align-bottom .mega-bonus-content { justify-content:flex-end; }
+body.betsala-theme .mega-bonus.text-align-center,
+body.betsala-theme .bonus-promo-card.text-align-center { text-align:center; }
+body.betsala-theme .mega-bonus.text-align-right,
+body.betsala-theme .bonus-promo-card.text-align-right { text-align:right; }
+body.betsala-theme .mega-bonus.text-align-center .bonus-value { align-items:center; }
+body.betsala-theme .mega-bonus.text-align-right .bonus-value { align-items:flex-end; }
+body.betsala-theme .mega-bonus.text-align-center p { margin-left:auto; margin-right:auto; }
+body.betsala-theme .mega-bonus.text-align-right p { margin-left:auto; }
+body.betsala-theme .bonus-main-cta { display:flex; margin-top:12px; }
+body.betsala-theme .bonus-main-cta.align-left { justify-content:flex-start; }
+body.betsala-theme .bonus-main-cta.align-center { justify-content:center; }
+body.betsala-theme .bonus-main-cta.align-right { justify-content:flex-end; }
+body.betsala-theme .bonus-main-cta.align-full .btn { width:100%; }
+body.betsala-theme .mini-promos { display:grid; align-items:start; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; }
+body.betsala-theme .mini-promos .bonus-promo-card {
+    display:flex; flex-direction:column; align-items:stretch; justify-content:center;
+    min-width:0; aspect-ratio:1/1; padding:18px; gap:10px; overflow:hidden;
+    border-radius:22px; border:1px solid var(--line);
+    background:linear-gradient(150deg, rgba(255,255,255,.06), rgba(255,255,255,.025));
+    transition:transform .22s ease, border-color .22s ease;
+}
+body.betsala-theme .mini-promos .bonus-promo-card:hover { transform:translateY(-4px); border-color:rgba(255,47,104,.45); }
+body.betsala-theme .bonus-promo-card.text-align-center { align-items:center; }
+body.betsala-theme .bonus-promo-card.text-align-right { align-items:flex-end; }
+body.betsala-theme .bonus-promo-image { width:100%; flex:1; min-height:0; overflow:hidden; border-radius:14px; background:#11152b; }
+body.betsala-theme .bonus-promo-image img { display:block; width:100%; height:100%; object-fit:cover; object-position:center; }
+body.betsala-theme .bonus-promo-card.image-only .bonus-promo-image { flex:1; width:100%; margin:0; }
+body.betsala-theme .bonus-promo-label { color:#ff6d97; font-size:12px; font-weight:1000; }
+body.betsala-theme .bonus-promo-copy { min-width:0; width:100%; }
+body.betsala-theme .bonus-promo-value { margin-top:8px; color:#ff6d97; }
+body.betsala-theme .responsible-note { min-width:0; }
+body.betsala-theme .responsible-note p { min-width:0; overflow-wrap:anywhere; }
+
+/* Payments: top media/text, then 1/2-row cards, then 4-6 payment methods, then note. */
+body.betsala-theme .betsala-payments { position:relative; isolation:isolate; }
+body.betsala-theme .betsala-payments.has-section-background { background-image:var(--payments-section-bg); background-size:cover; background-position:center; }
+body.betsala-theme .payments-section-overlay { position:absolute; inset:0; z-index:0; background:linear-gradient(180deg,rgba(8,10,22,.76),rgba(8,10,22,.92)); pointer-events:none; }
+body.betsala-theme .betsala-payments > .container { position:relative; z-index:1; }
+body.betsala-theme .payments-intro { margin-bottom:clamp(28px,4vw,48px); }
+body.betsala-theme .payment-benefits { display:grid; align-items:stretch; grid-template-columns:repeat(var(--payment-benefit-cols,3),minmax(0,1fr)); gap:12px; margin-bottom:18px; }
+body.betsala-theme .payment-benefits article { min-height:0; height:auto; padding:18px; border-radius:18px; background:linear-gradient(150deg,rgba(255,255,255,.06),rgba(255,255,255,.025)); border:1px solid var(--line); display:flex; flex-direction:column; align-items:flex-start; }
+body.betsala-theme .payment-benefit-mark { width:auto; min-width:38px; min-height:34px; display:grid; place-items:center; margin:0 0 12px; padding:0 9px; border-radius:10px; background:rgba(255,47,104,.10); color:#ff769b; font-size:12px; font-weight:900; }
+body.betsala-theme .payment-benefit-copy { min-width:0; margin-top:0; }
+body.betsala-theme .payment-benefit-copy p { margin:6px 0 0; }
+body.betsala-theme .payment-logos { width:100%; display:grid; grid-template-columns:repeat(auto-fit,minmax(80px,1fr)); align-items:stretch; gap:10px; margin-top:10px; }
+body.betsala-theme .payment-logo-button { width:100%; min-width:0; min-height:106px; display:flex; align-items:center; justify-content:center; padding:8px; border-radius:12px; background:rgba(255,255,255,.035); border:1px solid var(--line); overflow:hidden; }
+body.betsala-theme .payment-logo-button img { display:block; width:100%; max-width:100%; height:90px; max-height:90px; object-fit:cover; object-position:center; border-radius:8px; }
+body.betsala-theme .payment-logo-button > span { width:100%; font-size:12px; line-height:1.2; text-align:center; overflow-wrap:anywhere; }
+body.betsala-theme .payment-note { width:100%; margin-top:14px; }
+
+/* Mobile block target layout. */
+body.betsala-theme .betsala-mobile { position:relative; isolation:isolate; }
+body.betsala-theme .betsala-mobile.has-section-background { background-image:var(--mobile-section-bg); background-size:cover; background-position:center; }
+body.betsala-theme .mobile-section-overlay { position:absolute; inset:0; z-index:0; background:linear-gradient(180deg,rgba(8,10,22,.72),rgba(8,10,22,.90)); pointer-events:none; }
+body.betsala-theme .betsala-mobile > .container { position:relative; z-index:1; }
+body.betsala-theme .mobile-grid { display:grid; grid-template-columns:minmax(0,1.15fr) minmax(300px,.85fr); align-items:center; gap:clamp(40px,6vw,82px); }
+body.betsala-theme .mobile-grid.image-left .mobile-visual { order:1; }
+body.betsala-theme .mobile-grid.image-left .mobile-copy { order:2; }
+body.betsala-theme .mobile-grid.image-right .mobile-copy { order:1; }
+body.betsala-theme .mobile-grid.image-right .mobile-visual { order:2; }
+body.betsala-theme .mobile-grid.no-phone { grid-template-columns:minmax(0,820px); }
+body.betsala-theme .mobile-features { margin:30px 0 22px; display:grid; align-items:stretch; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; }
+body.betsala-theme .mobile-features article { min-height:0; height:auto; display:flex; gap:12px; align-items:flex-start; padding:16px; border-radius:16px; background:linear-gradient(145deg,rgba(57,21,72,.92),rgba(31,18,61,.94)); border:1px solid rgba(255,47,104,.42); }
+body.betsala-theme .mobile-features article.no-mark { display:block; }
+body.betsala-theme .mobile-feature-mark { flex:0 0 auto; min-width:34px; height:34px; display:grid; place-items:center; padding:0 8px; border-radius:9px; background:rgba(255,47,104,.12); color:#ff759a; font-size:10px; font-weight:1000; }
+body.betsala-theme .mobile-feature-copy { min-width:0; }
+body.betsala-theme .mobile-feature-copy p { margin:5px 0 0; }
+body.betsala-theme .mobile-main-cta { display:flex; margin-top:22px; }
+body.betsala-theme .mobile-main-cta.align-left { justify-content:flex-start; }
+body.betsala-theme .mobile-main-cta.align-center { justify-content:center; }
+body.betsala-theme .mobile-main-cta.align-right { justify-content:flex-end; }
+body.betsala-theme .mobile-main-cta.align-full .btn { width:100%; }
+body.betsala-theme .mobile-phone-stage { width:100%; min-height:0; height:auto; padding:0; border:0; background:var(--phone-bg,none) center/contain no-repeat; overflow:visible; }
+body.betsala-theme .mobile-phone-art-img { display:block; width:min(100%,390px); height:auto; max-height:650px; margin:0 auto; object-fit:contain; }
+body.betsala-theme .mobile-platforms { width:100%; display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; margin-top:16px; }
+body.betsala-theme .platform-button { min-width:0; min-height:64px; display:flex; align-items:center; justify-content:center; gap:12px; padding:10px 16px; border:1px solid var(--accent); border-radius:14px; background:rgba(18,14,48,.72); color:#fff; transition:transform .2s ease,box-shadow .2s ease,background .2s ease; }
+body.betsala-theme .platform-button.is-active { background:linear-gradient(135deg,var(--accent),#ed1558); box-shadow:0 12px 28px rgba(255,47,104,.22); }
+body.betsala-theme .platform-button:focus-visible { outline:2px solid #fff; outline-offset:2px; background:linear-gradient(135deg,var(--accent),#ed1558); }
+body.betsala-theme .platform-button-icon { flex:0 0 24px; width:24px; height:24px; display:grid; place-items:center; }
+body.betsala-theme .platform-button-icon svg { width:22px; height:22px; display:block; }
+body.betsala-theme .platform-button-copy { min-width:0; display:flex; flex-direction:column; align-items:flex-start; line-height:1.08; }
+body.betsala-theme .platform-button-copy strong { font-size:16px; }
+body.betsala-theme .platform-button-copy small { margin-top:3px; font-size:9px; font-weight:800; letter-spacing:.04em; opacity:.86; }
+
+/* Registration: top media/text, then steps. Step images are background only. */
+body.betsala-theme .registration-intro { margin-bottom:clamp(30px,4vw,50px); }
+body.betsala-theme .registration-steps { position:relative; width:100%; display:grid; align-items:stretch; grid-template-columns:repeat(var(--steps-count,4),minmax(0,1fr)); gap:14px; }
+body.betsala-theme .registration-steps::before { display:none; }
+body.betsala-theme .registration-step { position:relative; min-height:0; height:auto; padding:20px; overflow:hidden; border:1px solid var(--line); border-radius:18px; background:linear-gradient(145deg,rgba(255,47,104,.05),rgba(255,255,255,.025)); }
+body.betsala-theme .registration-step.has-background { background-image:var(--step-bg); background-position:center; background-size:cover; }
+body.betsala-theme .registration-step-overlay { position:absolute; inset:0; width:auto; height:auto; display:block; border:0; border-radius:0; box-shadow:none; background:linear-gradient(180deg,rgba(8,10,22,.40),rgba(8,10,22,.90)); }
+body.betsala-theme .registration-step-content { position:relative; z-index:1; min-height:0; display:flex; flex-direction:column; align-items:flex-start; }
+body.betsala-theme .registration-step-number { width:auto; min-width:40px; height:34px; display:grid; place-items:center; margin:0 0 14px; padding:0 9px; border-radius:10px; background:#191e3f; border:1px solid rgba(255,47,104,.32); color:#ff7499; font-size:11px; font-weight:1000; }
+body.betsala-theme .registration-step.no-number .betsala-item-title { margin-top:0; }
+body.betsala-theme .registration-step .betsala-item-title { margin-top:0; }
+body.betsala-theme .registration-bottom { width:100%; margin-top:22px; }
+
+/* Tiles: top media/text, then cards. Card image is background only; no empty number badge. */
+body.betsala-theme .tiles-intro { margin-bottom:clamp(28px,4vw,48px); }
+body.betsala-theme .tiles-grid { display:grid; align-items:stretch; grid-template-columns:repeat(var(--tiles-cols,4),minmax(0,1fr)); gap:14px; }
+body.betsala-theme .tile-card { position:relative; min-height:0; height:auto; padding:20px; overflow:hidden; border-radius:18px; border:1px solid var(--line); background:linear-gradient(145deg,rgba(255,47,104,.06),rgba(255,255,255,.02)); transition:transform .22s ease,border-color .22s ease,box-shadow .22s ease; }
+body.betsala-theme .tile-card.has-background { background-image:var(--tile-bg); background-position:center; background-size:cover; }
+body.betsala-theme .tile-card-overlay { position:absolute; inset:0; background:linear-gradient(180deg,rgba(8,10,22,.38),rgba(8,10,22,.92)); }
+body.betsala-theme .tile-card-content { position:relative; z-index:1; min-height:0; display:flex; flex-direction:column; align-items:flex-start; }
+body.betsala-theme .tile-icon { width:auto; min-width:42px; height:36px; display:grid; place-items:center; padding:0 10px; margin:0 0 14px; border-radius:10px; background:rgba(255,47,104,.13); color:#ff769b; }
+body.betsala-theme .tile-card.no-mark .betsala-item-title { margin-top:0; }
+body.betsala-theme .tile-card .betsala-item-title { margin-top:0; }
+body.betsala-theme .tile-card p { margin:6px 0 0; }
+body.betsala-theme .tile-card-cta { display:flex; justify-content:center; width:100%; margin-top:16px; }
+
+/* Sports: compact highlighted cards with the same CTA alignment controls as Bonus. */
+body.betsala-theme .sport-category-grid { display:grid; align-items:stretch; grid-template-columns:minmax(0,1fr); gap:12px; margin-top:24px; }
+body.betsala-theme .sport-category-grid article { min-width:0; min-height:0; height:auto; padding:16px; border:1px solid var(--line); border-radius:16px; background:linear-gradient(145deg,rgba(255,255,255,.055),rgba(255,255,255,.022)); transition:transform .22s ease,border-color .22s ease,box-shadow .22s ease; }
+body.betsala-theme .sport-category-mark { display:inline-grid; place-items:center; min-width:30px; min-height:30px; margin-bottom:10px; color:#ff759a; font-size:13px; font-weight:900; }
+body.betsala-theme .sport-category-mark img { width:30px; height:30px; object-fit:contain; }
+body.betsala-theme .sport-category-grid small { display:block; margin-top:5px; color:var(--muted); line-height:1.45; }
+body.betsala-theme .sports-main-cta { display:flex; margin-top:20px; }
+body.betsala-theme .sports-main-cta.align-left { justify-content:flex-start; }
+body.betsala-theme .sports-main-cta.align-center { justify-content:center; }
+body.betsala-theme .sports-main-cta.align-right { justify-content:flex-end; }
+body.betsala-theme .sports-main-cta.align-full .btn { width:100%; }
+
+
+/* FAQ optional image uses the same split layout. */
+body.betsala-theme .faq-wrap { max-width:var(--container); }
+body.betsala-theme .faq-intro { margin-bottom:42px; }
+body.betsala-theme .faq-question-title { margin:0; padding:0; font:inherit; line-height:inherit; color:inherit; background:none; -webkit-text-fill-color:currentColor; }
+
+@media (min-width:921px) and (max-width:1240px) {
+    body.betsala-theme.header-layout-top .header-inner { gap:14px; }
+    body.betsala-theme.header-layout-top .main-nav-list { gap:13px; }
+    body.betsala-theme.header-layout-top .main-nav-list a { font-size:12.5px; }
+    body.betsala-theme.header-layout-top .header-actions { gap:7px; }
+    body.betsala-theme.header-layout-top .header-actions .btn { min-height:42px; padding-inline:14px; font-size:12.5px; }
+    body.betsala-theme .site-header .custom-logo { max-width:158px; }
+}
+
+@media (max-width:920px) {
+    body.betsala-theme .mobile-nav-footer { display:flex; }
+    body.betsala-theme .betsala-block > .container,
+    body.betsala-theme .site-main > :not(.betsala-block),
+    body.betsala-theme .site-main > :not(.betsala-block).alignwide,
+    body.betsala-theme .site-main > :not(.betsala-block).alignfull,
+    body.betsala-theme .betsala-hero .hero-layout,
+    body.betsala-theme .betsala-hero .hero-info-grid { width:min(calc(100% - 28px),var(--container)); }
+    body.betsala-theme .site-main > :is(.wp-block-heading,p,ul,ol,blockquote,.wp-block-list,.wp-block-quote,.wp-block-pullquote,.wp-block-details,.wp-block-code,.wp-block-preformatted) { width:calc(100% - 28px); max-width:820px; margin-left:14px; }
+
+    body.betsala-theme .split-intro,
+    body.betsala-theme .split-intro.image-right,
+    body.betsala-theme .site-main > .wp-block-media-text,
+    body.betsala-theme .site-main > .wp-block-media-text.has-media-on-the-right,
+    body.betsala-theme .mobile-grid { grid-template-columns:minmax(0,1fr); gap:24px; }
+    body.betsala-theme .split-intro.image-right .split-intro-media,
+    body.betsala-theme .split-intro.image-right .split-intro-copy,
+    body.betsala-theme .mobile-grid.image-left .mobile-visual,
+    body.betsala-theme .mobile-grid.image-left .mobile-copy,
+    body.betsala-theme .mobile-grid.image-right .mobile-copy,
+    body.betsala-theme .mobile-grid.image-right .mobile-visual { order:initial; }
+    body.betsala-theme .split-intro-media img,
+    body.betsala-theme .wp-block-media-text__media img { max-width:100%; max-height:520px; }
+    body.betsala-theme .split-intro-copy,
+    body.betsala-theme .wp-block-media-text__content { max-width:none; padding:18px 0 0; }
+    body.betsala-theme .betsala-hero .hero-info-grid { grid-template-columns:repeat(2,minmax(0,1fr)); row-gap:22px; }
+    body.betsala-theme .betsala-hero .hero-info-card:nth-child(odd) { padding-left:0; border-left:0; }
+    body.betsala-theme .betsala-hero .hero-info-card:nth-child(n+3) { padding-top:20px; border-top:1px solid rgba(255,255,255,.11); }
+    body.betsala-theme .betsala-media-cards .media-cards-grid.cards-3,
+    body.betsala-theme .betsala-media-cards .media-cards-grid.cards-4,
+    body.betsala-theme .betsala-media-cards .media-cards-grid.cards-5,
+    body.betsala-theme .betsala-media-cards .media-cards-grid.cards-6,
+    body.betsala-theme .games-grid,
+    body.betsala-theme .tiles-grid,
+    body.betsala-theme .registration-steps { grid-template-columns:repeat(2,minmax(0,1fr)); }
+    body.betsala-theme .payment-benefits { grid-template-columns:repeat(2,minmax(0,1fr)); }
+    body.betsala-theme .footer-menu-grid,
+    body.betsala-theme .footer-menu-grid.footer-menu-grid--3 { grid-template-columns:1fr; gap:30px; }
+    body.betsala-theme .bonus-layout { grid-template-columns:1fr; }
+    body.betsala-theme .mini-promos { grid-template-columns:repeat(2,minmax(0,1fr)); }
+    body.betsala-theme .mobile-phone-art-img { width:min(100%,340px); }
+}
+
+@media (max-width:600px) {
+    body.betsala-theme .betsala-media-cards .media-cards-grid,
+    body.betsala-theme .games-grid,
+    body.betsala-theme .tiles-grid,
+    body.betsala-theme .registration-steps,
+    body.betsala-theme .payment-benefits { grid-template-columns:minmax(0,1fr); }
+    body.betsala-theme .payment-logos { grid-template-columns:repeat(3,minmax(0,1fr)); gap:8px; }
+    body.betsala-theme .payment-logo-button { min-height:98px; padding:4px; }
+    body.betsala-theme .payment-logo-button img { width:100%; max-width:100%; height:90px; max-height:90px; object-fit:cover; object-position:center; }
+    body.betsala-theme .mini-promos { grid-template-columns:1fr; }
+    body.betsala-theme .mobile-platforms { grid-template-columns:1fr 1fr; }
+    body.betsala-theme .feature-card-cta,
+    body.betsala-theme .mobile-main-cta,
+    body.betsala-theme .sports-main-cta,
+    body.betsala-theme .split-intro-cta,
+    body.betsala-theme .registration-cta,
+    body.betsala-theme .bonus-main-cta { justify-content:center; }
+    body.betsala-theme .feature-card-cta .btn { margin-left:auto; margin-right:auto; }
+    body.betsala-theme .hero-info-grid { column-gap:18px; }
+    body.betsala-theme .hero-info-card { padding-left:0; padding-right:0; border-left:0; }
+}
+
+@media (max-width:420px) {
+    body.betsala-theme .mobile-platforms { grid-template-columns:repeat(2,minmax(0,1fr)); gap:8px; }
+    body.betsala-theme .platform-button { padding:9px 10px; gap:8px; }
+    body.betsala-theme .platform-button-copy strong { font-size:14px; }
+    body.betsala-theme .platform-button-copy small { font-size:8px; }
+}
+
+/* v6.0.5 compatibility resets for legacy base selectors. */
+body.betsala-theme .media-cards-primary .media-cards-media,
+body.betsala-theme .payments-intro .payments-image { min-height:0; height:auto; }
+body.betsala-theme .registration-intro .registration-visual { position:relative; right:auto; top:auto; width:auto; height:auto; }
+body.betsala-theme .registration-intro .registration-visual::after { display:none; content:none; }
+body.betsala-theme .registration-intro .registration-visual img { position:static; width:100%; height:auto; max-height:600px; object-fit:cover; }
+body.betsala-theme .mobile-visual { min-height:0; }
+body.betsala-theme .payment-logo-button > span { min-height:0; display:block; padding:0; border:0; border-radius:0; background:none; color:#d6d9e7; }
+body.betsala-theme .feature-card--media { background-image:linear-gradient(180deg,rgba(8,10,22,.28),rgba(8,10,22,.90)),var(--card-bg); background-size:cover; background-position:center; }
+body.betsala-theme .feature-card--image > img { display:block; width:100%; height:auto; max-height:420px; object-fit:cover; }
+
+
+
+@media (hover:hover) and (pointer:fine) {
+    body.betsala-theme .tile-card:hover,
+    body.betsala-theme .betsala-game-card:hover,
+    body.betsala-theme .sport-category-grid article:hover {
+        transform:translateY(-4px);
+        border-color:rgba(255,47,104,.56);
+        box-shadow:0 16px 34px rgba(0,0,0,.24),0 0 0 1px rgba(255,47,104,.08);
+    }
+    body.betsala-theme .platform-button:hover { transform:translateY(-2px); background:linear-gradient(135deg,var(--accent),#ed1558); box-shadow:0 12px 28px rgba(255,47,104,.24); }
+}
+
+/* ========================================================================== 
+   v6.0.11 — canonical mobile header/nav
+   One mobile geometry only. Desktop sidebar sticky/static settings do not apply.
+   ========================================================================== */
+:root {
+    --betsala-page-background:
+        radial-gradient(circle at 20% -10%, rgba(125,77,255,.18), transparent 30rem),
+        linear-gradient(180deg, #0a0c19 0%, #0c0e1d 100%);
+}
+body.betsala-theme { background: var(--betsala-page-background); }
+body.betsala-theme .mobile-section:not(.has-section-background),
+body.betsala-theme .betsala-mobile:not(.has-section-background) { background: transparent; }
+body.betsala-theme .mobile-section.betsala-mobile--alt:not(.has-section-background),
+body.betsala-theme .betsala-mobile.betsala-mobile--alt:not(.has-section-background) { background: #101329; }
+
+@media (max-width: 920px) {
+    /* Mobile header is pinned to the viewport itself; WP admin bar does not move it down. */
+    body.admin-bar.betsala-theme { --betsala-adminbar-offset: 0px; }
+
+    html { overflow-x: hidden; }
+    body.betsala-theme { overflow-x: hidden; }
+    @supports (overflow: clip) {
+        html, body.betsala-theme { overflow-x: clip; }
+    }
+
+    /* Mobile always uses a fixed top header. Desktop side/sticky/static state is ignored. */
+    body.betsala-theme .site-header {
+        position: fixed;
+        inset: 0 0 auto 0;
+        width: auto;
+        max-width: none;
+        height: var(--betsala-mobile-header);
+        min-height: var(--betsala-mobile-header);
+        margin: 0;
+        z-index: 100000;
+        overflow: visible;
+        background: #0b0d1d;
+        border: 0;
+        border-bottom: 1px solid rgba(255,255,255,.10);
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+        transform: none;
+        will-change: auto;
+    }
+
+    /* header.php uses ONE element with both classes: .container.header-inner. */
+    body.betsala-theme .site-header > .container.header-inner {
+        width: auto;
+        max-width: none;
+        height: 100%;
+        min-height: 0;
+        margin: 0;
+        padding: 0 max(14px, env(safe-area-inset-right)) 0 max(14px, env(safe-area-inset-left));
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+    }
+
+    body.betsala-theme .brand-wrap {
+        flex: 0 1 auto;
+        min-width: 0;
+        max-width: calc(100% - 58px);
+        display: flex;
+        align-items: center;
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        overflow: hidden;
+    }
+    body.betsala-theme .site-header .custom-logo {
+        display: block;
+        width: auto;
+        height: auto;
+        max-width: min(160px, 48vw);
+        max-height: 36px;
+        object-fit: contain;
+    }
+
+    /* Desktop action/sidebar controls never participate in mobile header geometry. */
+    body.betsala-theme .header-actions,
+    body.betsala-theme .sidebar-collapse-toggle,
+    body.betsala-theme .side-header-note { display: none; }
+
+    body.betsala-theme .menu-toggle {
+        display: block;
+        position: relative;
+        inset: auto;
+        flex: 0 0 44px;
+        width: 44px;
+        height: 44px;
+        margin: 0;
+        padding: 10px;
+        border: 1px solid rgba(255,255,255,.16);
+        border-radius: 12px;
+        background: var(--surface);
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        cursor: pointer;
+        z-index: 2;
+    }
+    body.betsala-theme .menu-toggle span {
+        position: absolute;
+        left: 11px;
+        right: 11px;
+        height: 2px;
+        margin: 0;
+        background: #fff;
+        border-radius: 10px;
+        transition: transform .24s ease, opacity .18s ease, top .24s ease;
+    }
+    body.betsala-theme .menu-toggle span:nth-child(1) { top: 14px; }
+    body.betsala-theme .menu-toggle span:nth-child(2) { top: 21px; }
+    body.betsala-theme .menu-toggle span:nth-child(3) { top: 28px; }
+    body.betsala-theme .menu-toggle[aria-expanded="true"] span:nth-child(1) { top: 21px; transform: rotate(45deg); }
+    body.betsala-theme .menu-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+    body.betsala-theme .menu-toggle[aria-expanded="true"] span:nth-child(3) { top: 21px; transform: rotate(-45deg); }
+
+    /* Off-canvas drawer: a fixed-width panel that slides in via transform (never via
+       left/width), so its layout box always stays within the viewport and cannot
+       increase document scrollWidth even while visually off-screen. */
+    body.betsala-theme .site-header .main-nav {
+        display: flex;
+        position: fixed;
+        top: var(--betsala-mobile-header);
+        left: auto;
+        right: 0;
+        bottom: 0;
+        width: 75vw;
+        max-width: 360px;
+        height: auto;
+        min-height: 0;
+        margin: 0;
+        padding: 26px max(20px, env(safe-area-inset-right)) calc(20px + env(safe-area-inset-bottom)) max(20px, env(safe-area-inset-left));
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        background: var(--betsala-page-background);
+        border: 0;
+        border-left: 1px solid var(--line);
+        border-radius: 0;
+        overflow-x: hidden;
+        overflow-y: auto;
+        overscroll-behavior: contain;
+        -webkit-overflow-scrolling: touch;
+        z-index: 9999;
+        transform: translateX(100%);
+        transition: transform .28s ease;
+    }
+    body.betsala-theme .site-header .main-nav.open { transform: translateX(0); }
+    @media (prefers-reduced-motion: reduce) {
+        body.betsala-theme .site-header .main-nav { transition: none; }
+    }
+
+    body.betsala-theme .main-nav-list {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+    body.betsala-theme .main-nav-list li { width: 100%; margin: 0; padding: 0; }
+    body.betsala-theme .main-nav-list a {
+        display: block;
+        width: 100%;
+        padding: 17px 12px;
+        border-bottom: 1px solid rgba(255,255,255,.055);
+        color: #bcb6d8;
+        font-size: 16px;
+        font-weight: 750;
+    }
+    body.betsala-theme .mobile-nav-footer {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        margin-top: auto;
+        padding-top: 30px;
+    }
+    body.betsala-theme .mobile-nav-cta,
+    body.betsala-theme .mobile-nav-login { width: 100%; min-height: 50px; }
+    body.betsala-theme .mobile-nav-responsible {
+        display: flex;
+        justify-content: center;
+        gap: 7px;
+        color: #8882aa;
+        font-size: 12px;
+    }
+
+    /* Fixed mobile header compensation; sidebar never shifts content on mobile. */
+    body.betsala-theme .site-main { padding-top: var(--betsala-mobile-header); min-height: 0; }
+    body.betsala-theme.header-layout-side-left .site-main,
+    body.betsala-theme.header-layout-side-left .site-footer,
+    body.betsala-theme.header-layout-side-left.sidebar-collapsed .site-main,
+    body.betsala-theme.header-layout-side-left.sidebar-collapsed .site-footer { margin-left: 0; }
+
+
+    body.betsala-theme .footer-menu-grid,
+    body.betsala-theme .footer-menu-grid.footer-menu-grid--3 { grid-template-columns:1fr; gap:28px; }
+    body.betsala-theme .footer-menu-column { width:100%; }
+    body.betsala-theme .footer-payment-pills { margin-top:34px; }
+    body.betsala-theme .footer-bottom { flex-direction:column; align-items:stretch; gap:14px; }
+    body.betsala-theme .footer-responsible-badge { width:100%; }
+    body.betsala-theme .mobile-main-cta,
+    body.betsala-theme .feature-card-cta,
+    body.betsala-theme .split-intro-cta,
+    body.betsala-theme .registration-cta,
+    body.betsala-theme .sports-main-cta { justify-content:center; }
+    body.betsala-theme .mobile-main-cta .btn,
+    body.betsala-theme .feature-card-cta .btn,
+    body.betsala-theme .sports-main-cta .btn { margin-left:auto; margin-right:auto; }
+    body.betsala-theme .mobile-platforms { justify-content:center; }
+    body.betsala-theme .platform-button { width:100%; }
+
+    html.betsala-menu-open,
+    body.betsala-theme.menu-open { overflow: hidden; }
+}
+
+@media (max-width: 782px) {
+    body.admin-bar.betsala-theme { --betsala-adminbar-offset: 0px; }
+}
+
+@media (max-width: 680px) {
+    :root { --betsala-mobile-header: 68px; }
+    body.betsala-theme .site-header > .container.header-inner {
+        padding-left: max(11px, env(safe-area-inset-left));
+        padding-right: max(11px, env(safe-area-inset-right));
+        gap: 10px;
+    }
+    body.betsala-theme .site-header .custom-logo { max-width: min(150px, 50vw); max-height: 34px; }
+    body.betsala-theme .menu-toggle { width: 42px; height: 42px; flex-basis: 42px; }
+}
+

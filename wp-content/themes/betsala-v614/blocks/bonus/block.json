@@ -1,0 +1,26 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "acf/betsala-bonus",
+  "title": "Бонусы",
+  "description": "Главный бонус и дополнительные промо; изображения промо необязательные и квадратные.",
+  "category": "betsala-blocks",
+  "icon": "tickets-alt",
+  "keywords": [
+    "betsala",
+    "bonus"
+  ],
+  "acf": {
+    "blockVersion": 3,
+    "renderTemplate": "render.php",
+    "renderPreview": false,
+    "hideFieldsInSidebar": true,
+    "expandedEditorButtonText": "Редактировать блок"
+  },
+  "supports": {
+    "anchor": true,
+    "align": false,
+    "html": false,
+    "jsx": false
+  }
+}

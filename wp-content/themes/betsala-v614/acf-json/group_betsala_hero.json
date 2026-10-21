@@ -1,0 +1,385 @@
+{
+  "key": "group_betsala_hero",
+  "title": "BetSala — Hero + информационные показатели",
+  "fields": [
+    {
+      "key": "field_betsala_hero_bg",
+      "label": "Фоновое изображение",
+      "name": "background_image",
+      "aria-label": "",
+      "type": "image",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "return_format": "id",
+      "library": "all",
+      "preview_size": "medium",
+      "min_width": 0,
+      "min_height": 0,
+      "min_size": 0,
+      "max_width": 0,
+      "max_height": 0,
+      "max_size": 0,
+      "mime_types": ""
+    },
+    {
+      "key": "field_betsala_hero_bg_alt",
+      "label": "Alt для фонового изображения",
+      "name": "background_alt",
+      "aria-label": "",
+      "type": "text",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "maxlength": "",
+      "placeholder": "Кратко опишите фоновое изображение",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_betsala_hero_title",
+      "label": "Заголовок H1",
+      "name": "title",
+      "aria-label": "",
+      "type": "text",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "Betsala Casino Online Chile: entra y juega al toque",
+      "maxlength": "",
+      "placeholder": "Например: Betsala Casino Online Chile: entra y juega al toque",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_betsala_hero_highlight_enabled",
+      "label": "Использовать выделение",
+      "name": "highlight_enabled",
+      "aria-label": "",
+      "type": "true_false",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "message": "Показывать выделенную фразу в заголовке",
+      "default_value": 1,
+      "ui": 1,
+      "ui_on_text": "Да",
+      "ui_off_text": "Нет"
+    },
+    {
+      "key": "field_betsala_hero_highlight",
+      "label": "Выделяемая фраза",
+      "name": "highlight_text",
+      "aria-label": "",
+      "type": "text",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": [
+        [
+          {
+            "field": "field_betsala_hero_highlight_enabled",
+            "operator": "==",
+            "value": "1"
+          }
+        ]
+      ],
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "Chile",
+      "maxlength": "",
+      "placeholder": "Например: Chile",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_betsala_hero_intro",
+      "label": "Вводный текст",
+      "name": "intro",
+      "aria-label": "",
+      "type": "textarea",
+      "instructions": "Можно вводить обычный текст. Переносы строк будут сохранены на странице.",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "Todo lo esencial para entrar, jugar y moverte por la plataforma desde Chile, con acceso rápido desde computador o celular.",
+      "placeholder": "Введите вводный текст…",
+      "rows": 8,
+      "new_lines": "",
+      "maxlength": ""
+    },
+    {
+      "key": "field_betsala_hero_show_primary",
+      "label": "Показывать основную кнопку",
+      "name": "show_primary_cta",
+      "type": "true_false",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "25",
+        "class": "",
+        "id": ""
+      },
+      "message": "",
+      "default_value": 1,
+      "ui": 1,
+      "ui_on_text": "Да",
+      "ui_off_text": "Нет"
+    },
+    {
+      "key": "field_betsala_hero_primary_text",
+      "label": "Текст основной кнопки",
+      "name": "primary_cta_text",
+      "type": "text",
+      "instructions": "Этот текст будет показан на кнопке.",
+      "required": 0,
+      "conditional_logic": [
+        [
+          {
+            "field": "field_betsala_hero_show_primary",
+            "operator": "==",
+            "value": "1"
+          }
+        ]
+      ],
+      "wrapper": {
+        "width": "35",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "Entrar al Casino",
+      "maxlength": "",
+      "placeholder": "Введите текст кнопки",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_betsala_hero_show_secondary",
+      "label": "Показывать дополнительную кнопку",
+      "name": "show_secondary_cta",
+      "type": "true_false",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "25",
+        "class": "",
+        "id": ""
+      },
+      "message": "",
+      "default_value": 1,
+      "ui": 1,
+      "ui_on_text": "Да",
+      "ui_off_text": "Нет"
+    },
+    {
+      "key": "field_betsala_hero_secondary_text",
+      "label": "Текст дополнительной кнопки",
+      "name": "secondary_cta_text",
+      "type": "text",
+      "instructions": "Этот текст будет показан на кнопке.",
+      "required": 0,
+      "conditional_logic": [
+        [
+          {
+            "field": "field_betsala_hero_show_secondary",
+            "operator": "==",
+            "value": "1"
+          }
+        ]
+      ],
+      "wrapper": {
+        "width": "35",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "Ver Promociones",
+      "maxlength": "",
+      "placeholder": "Введите текст кнопки",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_betsala_hero_cta_align",
+      "label": "Выравнивание кнопок",
+      "name": "cta_align",
+      "aria-label": "",
+      "type": "select",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "30",
+        "class": "",
+        "id": ""
+      },
+      "choices": {
+        "left": "Слева",
+        "center": "По центру",
+        "right": "Справа"
+      },
+      "default_value": "left",
+      "return_format": "value",
+      "multiple": 0,
+      "allow_null": 0,
+      "ui": 0,
+      "ajax": 0,
+      "placeholder": ""
+    },
+    {
+      "key": "field_betsala_hero_show_info_cards",
+      "label": "Показывать информационные показатели внизу Hero",
+      "name": "show_info_cards",
+      "type": "true_false",
+      "instructions": "Небольшой информационный ряд как на лендингах: значение, подпись и короткое пояснение. Элементы не кликабельны.",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "100",
+        "class": "",
+        "id": ""
+      },
+      "message": "",
+      "default_value": 1,
+      "ui": 1,
+      "ui_on_text": "Да",
+      "ui_off_text": "Нет"
+    },
+    {
+      "key": "field_betsala_hero_info_cards",
+      "label": "Информационные показатели Hero",
+      "name": "info_cards",
+      "type": "repeater",
+      "instructions": "До 4 элементов. Они не являются ссылками и не содержат изображений. Пример: 24/7 — Acceso móvil — Disponible desde el celular.",
+      "required": 0,
+      "conditional_logic": [
+        [
+          {
+            "field": "field_betsala_hero_show_info_cards",
+            "operator": "==",
+            "value": "1"
+          }
+        ]
+      ],
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "layout": "block",
+      "pagination": 0,
+      "min": 0,
+      "max": 4,
+      "collapsed": "field_betsala_hero_card_title",
+      "button_label": "Добавить показатель",
+      "rows_per_page": 20,
+      "sub_fields": [
+        {
+          "key": "field_betsala_hero_card_value",
+          "label": "Акцент / значение",
+          "name": "value",
+          "type": "text",
+          "instructions": "Короткое значение: 24/7, 18+, 150%, Android и т. п.",
+          "required": 0,
+          "conditional_logic": 0,
+          "wrapper": {
+            "width": "25",
+            "class": "",
+            "id": ""
+          },
+          "default_value": "",
+          "maxlength": "",
+          "placeholder": "Например: 150%",
+          "prepend": "",
+          "append": ""
+        },
+        {
+          "key": "field_betsala_hero_card_title",
+          "label": "Подпись",
+          "name": "title",
+          "type": "text",
+          "instructions": "Короткое название показателя.",
+          "required": 0,
+          "conditional_logic": 0,
+          "wrapper": {
+            "width": "30",
+            "class": "",
+            "id": ""
+          },
+          "default_value": "",
+          "maxlength": "",
+          "placeholder": "Например: Casino",
+          "prepend": "",
+          "append": ""
+        },
+        {
+          "key": "field_betsala_hero_card_text",
+          "label": "Пояснение",
+          "name": "text",
+          "type": "textarea",
+          "instructions": "Необязательная короткая строка под подписью.",
+          "required": 0,
+          "conditional_logic": 0,
+          "wrapper": {
+            "width": "45",
+            "class": "",
+            "id": ""
+          },
+          "default_value": "",
+          "maxlength": "",
+          "rows": 2,
+          "placeholder": "Введите текст…",
+          "new_lines": ""
+        }
+      ]
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "block",
+        "operator": "==",
+        "value": "acf/betsala-hero"
+      }
+    ]
+  ],
+  "menu_order": 0,
+  "position": "normal",
+  "style": "default",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "hide_on_screen": "",
+  "active": true,
+  "description": "",
+  "show_in_rest": 0,
+  "modified": 1788361842,
+  "private": true
+}

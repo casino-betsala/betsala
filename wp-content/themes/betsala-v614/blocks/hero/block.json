@@ -1,0 +1,26 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "acf/betsala-hero",
+  "title": "Главный экран (Hero)",
+  "description": "H1, фоновое изображение, вводный текст, CTA-кнопки и до 4 не кликабельных информационных показателей.",
+  "category": "betsala-blocks",
+  "icon": "cover-image",
+  "keywords": [
+    "betsala",
+    "hero"
+  ],
+  "acf": {
+    "blockVersion": 3,
+    "renderTemplate": "render.php",
+    "renderPreview": false,
+    "hideFieldsInSidebar": true,
+    "expandedEditorButtonText": "Редактировать блок"
+  },
+  "supports": {
+    "anchor": true,
+    "align": false,
+    "html": false,
+    "jsx": false
+  }
+}

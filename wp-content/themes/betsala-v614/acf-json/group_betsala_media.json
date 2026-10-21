@@ -1,0 +1,625 @@
+{
+  "key": "group_betsala_media",
+  "title": "BetSala — Картинка + карточки",
+  "fields": [
+    {
+      "key": "field_betsala_media_show_eyebrow",
+      "label": "Показывать маленький заголовок",
+      "name": "show_eyebrow",
+      "type": "true_false",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "30",
+        "class": "",
+        "id": ""
+      },
+      "message": "",
+      "default_value": 0,
+      "ui": 1,
+      "ui_on_text": "Да",
+      "ui_off_text": "Нет"
+    },
+    {
+      "key": "field_betsala_media_eyebrow",
+      "label": "Маленький заголовок",
+      "name": "eyebrow",
+      "aria-label": "",
+      "type": "text",
+      "instructions": "Необязательная верхняя метка. По умолчанию скрыта.",
+      "required": 0,
+      "conditional_logic": [
+        [
+          {
+            "field": "field_betsala_media_show_eyebrow",
+            "operator": "==",
+            "value": "1"
+          }
+        ]
+      ],
+      "wrapper": {
+        "width": "70",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "BETSALA ONLINE",
+      "maxlength": "",
+      "placeholder": "Например: BETSALA CHILE",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_betsala_media_title_tag",
+      "label": "Уровень заголовка",
+      "name": "title_tag",
+      "type": "select",
+      "instructions": "Меняет только HTML-тег для SEO-структуры. Размер и визуальный стиль не меняются.",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "25",
+        "class": "",
+        "id": ""
+      },
+      "choices": {
+        "p": "P — обычный текст",
+        "h2": "H2",
+        "h3": "H3",
+        "h4": "H4",
+        "h5": "H5",
+        "h6": "H6"
+      },
+      "default_value": "h2",
+      "return_format": "value",
+      "multiple": 0,
+      "allow_null": 0,
+      "ui": 0,
+      "ajax": 0,
+      "placeholder": ""
+    },
+    {
+      "key": "field_betsala_media_title",
+      "label": "Заголовок",
+      "name": "title",
+      "aria-label": "",
+      "type": "text",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "75",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "Todo en una sola plataforma",
+      "maxlength": "",
+      "placeholder": "Например: Juegos, categorías o ventajas",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_betsala_media_highlight_enabled",
+      "label": "Градиентное выделение",
+      "name": "highlight_enabled",
+      "type": "true_false",
+      "instructions": "Включает градиент только для указанной части заголовка.",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "30",
+        "class": "",
+        "id": ""
+      },
+      "message": "",
+      "default_value": 0,
+      "ui": 1,
+      "ui_on_text": "Да",
+      "ui_off_text": "Нет"
+    },
+    {
+      "key": "field_betsala_media_highlight_text",
+      "label": "Текст для градиента",
+      "name": "highlight_text",
+      "aria-label": "",
+      "type": "text",
+      "instructions": "Укажите точный фрагмент заголовка H2–H6, который нужно выделить.",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "70",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "maxlength": "",
+      "placeholder": "Например: bonos para subir el saldo",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_betsala_media_intro",
+      "label": "Вводный текст",
+      "name": "intro",
+      "aria-label": "",
+      "type": "textarea",
+      "instructions": "Можно вводить обычный текст. Переносы строк будут сохранены на странице.",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "Combina casino, promociones, acceso móvil y herramientas de cuenta dentro de una misma experiencia.",
+      "placeholder": "Введите вводный текст…",
+      "rows": 8,
+      "new_lines": "",
+      "maxlength": ""
+    },
+    {
+      "key": "field_betsala_media_show_button",
+      "label": "Показывать кнопку под текстом",
+      "name": "show_button",
+      "type": "true_false",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "30",
+        "class": "",
+        "id": ""
+      },
+      "message": "",
+      "default_value": 0,
+      "ui": 1,
+      "ui_on_text": "Да",
+      "ui_off_text": "Нет"
+    },
+    {
+      "key": "field_betsala_media_button_text",
+      "label": "Текст кнопки",
+      "name": "button_text",
+      "aria-label": "",
+      "type": "text",
+      "instructions": "Кнопка ведёт на общий маршрут /play-and-win/.",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "70",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "Elegir Acceso",
+      "maxlength": "",
+      "placeholder": "",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_betsala_media_main_button_align",
+      "label": "Выравнивание кнопки под текстом",
+      "name": "main_button_align",
+      "aria-label": "",
+      "type": "select",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": [
+        [
+          {
+            "field": "field_betsala_media_show_button",
+            "operator": "==",
+            "value": "1"
+          }
+        ]
+      ],
+      "wrapper": {
+        "width": "30",
+        "class": "",
+        "id": ""
+      },
+      "choices": {
+        "left": "Слева",
+        "center": "По центру",
+        "right": "Справа",
+        "full": "На всю ширину"
+      },
+      "default_value": "left",
+      "return_format": "value",
+      "multiple": 0,
+      "allow_null": 0,
+      "ui": 0,
+      "ajax": 0,
+      "placeholder": ""
+    },
+    {
+      "key": "field_betsala_media_alt",
+      "label": "Альтернативный фон",
+      "name": "alternate_background",
+      "aria-label": "",
+      "type": "true_false",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "message": "",
+      "default_value": 0,
+      "ui": 1,
+      "ui_on_text": "Да",
+      "ui_off_text": "Нет"
+    },
+    {
+      "key": "field_betsala_media_image",
+      "label": "Основное изображение",
+      "name": "image",
+      "aria-label": "",
+      "type": "image",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "return_format": "id",
+      "library": "all",
+      "preview_size": "medium",
+      "min_width": 0,
+      "min_height": 0,
+      "min_size": 0,
+      "max_width": 0,
+      "max_height": 0,
+      "max_size": 0,
+      "mime_types": ""
+    },
+    {
+      "key": "field_betsala_media_image_alt",
+      "label": "Alt основного изображения",
+      "name": "image_alt",
+      "aria-label": "",
+      "type": "text",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "maxlength": "",
+      "placeholder": "Кратко опишите изображение",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_betsala_media_position",
+      "label": "Положение изображения",
+      "name": "image_position",
+      "aria-label": "",
+      "type": "select",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "choices": {
+        "left": "Слева",
+        "right": "Справа"
+      },
+      "default_value": "left",
+      "return_format": "value",
+      "multiple": 0,
+      "allow_null": 0,
+      "ui": 0,
+      "ajax": 0,
+      "placeholder": ""
+    },
+    {
+      "key": "field_betsala_media_card_button_align",
+      "label": "Выравнивание кнопок карточек",
+      "name": "card_button_align",
+      "type": "select",
+      "instructions": "Выравнивание кнопок во всех карточках этого блока. На мобильном кнопки центрируются.",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "40",
+        "class": "",
+        "id": ""
+      },
+      "choices": {
+        "left": "Слева",
+        "center": "По центру",
+        "right": "Справа",
+        "full": "На всю ширину"
+      },
+      "default_value": "center",
+      "return_format": "value",
+      "multiple": 0,
+      "allow_null": 0,
+      "ui": 0,
+      "ajax": 0,
+      "placeholder": ""
+    },
+    {
+      "key": "field_betsala_media_cards",
+      "label": "Карточки",
+      "name": "cards",
+      "aria-label": "",
+      "type": "repeater",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "layout": "block",
+      "pagination": 0,
+      "min": 0,
+      "max": 6,
+      "collapsed": "",
+      "button_label": "Добавить элемент",
+      "rows_per_page": 20,
+      "sub_fields": [
+        {
+          "key": "field_betsala_media_card_type",
+          "label": "Тип карточки",
+          "name": "card_type",
+          "aria-label": "",
+          "type": "select",
+          "instructions": "",
+          "required": 0,
+          "conditional_logic": 0,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "choices": {
+            "text": "Текст",
+            "image": "Только изображение",
+            "background": "Текст поверх фонового изображения"
+          },
+          "default_value": "text",
+          "return_format": "value",
+          "multiple": 0,
+          "allow_null": 0,
+          "ui": 0,
+          "ajax": 0,
+          "placeholder": ""
+        },
+        {
+          "key": "field_betsala_media_number",
+          "label": "Номер",
+          "name": "number",
+          "aria-label": "",
+          "type": "text",
+          "instructions": "Необязательно. Оставьте пустым — номер и декоративная плашка полностью скрыты.",
+          "required": 0,
+          "conditional_logic": 0,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "default_value": "",
+          "maxlength": "",
+          "placeholder": "Введите значение…",
+          "prepend": "",
+          "append": ""
+        },
+        {
+          "key": "field_betsala_media_card_title_tag",
+          "label": "Уровень заголовка",
+          "name": "title_tag",
+          "type": "select",
+          "instructions": "Меняет только HTML-тег для SEO-структуры. Размер и визуальный стиль не меняются.",
+          "required": 0,
+          "conditional_logic": 0,
+          "wrapper": {
+            "width": "28",
+            "class": "",
+            "id": ""
+          },
+          "choices": {
+            "p": "P — обычный текст",
+            "h2": "H2",
+            "h3": "H3",
+            "h4": "H4",
+            "h5": "H5",
+            "h6": "H6"
+          },
+          "default_value": "h3",
+          "return_format": "value",
+          "multiple": 0,
+          "allow_null": 0,
+          "ui": 0,
+          "ajax": 0,
+          "placeholder": ""
+        },
+        {
+          "key": "field_betsala_media_card_title",
+          "label": "Заголовок",
+          "name": "title",
+          "aria-label": "",
+          "type": "text",
+          "instructions": "",
+          "required": 0,
+          "conditional_logic": 0,
+          "wrapper": {
+            "width": "72",
+            "class": "",
+            "id": ""
+          },
+          "default_value": "",
+          "maxlength": "",
+          "placeholder": "Например: Juegos, categorías o ventajas",
+          "prepend": "",
+          "append": ""
+        },
+        {
+          "key": "field_betsala_media_cards_item_highlight_text",
+          "label": "Фрагмент заголовка с градиентом",
+          "name": "highlight_text",
+          "aria-label": "",
+          "type": "text",
+          "instructions": "Пусто — без градиента.",
+          "required": 0,
+          "conditional_logic": 0,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "default_value": "",
+          "maxlength": "",
+          "placeholder": "",
+          "prepend": "",
+          "append": ""
+        },
+        {
+          "key": "field_betsala_media_card_text",
+          "label": "Текст",
+          "name": "text",
+          "aria-label": "",
+          "type": "textarea",
+          "instructions": "",
+          "required": 0,
+          "conditional_logic": 0,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "default_value": "",
+          "maxlength": "",
+          "rows": 4,
+          "placeholder": "Введите текст…",
+          "new_lines": ""
+        },
+        {
+          "key": "field_betsala_media_card_image",
+          "label": "Изображение / фон",
+          "name": "image",
+          "aria-label": "",
+          "type": "image",
+          "instructions": "",
+          "required": 0,
+          "conditional_logic": 0,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "return_format": "id",
+          "library": "all",
+          "preview_size": "medium",
+          "min_width": 0,
+          "min_height": 0,
+          "min_size": 0,
+          "max_width": 0,
+          "max_height": 0,
+          "max_size": 0,
+          "mime_types": ""
+        },
+        {
+          "key": "field_betsala_media_card_alt",
+          "label": "Alt изображения",
+          "name": "image_alt",
+          "aria-label": "",
+          "type": "text",
+          "instructions": "",
+          "required": 0,
+          "conditional_logic": 0,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "default_value": "",
+          "maxlength": "",
+          "placeholder": "Кратко опишите изображение",
+          "prepend": "",
+          "append": ""
+        },
+        {
+          "key": "field_betsala_media_show_link",
+          "label": "Показывать кнопку / ссылку",
+          "name": "show_link",
+          "type": "true_false",
+          "instructions": "",
+          "required": 0,
+          "conditional_logic": 0,
+          "wrapper": {
+            "width": "25",
+            "class": "",
+            "id": ""
+          },
+          "message": "",
+          "default_value": 0,
+          "ui": 1,
+          "ui_on_text": "Да",
+          "ui_off_text": "Нет"
+        },
+        {
+          "key": "field_betsala_media_link_text",
+          "label": "Текст кнопки / ссылки",
+          "name": "link_text",
+          "type": "text",
+          "instructions": "Этот текст будет показан на кнопке.",
+          "required": 0,
+          "conditional_logic": [
+            [
+              {
+                "field": "field_betsala_media_show_link",
+                "operator": "==",
+                "value": "1"
+              }
+            ]
+          ],
+          "wrapper": {
+            "width": "35",
+            "class": "",
+            "id": ""
+          },
+          "default_value": "Ver más",
+          "maxlength": "",
+          "placeholder": "Введите текст кнопки",
+          "prepend": "",
+          "append": ""
+        }
+      ]
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "block",
+        "operator": "==",
+        "value": "acf/betsala-media-cards"
+      }
+    ]
+  ],
+  "menu_order": 0,
+  "position": "normal",
+  "style": "default",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "hide_on_screen": "",
+  "active": true,
+  "description": "",
+  "show_in_rest": 0,
+  "modified": 1788500000,
+  "private": true
+}

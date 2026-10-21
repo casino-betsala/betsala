@@ -1,0 +1,26 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "acf/betsala-mobile",
+  "title": "Мобильный блок",
+  "description": "Текст, карточки 2×2 с отключаемой нумерацией, телефон, note, CTA и Android/iOS.",
+  "category": "betsala-blocks",
+  "icon": "smartphone",
+  "keywords": [
+    "betsala",
+    "mobile"
+  ],
+  "acf": {
+    "blockVersion": 3,
+    "renderTemplate": "render.php",
+    "renderPreview": false,
+    "hideFieldsInSidebar": true,
+    "expandedEditorButtonText": "Редактировать блок"
+  },
+  "supports": {
+    "anchor": true,
+    "align": false,
+    "html": false,
+    "jsx": false
+  }
+}

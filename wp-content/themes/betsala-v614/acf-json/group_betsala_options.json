@@ -1,0 +1,1211 @@
+{
+    "key": "group_betsala_options_v52",
+    "title": "BetSala — Глобальные настройки",
+    "fields": [
+        {
+            "key": "field_betsala_opt_tab_brand",
+            "label": "Брендинг",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_betsala_opt_logo",
+            "label": "Логотип",
+            "name": "site_logo",
+            "type": "image",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "id",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "webp,png,jpg,jpeg,svg",
+            "preview_size": "medium"
+        },
+        {
+            "key": "field_betsala_opt_favicon",
+            "label": "Favicon",
+            "name": "site_favicon",
+            "type": "image",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "id",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "ico,png,svg,webp",
+            "preview_size": "medium"
+        },
+        {
+            "key": "field_betsala_opt_brand_name",
+            "label": "Название бренда",
+            "name": "brand_display_name",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "BetSala",
+            "maxlength": "",
+            "placeholder": "Например: BetSala",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_betsala_opt_tab_referral",
+            "label": "Реферал / CTA",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_betsala_opt_referral_route",
+            "label": "Внутренний маршрут CTA",
+            "name": "referral_route",
+            "type": "text",
+            "instructions": "Путь внутри сайта, через который можно вести все основные CTA. Начинайте со слэша. Например: /play-and-win/.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "/play-and-win/",
+            "maxlength": "",
+            "placeholder": "/play-and-win/",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_betsala_opt_referral_destination",
+            "label": "Единая реферальная ссылка для всех CTA",
+            "name": "referral_destination_url",
+            "type": "url",
+            "instructions": "Все коммерческие кнопки и CTA в блоках автоматически используют эту ссылку и получают rel=\"nofollow sponsored\". В самих блоках URL вводить не нужно.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "https://example.com/affiliate"
+        },
+        {
+            "key": "field_betsala_opt_loading_enabled",
+            "label": "Экран загрузки перед переходом",
+            "name": "loading_screen_enabled",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33",
+                "class": "",
+                "id": ""
+            },
+            "message": "Показывать экран загрузки при клике по глобальной CTA-ссылке",
+            "default_value": 1,
+            "ui": 1,
+            "ui_on_text": "Да",
+            "ui_off_text": "Нет"
+        },
+        {
+            "key": "field_betsala_opt_loading_duration",
+            "label": "Длительность экрана загрузки",
+            "name": "loading_screen_duration",
+            "type": "number",
+            "instructions": "По умолчанию 3 секунды. Можно изменить от 0 до 30 секунд.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 3,
+            "min": 0,
+            "max": 30,
+            "step": 0.5,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_betsala_opt_loading_text",
+            "label": "Текст экрана загрузки",
+            "name": "loading_screen_text",
+            "type": "text",
+            "instructions": "Текст на экране загрузки. По умолчанию на испанском.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "34",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Cargando BetSala…",
+            "maxlength": "",
+            "placeholder": "Ejemplo: Cargando BetSala…",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_betsala_opt_loading_timer_text",
+            "label": "Текст таймера загрузки",
+            "name": "loading_screen_timer_text",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Redirección en {seconds} s",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_betsala_opt_tab_redirects",
+            "label": "Редиректы",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_betsala_opt_redirect_rules",
+            "label": "Правила редиректов",
+            "name": "redirect_rules",
+            "type": "repeater",
+            "instructions": "Правила проверяются сверху вниз; срабатывает первое совпадение. Для временных переходов безопаснее использовать 302/307, а 301 оставлять только для действительно постоянных URL.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "table",
+            "pagination": 0,
+            "min": 0,
+            "max": 0,
+            "collapsed": "",
+            "button_label": "Добавить редирект",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_betsala_redirect_source",
+                    "label": "Исходный путь",
+                    "name": "source_path",
+                    "type": "text",
+                    "instructions": "Путь на этом сайте, начиная с /. Query-параметры при сравнении игнорируются.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "28",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "/old-page/",
+                    "prepend": "",
+                    "append": ""
+                },
+                {
+                    "key": "field_betsala_redirect_destination",
+                    "label": "URL назначения",
+                    "name": "destination_url",
+                    "type": "url",
+                    "instructions": "Можно указать внутренний или внешний URL.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "35",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "https://example.com/"
+                },
+                {
+                    "key": "field_betsala_redirect_status",
+                    "label": "Тип",
+                    "name": "status_code",
+                    "type": "select",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "20",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "301": "301 — постоянный",
+                        "302": "302 — временный",
+                        "307": "307 — временный, сохраняет метод"
+                    },
+                    "default_value": "302",
+                    "return_format": "value",
+                    "multiple": 0,
+                    "allow_null": 0,
+                    "ui": 1,
+                    "ajax": 0,
+                    "placeholder": ""
+                },
+                {
+                    "key": "field_betsala_redirect_active",
+                    "label": "Активно",
+                    "name": "active",
+                    "type": "true_false",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "17",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "Включить это правило",
+                    "default_value": 1,
+                    "ui": 1,
+                    "ui_on_text": "Да",
+                    "ui_off_text": "Нет"
+                }
+            ]
+        },
+        {
+            "key": "field_betsala_opt_tab_header",
+            "label": "Хедер",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_betsala_opt_header_layout",
+            "label": "Положение хедера",
+            "name": "header_layout",
+            "type": "select",
+            "instructions": "Выберите общий вариант хедера для всего сайта. На мобильных устройствах боковой вариант автоматически превращается в компактный верхний хедер.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "top": "Сверху",
+                "side-left": "Слева"
+            },
+            "default_value": "top",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 1,
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_betsala_opt_sidebar_width",
+            "label": "Ширина бокового хедера",
+            "name": "sidebar_width",
+            "type": "number",
+            "instructions": "Ширина в пикселях на десктопе.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_betsala_opt_header_layout",
+                        "operator": "==",
+                        "value": "side-left"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 260,
+            "min": 220,
+            "max": 380,
+            "step": 10,
+            "placeholder": "260",
+            "prepend": "",
+            "append": "px"
+        },
+        {
+            "key": "field_betsala_opt_sidebar_collapsible",
+            "label": "Показывать кнопку сворачивания",
+            "name": "sidebar_collapsible",
+            "type": "true_false",
+            "instructions": "Добавляет круглую кнопку со стрелкой. При сворачивании боковой хедер занимает только узкую полосу.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_betsala_opt_header_layout",
+                        "operator": "==",
+                        "value": "side-left"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "33",
+                "class": "",
+                "id": ""
+            },
+            "message": "Разрешить сворачивать боковой хедер",
+            "default_value": 1,
+            "ui": 1,
+            "ui_on_text": "Да",
+            "ui_off_text": "Нет"
+        },
+        {
+            "key": "field_betsala_opt_sidebar_sticky",
+            "label": "Закрепить при прокрутке",
+            "name": "sidebar_sticky",
+            "type": "true_false",
+            "instructions": "Если включено, боковой хедер остаётся на экране при прокрутке страницы.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_betsala_opt_header_layout",
+                        "operator": "==",
+                        "value": "side-left"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "33",
+                "class": "",
+                "id": ""
+            },
+            "message": "Закреплённый боковой хедер",
+            "default_value": 1,
+            "ui": 1,
+            "ui_on_text": "Да",
+            "ui_off_text": "Нет"
+        },
+        {
+            "key": "field_betsala_opt_sidebar_show_cta",
+            "label": "Показывать CTA внизу меню",
+            "name": "sidebar_show_cta",
+            "type": "true_false",
+            "instructions": "В боковом варианте кнопки входа/регистрации размещаются в нижней части хедера.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_betsala_opt_header_layout",
+                        "operator": "==",
+                        "value": "side-left"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "34",
+                "class": "",
+                "id": ""
+            },
+            "message": "Показывать нижний блок CTA",
+            "default_value": 1,
+            "ui": 1,
+            "ui_on_text": "Да",
+            "ui_off_text": "Нет"
+        },
+        {
+            "key": "field_betsala_opt_header_layout_note",
+            "label": "Адаптивность",
+            "name": "",
+            "type": "message",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_betsala_opt_header_layout",
+                        "operator": "==",
+                        "value": "side-left"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "На экранах до 920 px боковой хедер автоматически становится обычным верхним мобильным хедером с burger-меню. Контентные Gutenberg-блоки при переключении положения хедера менять не нужно.",
+            "new_lines": "wpautop",
+            "esc_html": 0
+        },
+        {
+            "key": "field_betsala_opt_show_login",
+            "label": "Показывать кнопку входа",
+            "name": "show_login_button",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "30",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 1,
+            "ui": 1,
+            "ui_on_text": "Да",
+            "ui_off_text": "Нет"
+        },
+        {
+            "key": "field_betsala_opt_login_text",
+            "label": "Текст кнопки входа",
+            "name": "header_login_text",
+            "type": "text",
+            "instructions": "Кнопка использует общую реферальную ссылку.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_betsala_opt_show_login",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "35",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Iniciar sesión",
+            "maxlength": "",
+            "placeholder": "Iniciar sesión",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_betsala_opt_register_text",
+            "label": "Текст кнопки регистрации",
+            "name": "header_register_text",
+            "type": "text",
+            "instructions": "Основная CTA-кнопка хедера. Использует общую реферальную ссылку.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "35",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Regístrate Ahora",
+            "maxlength": "",
+            "placeholder": "Regístrate Ahora",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_betsala_opt_header_nav",
+            "label": "Главное меню",
+            "name": "header_navigation",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "row",
+            "pagination": 0,
+            "min": 0,
+            "max": 0,
+            "collapsed": "",
+            "button_label": "Добавить элемент",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_betsala_opt_header_nav_label",
+                    "label": "Название",
+                    "name": "label",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "40",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "Введите название",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_betsala_opt_header_nav"
+                },
+                {
+                    "key": "field_betsala_opt_header_nav_url",
+                    "label": "Ссылка",
+                    "name": "url",
+                    "type": "url",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "60",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "parent_repeater": "field_betsala_opt_header_nav"
+                }
+            ]
+        },
+        {
+            "key": "field_betsala_opt_tab_footer",
+            "label": "Футер",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_betsala_opt_footer_desc",
+            "label": "Описание в футере",
+            "name": "footer_description",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "BetSala reúne casino online y apuestas deportivas para Chile en una sola plataforma. Juega siempre con responsabilidad, solo +18.",
+            "maxlength": "",
+            "rows": 3,
+            "placeholder": "Введите текст для футера…",
+            "new_lines": ""
+        },
+        {
+            "key": "field_betsala_opt_footer_payments",
+            "label": "Способы оплаты в футере",
+            "name": "footer_payment_labels",
+            "type": "repeater",
+            "instructions": "Короткие подписи-кнопки под описанием бренда. Например: Tarjetas, Transferencia bancaria, Billeteras digitales.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "field_betsala_opt_footer_payment_label",
+            "min": 0,
+            "max": 6,
+            "layout": "table",
+            "button_label": "Добавить способ оплаты",
+            "sub_fields": [
+                {
+                    "key": "field_betsala_opt_footer_payment_label",
+                    "label": "Название",
+                    "name": "label",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "Например: Tarjetas",
+                    "prepend": "",
+                    "append": ""
+                }
+            ]
+        },
+        {
+            "key": "field_betsala_opt_footer_country",
+            "label": "Страна",
+            "name": "footer_country",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Chile",
+            "maxlength": "",
+            "placeholder": "Например: Chile",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_betsala_opt_footer_currency",
+            "label": "Валюта",
+            "name": "footer_currency",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "CLP",
+            "maxlength": "",
+            "placeholder": "Например: CLP",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_betsala_opt_footer_age",
+            "label": "Возраст",
+            "name": "footer_age",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "18+",
+            "maxlength": "",
+            "placeholder": "Например: 18+",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_betsala_opt_platform_heading",
+            "label": "Заголовок колонки «Платформа»",
+            "name": "platform_heading",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Explorar BetSala",
+            "maxlength": "",
+            "placeholder": "Например: Платформа",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_betsala_opt_platform_links",
+            "label": "Ссылки колонки «Платформа»",
+            "name": "platform_links",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "row",
+            "pagination": 0,
+            "min": 0,
+            "max": 0,
+            "collapsed": "",
+            "button_label": "Добавить элемент",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_betsala_opt_platform_links_label",
+                    "label": "Название",
+                    "name": "label",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "40",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "Введите название",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_betsala_opt_platform_links"
+                },
+                {
+                    "key": "field_betsala_opt_platform_links_url",
+                    "label": "Ссылка",
+                    "name": "url",
+                    "type": "url",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "60",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "parent_repeater": "field_betsala_opt_platform_links"
+                }
+            ]
+        },
+        {
+            "key": "field_betsala_opt_legal_heading",
+            "label": "Заголовок колонки «Правовая информация и поддержка»",
+            "name": "legal_heading",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Legal y Soporte",
+            "maxlength": "",
+            "placeholder": "Например: Правовая информация и поддержка",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_betsala_opt_legal_links",
+            "label": "Правовые и сервисные ссылки",
+            "name": "legal_links",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "row",
+            "pagination": 0,
+            "min": 0,
+            "max": 0,
+            "collapsed": "",
+            "button_label": "Добавить элемент",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_betsala_opt_legal_links_label",
+                    "label": "Название",
+                    "name": "label",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "40",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "Введите название",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_betsala_opt_legal_links"
+                },
+                {
+                    "key": "field_betsala_opt_legal_links_url",
+                    "label": "Ссылка",
+                    "name": "url",
+                    "type": "url",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "60",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "parent_repeater": "field_betsala_opt_legal_links"
+                }
+            ]
+        },
+        {
+            "key": "field_betsala_opt_extra_heading",
+            "label": "Заголовок третьей колонки футера",
+            "name": "footer_extra_heading",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_betsala_opt_extra_links",
+            "label": "Ссылки третьей колонки футера",
+            "name": "footer_extra_links",
+            "type": "repeater",
+            "instructions": "Необязательно. Если колонка пустая, она не выводится.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "table",
+            "pagination": 0,
+            "min": 0,
+            "max": 12,
+            "collapsed": "",
+            "button_label": "Добавить ссылку",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_betsala_opt_extra_link_label",
+                    "label": "Название",
+                    "name": "label",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_betsala_opt_extra_links"
+                },
+                {
+                    "key": "field_betsala_opt_extra_link_url",
+                    "label": "URL",
+                    "name": "url",
+                    "type": "url",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "parent_repeater": "field_betsala_opt_extra_links"
+                }
+            ]
+        },
+        {
+            "key": "field_betsala_opt_responsible",
+            "label": "Текст об ответственной игре",
+            "name": "responsible_gaming_text",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Juego con responsabilidad.",
+            "maxlength": "",
+            "rows": 3,
+            "placeholder": "Введите текст об ответственной игре…",
+            "new_lines": ""
+        },
+        {
+            "key": "field_betsala_opt_copyright",
+            "label": "Строка Copyright",
+            "name": "copyright_text",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "© {year} BetSala. Todos los derechos reservados.",
+            "maxlength": "",
+            "placeholder": "Например: © 2026 BetSala Chile.",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_betsala_opt_tab_schema",
+            "label": "Schema.org",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_betsala_opt_schema_enabled",
+            "label": "Включить Schema.org",
+            "name": "schema_enabled",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33",
+                "class": "",
+                "id": ""
+            },
+            "message": "Выводить JSON-LD Organization в <head>",
+            "default_value": 1,
+            "ui": 1,
+            "ui_on_text": "Да",
+            "ui_off_text": "Нет"
+        },
+        {
+            "key": "field_betsala_opt_schema_name",
+            "label": "Название организации",
+            "name": "schema_org_name",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "67",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "BetSala",
+            "maxlength": "",
+            "placeholder": "Например: BetSala",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_betsala_opt_schema_desc",
+            "label": "Описание организации",
+            "name": "schema_org_description",
+            "type": "textarea",
+            "instructions": "Короткое нейтральное описание организации/бренда для Organization schema.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "rows": 3,
+            "placeholder": "Краткое описание организации…",
+            "new_lines": ""
+        },
+        {
+            "key": "field_betsala_opt_schema_url",
+            "label": "URL организации",
+            "name": "schema_org_url",
+            "type": "url",
+            "instructions": "Если оставить пустым, используется главная страница сайта.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "https://example.com/"
+        },
+        {
+            "key": "field_betsala_opt_schema_logo",
+            "label": "Логотип для Schema.org",
+            "name": "schema_org_logo",
+            "type": "image",
+            "instructions": "Если оставить пустым, используется логотип из вкладки «Брендинг».",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "id",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "",
+            "preview_size": "medium"
+        },
+        {
+            "key": "field_betsala_opt_tab_workflow",
+            "label": "Рабочий процесс",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_betsala_opt_workflow_message",
+            "label": "Как собирать страницы",
+            "name": "",
+            "type": "message",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "Создайте или откройте страницу WordPress. В панели «BetSala — Шаблон страницы» выберите Casino, Bonos, App Móvil, Registro / Login или Apuestas Deportivas, затем нажмите «Заполнить стартовыми блоками». Каждый добавленный Gutenberg-блок имеет собственные поля ACF и визуальное превью.",
+            "new_lines": "wpautop",
+            "esc_html": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "betsala-options"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Глобальные настройки BetSala: брендинг, CTA, редиректы, хедер, футер, Schema.org и рабочий процесс.",
+    "show_in_rest": 0,
+    "modified": 1788505774,
+    "private": false
+}

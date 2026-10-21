@@ -1,0 +1,501 @@
+{
+    "key": "group_betsala_sports",
+    "title": "BetSala — Ставки на спорт",
+    "fields": [
+        {
+            "key": "field_betsala_sports_show_eyebrow",
+            "label": "Показывать маленький заголовок",
+            "name": "show_eyebrow",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "30",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "Да",
+            "ui_off_text": "Нет"
+        },
+        {
+            "key": "field_betsala_sports_eyebrow",
+            "label": "Маленький заголовок",
+            "name": "eyebrow",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Необязательная верхняя метка. По умолчанию скрыта.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_betsala_sports_show_eyebrow",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "70",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "APUESTAS DEPORTIVAS",
+            "maxlength": "",
+            "placeholder": "Например: BETSALA CHILE",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_betsala_sports_title_tag",
+            "label": "Уровень заголовка",
+            "name": "title_tag",
+            "type": "select",
+            "instructions": "Меняет только HTML-тег для SEO-структуры. Размер и визуальный стиль не меняются.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "p": "P — обычный текст",
+                "h2": "H2",
+                "h3": "H3",
+                "h4": "H4",
+                "h5": "H5",
+                "h6": "H6"
+            },
+            "default_value": "h2",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_betsala_sports_title",
+            "label": "Заголовок",
+            "name": "title",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "75",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Deportes y mercados en un solo bloque",
+            "maxlength": "",
+            "placeholder": "Например: Apuestas deportivas en Betsala",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_betsala_sports_highlight_enabled",
+            "label": "Градиентное выделение",
+            "name": "highlight_enabled",
+            "type": "true_false",
+            "instructions": "Включает градиент только для указанной части заголовка.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "30",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "Да",
+            "ui_off_text": "Нет"
+        },
+        {
+            "key": "field_betsala_sports_highlight_text",
+            "label": "Текст для градиента",
+            "name": "highlight_text",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Укажите точный фрагмент заголовка H2–H6, который нужно выделить.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "70",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "Например: bonos para subir el saldo",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_betsala_sports_intro",
+            "label": "Вводный текст",
+            "name": "intro",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "Можно вводить обычный текст. Переносы строк будут сохранены на странице.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Presenta categorías deportivas sin depender de partidos, resultados u odds que cambian constantemente.",
+            "placeholder": "Введите вводный текст…",
+            "rows": 8,
+            "new_lines": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_betsala_sports_categories",
+            "label": "Виды спорта / категории",
+            "name": "categories",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "pagination": 0,
+            "min": 0,
+            "max": 6,
+            "collapsed": "",
+            "button_label": "Добавить элемент",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_betsala_sports_icon",
+                    "label": "Иконка / символ",
+                    "name": "icon",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "Например: 01 или ✓",
+                    "prepend": "",
+                    "append": ""
+                },
+                {
+                    "key": "field_betsala_sports_category_image",
+                    "label": "Иконка-картинка",
+                    "name": "icon_image",
+                    "type": "image",
+                    "instructions": "Необязательно. Используется вместо символа.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "30",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "id",
+                    "library": "all",
+                    "preview_size": "medium",
+                    "min_width": 0,
+                    "min_height": 0,
+                    "min_size": 0,
+                    "max_width": 0,
+                    "max_height": 0,
+                    "max_size": 0,
+                    "mime_types": ""
+                },
+                {
+                    "key": "field_betsala_sports_category_image_alt",
+                    "label": "Alt иконки",
+                    "name": "image_alt",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "30",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": ""
+                },
+                {
+                    "key": "field_betsala_sports_cat_title_tag",
+                    "label": "Уровень заголовка",
+                    "name": "title_tag",
+                    "type": "select",
+                    "instructions": "Меняет только HTML-тег для SEO-структуры. Размер и визуальный стиль не меняются.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "28",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "p": "P — обычный текст",
+                        "h2": "H2",
+                        "h3": "H3",
+                        "h4": "H4",
+                        "h5": "H5",
+                        "h6": "H6"
+                    },
+                    "default_value": "h3",
+                    "return_format": "value",
+                    "multiple": 0,
+                    "allow_null": 0,
+                    "ui": 0,
+                    "ajax": 0,
+                    "placeholder": ""
+                },
+                {
+                    "key": "field_betsala_sports_cat_title",
+                    "label": "Заголовок",
+                    "name": "title",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "72",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "Например: Apuestas deportivas en Betsala",
+                    "prepend": "",
+                    "append": ""
+                },
+                {
+                    "key": "field_betsala_sports_categories_item_highlight_text",
+                    "label": "Фрагмент заголовка с градиентом",
+                    "name": "highlight_text",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Пусто — без градиента.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": ""
+                },
+                {
+                    "key": "field_betsala_sports_cat_text",
+                    "label": "Короткий текст",
+                    "name": "text",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "Введите текст…",
+                    "prepend": "",
+                    "append": ""
+                }
+            ]
+        },
+        {
+            "key": "field_betsala_sports_image",
+            "label": "Боковое изображение",
+            "name": "image",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "id",
+            "library": "all",
+            "preview_size": "medium",
+            "min_width": 0,
+            "min_height": 0,
+            "min_size": 0,
+            "max_width": 0,
+            "max_height": 0,
+            "max_size": 0,
+            "mime_types": ""
+        },
+        {
+            "key": "field_betsala_sports_alt",
+            "label": "Alt изображения",
+            "name": "image_alt",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "Кратко опишите изображение",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_betsala_sports_position",
+            "label": "Положение изображения",
+            "name": "image_position",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "left": "Слева",
+                "right": "Справа"
+            },
+            "default_value": "right",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_betsala_sports_show_button",
+            "label": "Показывать кнопку",
+            "name": "show_button",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 1,
+            "ui": 1,
+            "ui_on_text": "Да",
+            "ui_off_text": "Нет"
+        },
+        {
+            "key": "field_betsala_sports_button_text",
+            "label": "Текст кнопки",
+            "name": "button_text",
+            "type": "text",
+            "instructions": "Этот текст будет показан на кнопке.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_betsala_sports_show_button",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "35",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Ver apuestas",
+            "maxlength": "",
+            "placeholder": "Введите текст кнопки",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_betsala_sports_button_align",
+            "label": "Положение кнопки",
+            "name": "button_align",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "40",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "left": "Слева",
+                "center": "По центру",
+                "right": "Справа",
+                "full": "На всю ширину"
+            },
+            "default_value": "left",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf/betsala-sports"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1788505774,
+    "private": true
+}

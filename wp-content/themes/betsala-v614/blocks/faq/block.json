@@ -1,0 +1,26 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "acf/betsala-faq",
+  "title": "FAQ",
+  "description": "Аккордеон вопросов и ответов. Использовать последним контентным блоком страницы.",
+  "category": "betsala-blocks",
+  "icon": "editor-help",
+  "keywords": [
+    "betsala",
+    "faq"
+  ],
+  "acf": {
+    "blockVersion": 3,
+    "renderTemplate": "render.php",
+    "renderPreview": false,
+    "hideFieldsInSidebar": true,
+    "expandedEditorButtonText": "Редактировать блок"
+  },
+  "supports": {
+    "anchor": true,
+    "align": false,
+    "html": false,
+    "jsx": false
+  }
+}

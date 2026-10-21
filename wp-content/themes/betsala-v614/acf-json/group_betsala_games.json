@@ -1,0 +1,631 @@
+{
+  "key": "group_betsala_games",
+  "title": "BetSala — Игры / слоты",
+  "fields": [
+    {
+      "key": "field_betsala_games_show_eyebrow",
+      "label": "Показывать маленький заголовок",
+      "name": "show_eyebrow",
+      "type": "true_false",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "30",
+        "class": "",
+        "id": ""
+      },
+      "message": "",
+      "default_value": 0,
+      "ui": 1,
+      "ui_on_text": "Да",
+      "ui_off_text": "Нет"
+    },
+    {
+      "key": "field_betsala_games_eyebrow",
+      "label": "Маленький заголовок",
+      "name": "eyebrow",
+      "aria-label": "",
+      "type": "text",
+      "instructions": "Необязательная верхняя метка. По умолчанию скрыта.",
+      "required": 0,
+      "conditional_logic": [
+        [
+          {
+            "field": "field_betsala_games_show_eyebrow",
+            "operator": "==",
+            "value": "1"
+          }
+        ]
+      ],
+      "wrapper": {
+        "width": "70",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "JUEGOS",
+      "maxlength": "",
+      "placeholder": "Например: BETSALA CHILE",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_betsala_games_title_tag",
+      "label": "Уровень заголовка",
+      "name": "title_tag",
+      "type": "select",
+      "instructions": "Меняет только HTML-тег для SEO-структуры. Размер и визуальный стиль не меняются.",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "25",
+        "class": "",
+        "id": ""
+      },
+      "choices": {
+        "p": "P — обычный текст",
+        "h2": "H2",
+        "h3": "H3",
+        "h4": "H4",
+        "h5": "H5",
+        "h6": "H6"
+      },
+      "default_value": "h2",
+      "return_format": "value",
+      "multiple": 0,
+      "allow_null": 0,
+      "ui": 0,
+      "ajax": 0,
+      "placeholder": ""
+    },
+    {
+      "key": "field_betsala_games_title",
+      "label": "Заголовок",
+      "name": "title",
+      "aria-label": "",
+      "type": "text",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "75",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "Juegos destacados para empezar a explorar",
+      "maxlength": "",
+      "placeholder": "Например: Juegos destacados",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_betsala_games_highlight_enabled",
+      "label": "Градиентное выделение",
+      "name": "highlight_enabled",
+      "type": "true_false",
+      "instructions": "Включает градиент только для указанной части заголовка.",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "30",
+        "class": "",
+        "id": ""
+      },
+      "message": "",
+      "default_value": 0,
+      "ui": 1,
+      "ui_on_text": "Да",
+      "ui_off_text": "Нет"
+    },
+    {
+      "key": "field_betsala_games_highlight_text",
+      "label": "Текст для градиента",
+      "name": "highlight_text",
+      "aria-label": "",
+      "type": "text",
+      "instructions": "Укажите точный фрагмент заголовка H2–H6, который нужно выделить.",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "70",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "maxlength": "",
+      "placeholder": "Например: bonos para subir el saldo",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_betsala_games_intro",
+      "label": "Вводный текст",
+      "name": "intro",
+      "aria-label": "",
+      "type": "textarea",
+      "instructions": "Можно вводить обычный текст. Переносы строк будут сохранены на странице.",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "Las tarjetas pueden mostrar imagen, título, proveedor, información adicional y un botón independiente.",
+      "placeholder": "Введите вводный текст…",
+      "rows": 8,
+      "new_lines": "",
+      "maxlength": ""
+    },
+    {
+      "key": "field_betsala_games_main_image",
+      "label": "Изображение верхней части",
+      "name": "image",
+      "aria-label": "",
+      "type": "image",
+      "instructions": "Необязательно. Если пусто, верхняя часть остаётся текстовой.",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "return_format": "id",
+      "library": "all",
+      "preview_size": "medium",
+      "min_width": 0,
+      "min_height": 0,
+      "min_size": 0,
+      "max_width": 0,
+      "max_height": 0,
+      "max_size": 0,
+      "mime_types": ""
+    },
+    {
+      "key": "field_betsala_games_main_image_alt",
+      "label": "Alt верхнего изображения",
+      "name": "image_alt",
+      "aria-label": "",
+      "type": "text",
+      "instructions": "Пусто — используется Alt из медиатеки.",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "maxlength": "",
+      "placeholder": "",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_betsala_games_image_position",
+      "label": "Положение изображения",
+      "name": "image_position",
+      "aria-label": "",
+      "type": "select",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "35",
+        "class": "",
+        "id": ""
+      },
+      "choices": {
+        "left": "Слева",
+        "right": "Справа"
+      },
+      "default_value": "right",
+      "return_format": "value",
+      "multiple": 0,
+      "allow_null": 0,
+      "ui": 0,
+      "ajax": 0,
+      "placeholder": ""
+    },
+    {
+      "key": "field_betsala_games_items",
+      "label": "Игры",
+      "name": "games",
+      "aria-label": "",
+      "type": "repeater",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "layout": "block",
+      "pagination": 0,
+      "min": 0,
+      "max": 6,
+      "collapsed": "",
+      "button_label": "Добавить элемент",
+      "rows_per_page": 20,
+      "sub_fields": [
+        {
+          "key": "field_betsala_game_show_image",
+          "label": "Показывать изображение",
+          "name": "show_image",
+          "type": "true_false",
+          "instructions": "",
+          "required": 0,
+          "conditional_logic": 0,
+          "wrapper": {
+            "width": "28",
+            "class": "",
+            "id": ""
+          },
+          "message": "",
+          "default_value": 1,
+          "ui": 1,
+          "ui_on_text": "Да",
+          "ui_off_text": "Нет"
+        },
+        {
+          "key": "field_betsala_game_image",
+          "label": "Изображение",
+          "name": "image",
+          "aria-label": "",
+          "type": "image",
+          "instructions": "",
+          "required": 0,
+          "conditional_logic": [
+            [
+              {
+                "field": "field_betsala_game_show_image",
+                "operator": "==",
+                "value": "1"
+              }
+            ]
+          ],
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "return_format": "id",
+          "library": "all",
+          "preview_size": "medium",
+          "min_width": 0,
+          "min_height": 0,
+          "min_size": 0,
+          "max_width": 0,
+          "max_height": 0,
+          "max_size": 0,
+          "mime_types": ""
+        },
+        {
+          "key": "field_betsala_game_image_alt",
+          "label": "Alt изображения",
+          "name": "image_alt",
+          "aria-label": "",
+          "type": "text",
+          "instructions": "",
+          "required": 0,
+          "conditional_logic": [
+            [
+              {
+                "field": "field_betsala_game_show_image",
+                "operator": "==",
+                "value": "1"
+              }
+            ]
+          ],
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "default_value": "",
+          "maxlength": "",
+          "placeholder": "Кратко опишите изображение",
+          "prepend": "",
+          "append": ""
+        },
+        {
+          "key": "field_betsala_games_show_background_image",
+          "label": "Показывать фоновое изображение карточки",
+          "name": "show_background_image",
+          "type": "true_false",
+          "instructions": "Выключите, если фон был выбран по ошибке — так его можно быстро убрать, не трогая само поле с файлом.",
+          "required": 0,
+          "conditional_logic": 0,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "message": "",
+          "default_value": 1,
+          "ui": 1,
+          "ui_on_text": "Да",
+          "ui_off_text": "Нет",
+          "parent_repeater": "field_betsala_games_items"
+        },
+        {
+          "key": "field_betsala_games_card_background",
+          "label": "Фоновое изображение карточки",
+          "name": "background_image",
+          "type": "image",
+          "instructions": "",
+          "required": 0,
+          "conditional_logic": [
+            [
+              {
+                "field": "field_betsala_games_show_background_image",
+                "operator": "==",
+                "value": "1"
+              }
+            ]
+          ],
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "return_format": "id",
+          "library": "all",
+          "preview_size": "medium",
+          "min_width": 0,
+          "min_height": 0,
+          "min_size": 0,
+          "max_width": 0,
+          "max_height": 0,
+          "max_size": 0,
+          "mime_types": "",
+          "parent_repeater": "field_betsala_games_items"
+        },
+        {
+          "key": "field_betsala_games_text_align",
+          "label": "Выравнивание текста",
+          "name": "text_align",
+          "type": "select",
+          "instructions": "",
+          "required": 0,
+          "conditional_logic": 0,
+          "wrapper": {
+            "width": "35",
+            "class": "",
+            "id": ""
+          },
+          "choices": {
+            "left": "Слева",
+            "center": "По центру",
+            "right": "Справа"
+          },
+          "default_value": "center",
+          "return_format": "value",
+          "multiple": 0,
+          "allow_null": 0,
+          "ui": 0,
+          "ajax": 0,
+          "placeholder": "",
+          "parent_repeater": "field_betsala_games_items"
+        },
+        {
+          "key": "field_betsala_game_badge",
+          "label": "Бейдж",
+          "name": "badge",
+          "aria-label": "",
+          "type": "text",
+          "instructions": "",
+          "required": 0,
+          "conditional_logic": 0,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "default_value": "",
+          "maxlength": "",
+          "placeholder": "Например: HOT",
+          "prepend": "",
+          "append": ""
+        },
+        {
+          "key": "field_betsala_game_title_tag",
+          "label": "Уровень заголовка",
+          "name": "title_tag",
+          "type": "select",
+          "instructions": "Меняет только HTML-тег для SEO-структуры. Размер и визуальный стиль не меняются.",
+          "required": 0,
+          "conditional_logic": 0,
+          "wrapper": {
+            "width": "28",
+            "class": "",
+            "id": ""
+          },
+          "choices": {
+            "p": "P — обычный текст",
+            "h2": "H2",
+            "h3": "H3",
+            "h4": "H4",
+            "h5": "H5",
+            "h6": "H6"
+          },
+          "default_value": "h3",
+          "return_format": "value",
+          "multiple": 0,
+          "allow_null": 0,
+          "ui": 0,
+          "ajax": 0,
+          "placeholder": ""
+        },
+        {
+          "key": "field_betsala_game_title",
+          "label": "Заголовок",
+          "name": "title",
+          "aria-label": "",
+          "type": "text",
+          "instructions": "",
+          "required": 0,
+          "conditional_logic": 0,
+          "wrapper": {
+            "width": "72",
+            "class": "",
+            "id": ""
+          },
+          "default_value": "Подборка игровых карточек",
+          "maxlength": "",
+          "placeholder": "Например: Juegos destacados",
+          "prepend": "",
+          "append": ""
+        },
+        {
+          "key": "field_betsala_games_games_item_highlight_text",
+          "label": "Фрагмент заголовка с градиентом",
+          "name": "highlight_text",
+          "aria-label": "",
+          "type": "text",
+          "instructions": "Пусто — без градиента.",
+          "required": 0,
+          "conditional_logic": 0,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "default_value": "",
+          "maxlength": "",
+          "placeholder": "",
+          "prepend": "",
+          "append": ""
+        },
+        {
+          "key": "field_betsala_game_provider",
+          "label": "Провайдер",
+          "name": "provider",
+          "aria-label": "",
+          "type": "text",
+          "instructions": "",
+          "required": 0,
+          "conditional_logic": 0,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "default_value": "",
+          "maxlength": "",
+          "placeholder": "Например: Pragmatic Play",
+          "prepend": "",
+          "append": ""
+        },
+        {
+          "key": "field_betsala_game_rtp",
+          "label": "RTP / дополнительная информация",
+          "name": "rtp",
+          "aria-label": "",
+          "type": "text",
+          "instructions": "",
+          "required": 0,
+          "conditional_logic": 0,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "default_value": "",
+          "maxlength": "",
+          "placeholder": "Например: RTP 96.50%",
+          "prepend": "",
+          "append": ""
+        },
+        {
+          "key": "field_betsala_game_description",
+          "label": "Описание",
+          "name": "description",
+          "aria-label": "",
+          "type": "textarea",
+          "instructions": "",
+          "required": 0,
+          "conditional_logic": 0,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "default_value": "",
+          "maxlength": "",
+          "rows": 4,
+          "placeholder": "Введите описание…",
+          "new_lines": ""
+        },
+        {
+          "key": "field_betsala_game_show_button",
+          "label": "Показывать кнопку",
+          "name": "show_button",
+          "type": "true_false",
+          "instructions": "",
+          "required": 0,
+          "conditional_logic": 0,
+          "wrapper": {
+            "width": "25",
+            "class": "",
+            "id": ""
+          },
+          "message": "",
+          "default_value": 1,
+          "ui": 1,
+          "ui_on_text": "Да",
+          "ui_off_text": "Нет"
+        },
+        {
+          "key": "field_betsala_game_button_text",
+          "label": "Текст кнопки",
+          "name": "button_text",
+          "type": "text",
+          "instructions": "Этот текст будет показан на кнопке.",
+          "required": 0,
+          "conditional_logic": [
+            [
+              {
+                "field": "field_betsala_game_show_button",
+                "operator": "==",
+                "value": "1"
+              }
+            ]
+          ],
+          "wrapper": {
+            "width": "35",
+            "class": "",
+            "id": ""
+          },
+          "default_value": "Jugar ahora",
+          "maxlength": "",
+          "placeholder": "Введите текст кнопки",
+          "prepend": "",
+          "append": ""
+        }
+      ]
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "block",
+        "operator": "==",
+        "value": "acf/betsala-games"
+      }
+    ]
+  ],
+  "menu_order": 0,
+  "position": "normal",
+  "style": "default",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "hide_on_screen": "",
+  "active": true,
+  "description": "",
+  "show_in_rest": 0,
+  "modified": 1788505774,
+  "private": true
+}

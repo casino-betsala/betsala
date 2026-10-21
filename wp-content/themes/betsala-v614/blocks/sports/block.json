@@ -1,0 +1,26 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "acf/betsala-sports",
+  "title": "Ставки на спорт",
+  "description": "Универсальный sportsbook-блок без выдуманных матчей и коэффициентов.",
+  "category": "betsala-blocks",
+  "icon": "chart-line",
+  "keywords": [
+    "betsala",
+    "sports"
+  ],
+  "acf": {
+    "blockVersion": 3,
+    "renderTemplate": "render.php",
+    "renderPreview": false,
+    "hideFieldsInSidebar": true,
+    "expandedEditorButtonText": "Редактировать блок"
+  },
+  "supports": {
+    "anchor": true,
+    "align": false,
+    "html": false,
+    "jsx": false
+  }
+}

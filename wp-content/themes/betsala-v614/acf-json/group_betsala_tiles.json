@@ -1,0 +1,504 @@
+{
+    "key": "group_betsala_tiles",
+    "title": "BetSala — Плитки / карточки",
+    "fields": [
+        {
+            "key": "field_betsala_tiles_show_eyebrow",
+            "label": "Показывать маленький заголовок",
+            "name": "show_eyebrow",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "30",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "Да",
+            "ui_off_text": "Нет"
+        },
+        {
+            "key": "field_betsala_tiles_eyebrow",
+            "label": "Маленький заголовок",
+            "name": "eyebrow",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Необязательная верхняя метка. По умолчанию скрыта.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_betsala_tiles_show_eyebrow",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "70",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "VENTAJAS",
+            "maxlength": "",
+            "placeholder": "Например: BETSALA CHILE",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_betsala_tiles_title_tag",
+            "label": "Уровень заголовка",
+            "name": "title_tag",
+            "type": "select",
+            "instructions": "Меняет только HTML-тег для SEO-структуры. Размер и визуальный стиль не меняются.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "p": "P — обычный текст",
+                "h2": "H2",
+                "h3": "H3",
+                "h4": "H4",
+                "h5": "H5",
+                "h6": "H6"
+            },
+            "default_value": "h2",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_betsala_tiles_title",
+            "label": "Заголовок",
+            "name": "title",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "75",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Puntos clave en un formato compacto",
+            "maxlength": "",
+            "placeholder": "Например: Ventajas principales",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_betsala_tiles_highlight_enabled",
+            "label": "Градиентное выделение",
+            "name": "highlight_enabled",
+            "type": "true_false",
+            "instructions": "Включает градиент только для указанной части заголовка.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "30",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "Да",
+            "ui_off_text": "Нет"
+        },
+        {
+            "key": "field_betsala_tiles_highlight_text",
+            "label": "Текст для градиента",
+            "name": "highlight_text",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Укажите точный фрагмент заголовка H2–H6, который нужно выделить.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "70",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "Например: bonos para subir el saldo",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_betsala_tiles_intro",
+            "label": "Вводный текст",
+            "name": "intro",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "Можно вводить обычный текст. Переносы строк будут сохранены на странице.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Las tarjetas cortas funcionan bien para ventajas, avisos, seguridad, categorías o pasos complementarios.",
+            "placeholder": "Введите вводный текст…",
+            "rows": 8,
+            "new_lines": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_betsala_tiles_main_image",
+            "label": "Изображение верхней части",
+            "name": "image",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "Необязательно.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "id",
+            "library": "all",
+            "preview_size": "medium",
+            "min_width": 0,
+            "min_height": 0,
+            "min_size": 0,
+            "max_width": 0,
+            "max_height": 0,
+            "max_size": 0,
+            "mime_types": ""
+        },
+        {
+            "key": "field_betsala_tiles_main_image_alt",
+            "label": "Alt верхнего изображения",
+            "name": "image_alt",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Пусто — Alt из медиатеки.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_betsala_tiles_image_position",
+            "label": "Положение изображения",
+            "name": "image_position",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "35",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "left": "Слева",
+                "right": "Справа"
+            },
+            "default_value": "right",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_betsala_tiles_columns",
+            "label": "Колонки на десктопе",
+            "name": "columns",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "2": "2",
+                "3": "3",
+                "4": "4"
+            },
+            "default_value": "4",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_betsala_tiles_items",
+            "label": "Плитки / карточки",
+            "name": "tiles",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "pagination": 0,
+            "min": 0,
+            "max": 6,
+            "collapsed": "",
+            "button_label": "Добавить элемент",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_betsala_tile_icon_text",
+                    "label": "Номер / короткая метка",
+                    "name": "icon_text",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Необязательно. Оставьте пустым — номер/метка и декоративная плашка полностью скрыты.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "Например: ✓",
+                    "prepend": "",
+                    "append": ""
+                },
+                {
+                    "key": "field_betsala_tile_icon_image",
+                    "label": "Фоновое изображение карточки",
+                    "name": "icon_image",
+                    "aria-label": "",
+                    "type": "image",
+                    "instructions": "Используется только как декоративный фон карточки.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "id",
+                    "library": "all",
+                    "preview_size": "medium",
+                    "min_width": 0,
+                    "min_height": 0,
+                    "min_size": 0,
+                    "max_width": 0,
+                    "max_height": 0,
+                    "max_size": 0,
+                    "mime_types": ""
+                },
+                {
+                    "key": "field_betsala_tile_icon_alt",
+                    "label": "Описание фонового изображения (служебное)",
+                    "name": "icon_alt",
+                    "type": "text",
+                    "instructions": "Фоновое изображение декоративное и не получает HTML alt.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "30",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": ""
+                },
+                {
+                    "key": "field_betsala_tile_title_tag",
+                    "label": "Уровень заголовка",
+                    "name": "title_tag",
+                    "type": "select",
+                    "instructions": "Меняет только HTML-тег для SEO-структуры. Размер и визуальный стиль не меняются.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "28",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "p": "P — обычный текст",
+                        "h2": "H2",
+                        "h3": "H3",
+                        "h4": "H4",
+                        "h5": "H5",
+                        "h6": "H6"
+                    },
+                    "default_value": "h3",
+                    "return_format": "value",
+                    "multiple": 0,
+                    "allow_null": 0,
+                    "ui": 0,
+                    "ajax": 0,
+                    "placeholder": ""
+                },
+                {
+                    "key": "field_betsala_tile_title",
+                    "label": "Заголовок",
+                    "name": "title",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "72",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "Например: Ventajas principales",
+                    "prepend": "",
+                    "append": ""
+                },
+                {
+                    "key": "field_betsala_tiles_tiles_item_highlight_text",
+                    "label": "Фрагмент заголовка с градиентом",
+                    "name": "highlight_text",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Пусто — без градиента.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": ""
+                },
+                {
+                    "key": "field_betsala_tile_text",
+                    "label": "Текст",
+                    "name": "text",
+                    "aria-label": "",
+                    "type": "textarea",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "rows": 4,
+                    "placeholder": "Введите текст…",
+                    "new_lines": ""
+                },
+                {
+                    "key": "field_betsala_tiles_item_show_button",
+                    "label": "Показывать кнопку",
+                    "name": "show_button",
+                    "type": "true_false",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "30",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "",
+                    "default_value": 0,
+                    "ui": 1,
+                    "ui_on_text": "Да",
+                    "ui_off_text": "Нет",
+                    "parent_repeater": "field_betsala_tiles_items"
+                },
+                {
+                    "key": "field_betsala_tiles_item_button_text",
+                    "label": "Текст кнопки",
+                    "name": "button_text",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_betsala_tiles_item_show_button",
+                                "operator": "==",
+                                "value": "1"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "70",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_betsala_tiles_items"
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf/betsala-tiles"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1788505774,
+    "private": true
+}

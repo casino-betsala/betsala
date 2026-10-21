@@ -1,0 +1,26 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "acf/betsala-registration",
+  "title": "Регистрация",
+  "description": "Верхний Media + Text, шаги с фоновыми изображениями, trust-пункты и CTA.",
+  "category": "betsala-blocks",
+  "icon": "admin-users",
+  "keywords": [
+    "betsala",
+    "registration"
+  ],
+  "acf": {
+    "blockVersion": 3,
+    "renderTemplate": "render.php",
+    "renderPreview": false,
+    "hideFieldsInSidebar": true,
+    "expandedEditorButtonText": "Редактировать блок"
+  },
+  "supports": {
+    "anchor": true,
+    "align": false,
+    "html": false,
+    "jsx": false
+  }
+}

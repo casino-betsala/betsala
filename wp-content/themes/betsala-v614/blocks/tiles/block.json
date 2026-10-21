@@ -1,0 +1,26 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "acf/betsala-tiles",
+  "title": "Плитки / карточки",
+  "description": "Верхний Media + Text и сетка плиток; изображения плиток используются только как фон.",
+  "category": "betsala-blocks",
+  "icon": "grid-view",
+  "keywords": [
+    "betsala",
+    "tiles"
+  ],
+  "acf": {
+    "blockVersion": 3,
+    "renderTemplate": "render.php",
+    "renderPreview": false,
+    "hideFieldsInSidebar": true,
+    "expandedEditorButtonText": "Редактировать блок"
+  },
+  "supports": {
+    "anchor": true,
+    "align": false,
+    "html": false,
+    "jsx": false
+  }
+}

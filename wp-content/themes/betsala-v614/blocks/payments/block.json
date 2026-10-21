@@ -1,0 +1,26 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "acf/betsala-payments",
+  "title": "Платежи",
+  "description": "Текст + изображение, основные карточки в 1/2 ряда, 4–6 платёжных систем и примечание.",
+  "category": "betsala-blocks",
+  "icon": "money-alt",
+  "keywords": [
+    "betsala",
+    "payments"
+  ],
+  "acf": {
+    "blockVersion": 3,
+    "renderTemplate": "render.php",
+    "renderPreview": false,
+    "hideFieldsInSidebar": true,
+    "expandedEditorButtonText": "Редактировать блок"
+  },
+  "supports": {
+    "anchor": true,
+    "align": false,
+    "html": false,
+    "jsx": false
+  }
+}
